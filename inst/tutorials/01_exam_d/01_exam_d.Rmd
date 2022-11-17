@@ -30,13 +30,6 @@ gradethis_setup()
 options(tutorial.event_recorder = ISDStutorials::isds_recorder)
 
 survey <- read_rds("data/survey.rds")
-# 
-# tmp <- exam_data %>%
-#   select(quarter, height_inches, num_followers, personality, num_party, party_bin, campus_housing, school_year, salary, gender_ident, happy, marry, smoke_weed, exercise, love_first_sight) %>%
-#   filter(height_inches >6 | is.na(height_inches)) %>%
-#   filter(salary < 1000000 | is.na(salary))
-# 
-# write_rds(tmp, "survey2.rds")
 
 ```
 
