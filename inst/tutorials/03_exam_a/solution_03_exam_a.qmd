@@ -1,0 +1,78 @@
+---
+title: "Solution Exam 2"
+format: 
+  html:
+    self-contained: true
+
+execute:
+  message: false
+  warning: false
+---
+
+# Exam 2 Sec 20
+
+```{r}
+library(tidyverse)
+survey <- read_rds("data/survey1.rds")
+
+survey_f <- survey %>% 
+  filter(gender_ident == "Female")
+```
+
+## Concept
+
+- Q1) b) Between -1 and 0
+- Q2) d) 0.30
+- Q3) a) over-estimate 
+- Q4) d) NV
+- Q5) c) intercept for males 
+- Q6) f) offset in slope of age for females
+- Q7) a)
+- Q8) b) no causal conclusions, correlation statement generalized to the University
+- Q9) d) stratified sampling
+- Q10) a) $\\bar{x}$
+- Q11) b) only our sample
+- Q12) b) a variable that affects the outcome being measured as well as, or instead of, the independent variable
+- Q13) c) No, while the stratums are homogenous (within each stratum people share a characteristic) the upper class is being overrepresented in the sample because a small percent of the true population belongs to the upper class.
+- Q14) 30 and 36
+- Q15) b) pnorm(q = 1.25, lower.tail = FALSE) 
+- Q16) a) qnorm(p = 0.25, mean = 3, sd = 0.5)
+
+## Application 1
+
+**Part 1**
+```{r}
+survey_f %>% 
+  filter(!is.na(height_inches), !is.na(mother_height)) %>% 
+  select(height_inches, mother_height) %>% 
+  cor()
+```
+MANY ways to solve this.
+Should have **cor =  0.539**
+
+-1 cor should not be NA
+-1 wrong cor
+
+**Part 2**
+
+geom_smooth(method = "lm")
+
+**Part 3**
+```{r}
+model <- lm(height_inches ~ mother_height, data = survey_f)
+summary(model)
+```
+
+**Part 4**
+
+
+## Application 2
+
+```{r}
+model2 <- lm(num_party ~ fav_drink, data = survey_f)
+
+summary(model2)
+```
+Q1) d) wine
+Q2) b) don't_drink
+Q3) c) hard_liquor
