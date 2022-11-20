@@ -148,7 +148,7 @@ quiz(
   b) a large p-value indicates you observed a large effect <br>
   c) a p-value is the probability that the observed statistic was produced by chance alone <br>
   d) a p-value is the probability that the alternative hypothesis is true <br>
-  e) a p-value is the probability of observing an estimate as extreme if the null hypothesis is true." ,
+  e) a p-value is the probability of observing an estimate as extreme as our sample estimate if the null hypothesis is true." ,
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
@@ -181,7 +181,7 @@ quiz(
   question_text(
   "Q10) Suppose we want to perform a hypothesis test for cancer. What is the person told and what is the truth for a Type I error? <br> <br>
   a) the person is told they do not have cancer and the truth is they do not have cancer. <br>
-  b) the person is told they have cancer and the truth is they have cancer. <br>
+  b) the person is told they have cancer and the truth is they do not have cancer. <br>
   c) the person is told they do not have cancer and the truth is they have cancer <br>
   d) the person is told they have cancer and the truth is they have cancer <br>
   e) not enough information provided" ,
