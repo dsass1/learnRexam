@@ -1,7 +1,7 @@
 ---
-title: "Exam 2 Sec21 Retake"
+title: "Exam 2 Sec20 Retake"
 tutorial:
-  id: "isds_exam2c"
+  id: "isds_exam2d"
   version: 0.1
   
 output:
@@ -25,10 +25,10 @@ knitr::opts_chunk$set(echo = FALSE)
 gradethis_setup()
 options(tutorial.event_recorder = ISDStutorials::isds_recorder)
 
-survey <- read_rds("data/survey1.rds")
+survey <- read_rds("data/survey2.rds")
 
-survey_f <- survey %>% 
-  filter(gender_ident == "Female")
+survey_m <- survey %>% 
+  filter(gender_ident == "Male")
 ```
 
 
@@ -83,7 +83,7 @@ quiz(
   #Q1
   question_text(
   "Q1) Which option best describes the correlation.
-  <br> The relationship between a person's weight and their IQ. <br> <br>
+  <br> The relationship between time spent running and distance traveled. <br> <br>
   a) Exactly -1 <br>
   b) Between -1 and 0 <br>
   c) About 0 <br>
@@ -95,19 +95,19 @@ quiz(
   allow_retry = TRUE,
   incorrect = "submitted"),
   question_text(
-    paste("Q2) Examine the graph below and then select the best estimate of the correlation. <br>", htmltools::img(src="images/cor_1.png", height = 300, width = 400), "<br> <br>
+    paste("Q2) Examine the graph below and then select the best estimate of the correlation. <br>", htmltools::img(src="images/cor_2.png", height = 300, width = 400), "<br> <br>
     a) -0.70 <br>
-    b) -0.30 <br>
+    b) -0.25 <br>
     c) 0 <br>
-    d) 0.3 <br>
-    e) 0.7"),
+    d) 0.25 <br>
+    e) 0.70"),
     answer(c("wrong"), 
            correct = TRUE),
     allow_retry = TRUE,
     incorrect = "submitted"
   ),
   question_text(
-  paste("Q3) You run a simple linear regression model to predict student SAT math scores based on the state's percentage of seniors/juniors taking the SAT (pct_taking). The model fitted value and residual for 5 states are shown below. <br>", htmltools::img(src="images/lm_sat_1.png", height = 150, width = 500), "<br> Did the model over- or under-estimate the mean SAT math score for CA (California)? <br> <br>
+  paste("Q3) You run a simple linear regression model to predict student SAT math scores based on the state's percentage of seniors/juniors taking the SAT (pct_taking). The model fitted value and residual for 5 states are shown below. <br>", htmltools::img(src="images/lm_sat_2.png", height = 150, width = 500), "<br> Did the model over- or under-estimate the mean SAT math score for OR (Oregon)? <br> <br>
         a) over-estimate <br>
         b) under-estimate"),
   answer(c("wrong"), correct = TRUE),
@@ -116,17 +116,17 @@ quiz(
   ),
   question_text(
   "Q4) Using the simple linear regression model output from Q3... <br> Which of the five states does the model estimate worst? <br> <br>
-        a) CA <br>
+        a) AZ <br>
         b) IL <br>
-  c) KS <br>
-  d) NV <br>
-  e) TX",
+  c) MA <br>
+  d) OR <br>
+  e) SC",
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
   ),
   question_text(
-  "Q5) Consider the following model where age and gender are the explanatory/predictor variables, and **male** is the reference group for gender. <br>
+  "Q5) Consider the following model where age and gender are the explanatory/predictor variables, and **female** is the reference group for gender. <br>
   $\\hat{y} = b_0 + b_1(age) + b_2(gender) + b_3(age*gender)$ <br><br>
   What is the correct interpretation for $b_0$.
   <br> <br>
@@ -137,13 +137,13 @@ quiz(
   e) offset in slope of age for males <br>
   f) offset in slope of age for females <br>
   g) slope of age for males <br>
-  h) slope of age for females",
+  h) slope of age for females" ,
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
   ),
   question_text(
-  "Q6) Consider the following model where age and gender are the explanatory/predictor variables, and **male** is the reference group for gender. <br>
+  "Q6) Consider the following model where age and gender are the explanatory/predictor variables, and **female** is the reference group for gender. <br>
   $\\hat{y} = b_0 + b_1(age) + b_2(gender) + b_3(age*gender)$ <br><br>
   What is the correct interpretation for $b_3$.
   <br> <br>
@@ -154,7 +154,7 @@ quiz(
   e) offset in slope of age for males <br>
   f) offset in slope of age for females <br>
   g) slope of age for males <br>
-  h) slope of age for females",
+  h) slope of age for females" ,
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
@@ -164,21 +164,21 @@ quiz(
   paste("Q7) You build a multiple regression model that predicts a student's final exam score (final) based on their midterm exam score (midterm). You suspect that whether or not the student studied also plays an impact on their final exam score. The variable study is an indicator variable where study = 1 if the student studied and study = 0 if the student did not study. The regression output equation is given below <br> <br>
   $\\widehat{final} = -10 +1(midterm) +5(study)$ 
   <br> Which graph best matches the model? <br> <br>
-        a)", htmltools::img(src="images/mid_study_1.png", height = 150, width = 200),
-        "&nbsp; b)", htmltools::img(src="images/mid_study_2.png", height = 150, width = 200)," <br>
-        c)", htmltools::img(src="images/mid_study_3.png", height = 150, width = 200),
-        " &nbsp; d)", htmltools::img(src="images/mid_study_4.png", height = 150, width = 200) ),
+        a)", htmltools::img(src="images/mid_study_4.png", height = 150, width = 200),
+        "&nbsp; b)", htmltools::img(src="images/mid_study_3.png", height = 150, width = 200)," <br>
+        c)", htmltools::img(src="images/mid_study_2.png", height = 150, width = 200),
+        " &nbsp; d)", htmltools::img(src="images/mid_study_1.png", height = 150, width = 200) ),
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
   ),
   question_text(
-  "Q8) You want to evaluate whether in-person classes or on-line classes provide better learning outcomes for STAT 202. You randomly select 200 students to take STAT 202 and let each student choose whether they take the class in-person or on-line and compare the test scores in each section. What conclusions can we draw from this experiment?
+  "Q8) You want to evaluate whether in-person classes or on-line classes provide better learning outcomes for STAT 202. Students choose if and when they take STAT 202. From the students that choose to take the class you randomly assign half of the students to the in-person class and half the students to the on-line class and compare the test scores in each section. What conclusions can we draw from this experiment?
   <br> <br>
-  a) causal conclusions generalized to the University <br>
-  b) no causal conclusions, correlation statement generalized to the University <br>
-  c) no causal conclusions, correlation statement only applicable to our sample <br>
-  d) causal conclusions only applicable to our sample" ,
+  a) causal conclusions only applicable to our sample <br>
+  b) causal conclusions generalized to the University <br>
+  c) no causal conclusions, correlation statement generalized to the University <br>
+  d) no causal conclusions, correlation statement only applicable to our sample" ,
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
@@ -186,10 +186,10 @@ quiz(
   question_text(
   "Q9) The Illinois State Board of Education is interested in student satisfaction in regards to their learning experience in rural towns. The Board does not have the time or resources to travel to every one of these towns, instead they randomly select 5 towns and suvery all the schools students to evaluate their satisfaction level. What type of sample is this?
   <br> <br>
-  a) cluster sampling <br>
+  a) systematic sampling <br>
   b) simple random sample <br>
-  c) systematic sampling <br>
-  d) stratified sampling <br>
+  c) stratified sampling <br>
+  d) cluster sampling <br>
   e) none of these" ,
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
@@ -234,40 +234,41 @@ quiz(
   question_text(
   "Q13) Consider the following sampling design. You are working on a political campaign team and want to survey the population to determine people's opinion on student loan forgiveness. The population is divided into stratums (lower class, middle class, and upper class). You randomly survey 300 people from each class to determine the proportion of people in favor of the student loan forgiveness. Is this a good sampling design?
   <br> <br>
-  a) Yes, since random sampling is used to select people from each stratum this is a good sampling design. <br>
-  b) Yes, the stratums are homogenous (within each stratum people share a characteristic) meaning selecting 300 people from each stratum is a good sampling design.  <br>
-  c) No, while the stratums are homogenous (within each stratum people share a characteristic) the upper class is being overrepresented in the sample because a small percent of the true population belongs to the upper class. <br>
-  d) No, the groups are heterogenous (mini representations of the population) and cluster sampling would be more appropriate.",
+  a) No, while the stratums are homogenous (within each stratum people share a characteristic) the upper class is being overrepresented in the sample because a small percent of the true population belongs to the upper class. <br>
+  b) No, the groups are heterogenous (mini representations of the population) and cluster sampling would be more appropriate.
+  c) Yes, since random sampling is used to select people from each stratum this is a good sampling design. <br>
+  d) Yes, the stratums are homogenous (within each stratum people share a characteristic) meaning selecting 300 people from each stratum is a good sampling design.  <br>
+  ",
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
   ),
   question_blank(
-  "<strong> Q14) (2 pts) The distribution of retirement age for NFL players is normally distributed with a mean of 33 years old and a standard deviation of 3 years. Based on the empirical rule, 68% of NFL players retire between the ages ___ and ___. </strong>" ,
+  "<strong> Q14) (2 pts) The distribution of retirement age for NBA players is normally distributed with a mean of 35 years old and a standard deviation of 5 years. Based on the empirical rule, 68% of NBA players retire between the ages ___ and ___. </strong>" ,
   answer(c("wrong"), correct = TRUE),
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
   ),
   question_text(
-  paste("Q15) Which of the following will give you the area of the shaded region for a standard normal distribution? <br>", htmltools::img(src="images/normal_dist_1.png", height = 300, width = 400),
+  paste("Q15) Which of the following will give you the area of the shaded region for a standard normal distribution? <br>", htmltools::img(src="images/normal_dist_2.png", height = 300, width = 400),
   "<br> <br>
-  a) pnorm(q = 1.25) <br>
-  b) pnorm(q = 1.25, lower.tail = FALSE) <br>
-  c) qnorm(p = 1.25, lower.tail = FALSE) <br>
-  d) qnorm(p = 1.25) <br>
-  e) 1-pnorm(q = -1.25)") ,
+  a) pnorm(q = -2.5) <br>
+  b) pnorm(q = -2.5, lower.tail = FALSE) <br>
+  c) qnorm(p = -2.5, lower.tail = FALSE) <br>
+  d) qnorm(p = -2.5) <br>
+  e) 1-pnorm(q = 2.5, lower.tail = FALSE)") ,
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
   ),
   question_text(
-  "Q16) The number of hours spent on statistics homework a week follows a normal distribution with mean 3 hours and standard deviation 0.5 hours. 25% of students spend less than how many hours on homework?
+  "Q16) The number of hours spent on statistics homework a week follows a normal distribution with mean 4 hours and standard deviation 0.75 hours. 25% of students spend more than how many hours on homework?
   <br> <br>
-  a) qnorm(p = 0.25, mean = 3, sd = 0.5) <br>
-  b) pnorm(q = 0.25, mean = 3, sd = 0.5) <br>
-  c) pnorm(q = 0.25, mean = 3, sd = 0.5, lower.tail = FALSE) <br>
-  d) qnorm(p = 0.25, mean = 3, sd = 0.5, lower.tail = FALSE)",
+  a) qnorm(p = 0.25, mean = 4, sd = 0.75) <br>
+  b) pnorm(q = 0.25, mean = 4, sd = 0.75) <br>
+  c) pnorm(q = 0.25, mean = 4, sd = 0.75, lower.tail = FALSE) <br>
+  d) qnorm(p = 0.25, mean = 4, sd = 0.75, lower.tail = FALSE)",
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
@@ -280,25 +281,24 @@ quiz(
 
 ## Application
 
-The following applications use the `survey_f` dataset which has been preloaded for you.
+The following applications use the `survey_m` dataset which has been preloaded for you.
 
-The `survey_f` dataset is a subset of the original `survey` data that only includes students who identify as "Female". This data has been pre-cleaned to remove any impossible observations. Missing values have **not** been removed and may need to be handled.
+The `survey_m` dataset is a subset of the original `survey` data that only includes students who identify as "Male". This data has been pre-cleaned to remove any impossible observations. Missing values have **not** been removed and may need to be handled.
 
 <br>
 
-This code is here for reference. **You do NOT need to do anything with the code below.** Just use the dataset `survey_f` for the problems!
+This code is here for reference. **You do NOT need to do anything with the code below.** Just use the dataset `survey_m` for the problems!
 
 ```{r App1, exercise = TRUE}
-survey_f <- survey %>% 
-  filter(gender_ident == "Female")
+survey_m <- survey %>% 
+  filter(gender_ident == "Male")
 ```
 
 ### Application 1 (8 points)
 
-
 **Part 1**
 
-Calculate the correlation between `height_inches` and `mother_height` for female students.
+Calculate the correlation between `height_inches` and `father_height` for male students.
 
 ```{r App1a, exercise=TRUE}
 
@@ -311,7 +311,7 @@ Calculate the correlation between `height_inches` and `mother_height` for female
 Add the line of best fit to the scatterplot below.
 
 ```{r App1b, exercise = TRUE}
-ggplot(survey_f, aes(x = mother_height, y = height_inches)) +
+ggplot(survey_m, aes(x = father_height, y = height_inches)) +
   geom_point()
   
 ```
@@ -320,7 +320,7 @@ ggplot(survey_f, aes(x = mother_height, y = height_inches)) +
 
 **Part 3**
 
-Using the `survey_f` dataset, build a simple linear regression model that predicts `height_inches` using `mother_height`. Store the model as `model_height` and print the `summary()`.
+Using the `survey_m` dataset, build a simple linear regression model that predicts `height_inches` using `father_height`. Store the model as `model_height` and print the `summary()`.
 
 ```{r App1c, exercise = TRUE}
 
@@ -353,12 +353,9 @@ question_text("", incorrect = "submitted",
 
 ### Application 2 (5 points)
 
-
 **Part 1**
 
-Using our `survey_f` dataset, build a simple categorical regression model to predict `num_party` based on `fav_drink`. 
-
-Output the model `summary()` results. 
+Using our `survey_m` dataset, build a simple categorical regression model to predict `num_party` based on `fav_drink`. Output the model `summary()` results. 
 
 The variable `fav_drink` has 4 levels: {beer, don't_drink, hard_liquor, wine}
 
@@ -389,7 +386,7 @@ question_text(
 
 ```{r app2Q2}
 question_text(
-  "App2 Q2) Female students with what `fav_drink` level are predicted to on average go to the least number of parties a month? <br> <br>
+  "App2 Q2) Male students with what `fav_drink` level are predicted to on average go to the least number of parties a month? <br> <br>
   a) beer <br>
   b) don't_drink <br>
   c) hard_liquor <br>
@@ -404,7 +401,7 @@ question_text(
 
 ```{r app2Q3}
 question_text(
-  "App2 Q3) Female students with what `fav_drink` level are predicted to on average go to the MOST number of parties a month?<br> <br>
+  "App2 Q3) Male students with what `fav_drink` level are predicted to on average go to the MOST number of parties a month?<br> <br>
   a) beer <br>
   b) don't_drink <br>
   c) hard_liquor <br>
@@ -415,7 +412,7 @@ question_text(
   )
 ```
 
-## survey_f Data
+## survey_m Data
 
 You are welcome to open the dataset in RStudio Cloud as well if the information provided below is not sufficient for you.
 
@@ -440,10 +437,10 @@ Variables:
 - `gpa_nu` -- "What is your current GPA at NU? If unknown type NA."
 
 ```{r}
-glimpse(survey_f)
+glimpse(survey_m)
 ```
 
 ```{r}
-skim(survey_f)
+skim(survey_m)
 ```
 

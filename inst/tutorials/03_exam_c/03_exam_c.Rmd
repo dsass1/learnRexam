@@ -1,7 +1,7 @@
 ---
-title: "Exam 3 Sec 21"
+title: "Exam 3 Retake"
 tutorial:
-  id: "isds_exam3a"
+  id: "isds_exam3c"
   version: 0.1
   
 output:
@@ -26,6 +26,11 @@ gradethis_setup()
 options(tutorial.event_recorder = ISDStutorials::isds_recorder)
 
 survey <- read_rds("data/survey.rds")
+
+# survey <- survey %>% 
+#   filter(exercise < 2500)
+# 
+# write_rds(survey, "inst/tutorials/03_exam_c/data/survey.rds")
 
 ```
 
@@ -74,70 +79,76 @@ question_text("", incorrect = "submitted",
 ```
   
 
-For Q1, Q2, and Q3: given the population, match each of the following statements to either plot A, B, or C pictured below.
-
-![](images/sampling_1.png)
 
 ```{r Q}
 #reading check 2
 quiz(
   caption = NULL,
   #Q1
-  question_text(
-  "Q1) Statement 1: a single random sample of n = 100 observations from this population (could think of this as a sampling distribution of 100 sample means from random samples with sample size n = 1).<br>
-    a) Plot A <br>
-    b) Plot B <br>
-    c) Plot C",
-  answer(c("wrong"), 
+  question_wordbank(
+  paste0("Q1) (2 pts) Consider the price of a customer's meal at a top rated restaurant in Chicago. It is known that the distribution for all customer's at this restaurant (population) is *left-skewed*. <br> <br> Match the following plots with the MOST APPROPRIATE option.<br>
+        a)", htmltools::img(src="images/exam3_sampling1c.png", height = 150, width = 200),
+        "&nbsp; b)", htmltools::img(src="images/exam3_sampling1d.png", height = 150, width = 200)," <br>
+        c)", htmltools::img(src="images/exam3_sampling1a.png", height = 150, width = 200),
+        " &nbsp; d)", htmltools::img(src="images/exam3_sampling1b.png", height = 150, width = 200) ),
+  choices = c("the distribution of the population (all customer's meal prices)", 
+              "a sampling distribution of 20,000 sample means from random samples with sample size n =4",
+              "a sampling distribution of 20,000 sample means from random samples with sample size n = 50",  
+              "the plot does not match any of the above scenarios"),
+  wordbank = c("Plot a", "Plot b", "Plot c", "Plot d"),
+  answer(c("Plot a","Plot a", "Plot a", "Plot a"), 
          correct = TRUE),
   allow_retry = TRUE,
+  arrange = "ordered",
   incorrect = "submitted"),
   question_text(
-    "Q2) Statement 2: a sampling distribution of 100 sample means from random samples with sample size n = 49. <br>
-    a) Plot A <br>
-    b) Plot B <br>
-    c) Plot C",
+    "Q2) Again, condider a top rated restaurant in Chicago and we are interested in the price a customer pays for a meal. Theoretically, say we surveyed 50 customers for the price they paid and calculated the average price, and repeated this process 20,000 times. What does one point/observation on this sampling distribution represent? <br> <br>
+    a) a single customer's meal price <br>
+    b) the average of 50 customer's meal price <br>
+    c) the average of 20,000 customer's meal price <br>
+    d) the number of customer's that paid more than the average",
     answer(c("wrong"), 
            correct = TRUE),
     allow_retry = TRUE,
     incorrect = "submitted"
   ),
   question_text(
-  "Q3) Statement 3: a sampling distribution of 100 sample means from random samples with sample size n = 7. <br>
-    a) Plot A <br>
-    b) Plot B <br>
-    c) Plot C",
+  "Q3) Suppose we want to estimate $\\pi$, the proportion of students at Northwestern who eat breakfast each day, so we collect a random sample of 100 students and find that 42 of them eat breakfast each day. We use this data to compute the following 94% confidence interval for $\\pi$: [0.365, 0.475]. Which one of the following statements is true? <br> <br>
+  a) There is a 6% chance our interval does not contain $\\pi$. <br>
+  b) Exactly 42% of Northwestern students eat breakfast each day. <br>
+  c) The margin of error of our interval is 6%. <br>
+  d) There is a 94% chance that $\\pi$ is between 0.365 and 0.475.",
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
   ),
   question_text(
-  "Q4) A random sample of college students were asked how many exclusive relationships they have been in since attending college. The 95% confidence interval was found to be (2.7, 3.7). Which of the following is the correct interpretation of this confidence interval? <br>
-  **We are 95% confident that...** <br> <br>
-  a) a randomly chosen college student has been in 2.7 to 3.7 exclusive relationships. <br>
-  b) 95% of college students have bee in 2.7 to 3.7 exclusive relationships. <br>
-  c) the average number of exclusive relationships that college students have been in is between 2.7 and 3.7. <br>
-  d) for students in our sample the average number of exclusive relationships they have been is between 2.7 and 3.7.",
+  "Q4) A random sample of college students were asked approximately how many times they check their phone per day. The 90% confidence interval was found to be (85, 135). Which of the following is the correct interpretation of this confidence interval? <br>
+  **We are 90% confident that...** <br> <br>
+  a) 90% of college students check their phone between 85 and 135 times per day. <br>
+  b) for students in our sample the average number of times they have checked their phone is between 85 and 135. <br>
+  c) a randomly chosen college student checks their phone between 85 and 135 times per day. <br>
+  d) the average number of times that a college student checks their phone is between 85 and 135 times per day.",
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
   ),
   question_text(
-  "Q5) Suppose we want to estimate $\\pi$, the proportion of students at Northwestern who support legalizing marijuana, so we collect a random sample of 100 students and find that 73 of them say they support legalization. We use this data to compute the following 98% confidence interval for $\\pi$: [0.612, 0.824]. Which one of the following statements is true? <br> <br>
-  a) Exactly 73% of Northwestern students support legalizing marijuana. <br>
-  b) There is a 98% chance that $\\pi$ is between 0.612 and 0.824. <br>
-  c) There is a 2% chance our interval does not contain $\\pi$. <br>
-  d) The margin of error of our interval is 2%.",
-  answer(c("wrong"), correct = TRUE),
-  allow_retry = TRUE,
-  incorrect = "submitted"
-  ),
-  question_text(
-  "Q6) When working with the sampling distribution of a sample statistic, which of the choices would *decrease* the margin of error? <br> <br>
-  a) there is no way to change the margin of error <br>
+  "Q5) When working with the sampling distribution of a sample statistic, which of the choices would *decrease* the margin of error? <br> <br>
+  a) decrease the sample size <br>
   b) increase the standard error <br>
-  c) increase the confidence level (ex: 90% to 95%) <br>
-  d) increase the sample size.",
+  c) decrease the confidence level (ex: 95% to 90%) <br>
+  d) there is no way to change the margin of error",
+  answer(c("wrong"), correct = TRUE),
+  allow_retry = TRUE,
+  incorrect = "submitted"
+  ),
+  question_text(
+  "Q6) Which one of the statements below is TRUE when we increase the sample size from 100 to 800? Assume a two-tailed hypothesis test for the mean and no other alterations. <br><br>
+  a) corresponding test statistic becomes smaller (less extreme/closer to 0) <br>
+  b) standard error becomes larger <br>
+  c) p-value for a hypothesis test becomes smaller <br>
+  d) 95% confidence interval becomes wider",
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
@@ -145,44 +156,34 @@ quiz(
   question_text(
   "Q7) Which of the following is true? <br> <br>
   a) a p-value is the probability that the null hypothesis is true <br>
-  b) a large p-value indicates you observed a large effect <br>
+  b) a p-value is the probability of observing an estimate as extreme as our sample estimate if the null hypothesis is true. <br>
   c) a p-value is the probability that the observed statistic was produced by chance alone <br>
-  d) a p-value is the probability that the alternative hypothesis is true <br>
-  e) a p-value is the probability of observing an estimate as extreme as our sample estimate if the null hypothesis is true." ,
+  d) a large p-value indicates you observed a large effect <br>
+  e) a p-value is the probability that the alternative hypothesis is true" ,
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
   ),
   question_text(
-  "Q8) Which one of the statements below is FALSE when we increase the sample size from 100 to 800? Assume a two-tailed hypothesis test for the mean and no other alterations. <br><br>
-  a) test statistic becomes larger <br>
-  b) p-value for a hypothesis test becomes larger <br>
-  c) 95% confidence interval becomes narrower <br>
-  d) standard error becomes smaller",
-  answer(c("wrong"), correct = TRUE),
-  allow_retry = TRUE,
-  incorrect = "submitted"
-  ),
-  question_text(
-  "Q9) We are trying to determine if the mean GPA for seniors and the mean GPA for first-year students is the same. We construct the following hypothesis test:
+  "Q8) We are trying to determine if the mean GPA for seniors and the mean GPA for first-year students is the same. We construct the following hypothesis test:
   $$H_0: \\mu_{seniors} - \\mu_{first-years} = 0$$
   $$H_A: \\mu_{seniors} - \\mu_{first-years} \\ne 0$$ 
   with significance level of 0.10. <br>
-  As a class we perform repeated sampling where each of the 90 students in the class takes one random sample of 30 seniors and 70 first years to test the hypothesis. <br>
+  As a class we perform repeated sampling where each of the 90 students in the class takes one random sample of 40 seniors and 60 first years to test the hypothesis. <br>
   The registrar tells us the true difference in means is 0.<br> <br>
-  a) We expect 30 students to decide that there is no difference <br>
-  b) We expect 9 students to decide that there is a non-zero difference <br>
-  c) We expect 70 students to decide that there is a non-zero difference <br>
+  a) We expect 9 students to decide that there is a non-zero difference <br>
+  b) We expect 40 students to decide that there is no difference <br>
+  c) We expect 60 students to decide that there is a non-zero difference <br>
   d) We expect 90 students to decide that there is no difference." ,
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
   ),
   question_text(
-  "Q10) Suppose we want to perform a hypothesis test for cancer. What is the person told and what is the truth for a Type I error? <br> <br>
+  "Q9) Suppose we want to perform a hypothesis test for cancer. What is the person told and what is the truth for a Type II error? <br> <br>
   a) the person is told they do not have cancer and the truth is they do not have cancer. <br>
-  b) the person is told they have cancer and the truth is they do not have cancer. <br>
-  c) the person is told they do not have cancer and the truth is they have cancer <br>
+  b) the person is told they do not have cancer and the truth is they have cancer <br>
+  d) the person is told they have cancer and the truth is they do not have cancer. <br>
   d) the person is told they have cancer and the truth is they have cancer <br>
   e) not enough information provided" ,
   answer(c("wrong"), correct = TRUE),
@@ -190,17 +191,23 @@ quiz(
   incorrect = "submitted"
   ),
   question_text(
-  "Q11) A consultant conducts an experiment on the effect of webpage layout on sales for an internet company by randomizing individuals to either a new webpage (treatment) or to the old webpage (control). After the intervention the consultant performs a two-sample t-test on the sales from each group and obtains a p-value of 0.047. Which one of the following is a reasonable interpretation of their results? <br> <br>
-  a) the decision depends on the significance level they set before conducting the experiment <br>
-  b) the p-value rounds to 0.05, so no decision can be made. <br>
-  c) since the p-value is less than 0.05 the consultant can reject the null hypothesis. <br>
-  d) since the p-value is greater than 0.01 the consultant can accept the null hypothesis",
+  "Q10) 'Power' is the probability that we will fail to reject the null hypothesis when in fact it is true (1 - type I error)<br> <br>
+  a) TRUE <br>
+  b) FALSE",
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
   ),
   question_text(
-  "Q12) In hypothesis testing, a Type II error is more commonly known as a false positive. <br> <br>
+  "Q11) Controlling for a Type I error is always more important than controlling for a Type II error. <br> <br>
+  a) TRUE <br>
+  b) FALSE",
+  answer(c("wrong"), correct = TRUE),
+  allow_retry = TRUE,
+  incorrect = "submitted"
+  ),
+  question_text(
+  "Q12) In hypothesis testing, a Type I error is more commonly known as a false positive. <br> <br>
   a) TRUE <br>
   b) FALSE",
   answer(c("wrong"), correct = TRUE),
@@ -216,7 +223,7 @@ quiz(
   incorrect = "submitted"
   ),
   question_text(
-  "Q14) Controlling for a Type I error is always more important than controlling for a Type II error. <br> <br>
+  "Q14) If you decrease alpha, $\\alpha$, by 3%, your Type II error rate will increase by exactly 3%. <br> <br>
   a) TRUE <br>
   b) FALSE",
   answer(c("wrong"), correct = TRUE),
@@ -224,7 +231,7 @@ quiz(
   incorrect = "submitted"
   ),
   question_text(
-  "Q15) If you increase alpha, $\\alpha$, by 5%, your Type II error rate will decrease by exactly 5%. <br> <br>
+  "Q15) In repeated sampling, the sampling distribution of a sample proportion will center around the true population proportion. <br> <br>
   a) TRUE <br>
   b) FALSE",
   answer(c("wrong"), correct = TRUE),
@@ -232,30 +239,22 @@ quiz(
   incorrect = "submitted"
   ),
   question_text(
-  "Q16) In repeated sampling, the sampling distribution of a sample proportion is the chi-square distribution. <br> <br>
-  a) TRUE <br>
-  b) FALSE",
+  "Q16) Suppose you are a Lord of the Rings fan and believe it is better than Star Wars. You want to test if the IMDB rating for the first Lord of the Rings movie is better than the IMDB rating for the first Star Wars movie. <br> You use a hypothesis test at the $\\alpha = 0.01$ significance level to test this claim.  What is an appropriate null hypothesis <br> <br>
+  a) $\\mu_{lord-rings} > \\mu_{star-wars}$ <br>
+  b) $\\mu_{lord-rings} - \\mu_{star-wars} = 0$ <br>
+  c) $\\pi_{lord-rings} - \\pi_{star-wars} = 0$ <br>
+  a) $\\mu_{lord-rings} - \\mu_{star-wars} \\ge 0$ <br>
+  e) $\\bar{x}_{lord-rings} - \\bar{x}_{star-wars} \\le 0$ <br>",
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
   ),
   question_text(
-  "Q17) A young and ambitious teacher believes at least 90% of her students will study for the final exam. The teacher decides to test this belief using a hypothesis test at the $\\alpha = 0.02$ significance level. What is an appropriate null hypothesis <br> <br>
-  a) $\\mu_{study} = 0.9$ <br>
-  b) $\\mu_{study} > 0.9$ <br>
-  c) $\\pi_{study} = 0.9$ <br>
-  d) $\\pi_{study} > 0.9$ <br>
-  e) $\\hat{\\pi}_{study} \\le 0.9$ <br>",
-  answer(c("wrong"), correct = TRUE),
-  allow_retry = TRUE,
-  incorrect = "submitted"
-  ),
-  question_text(
-  paste0("Q18) In Question 17, the hypothesis test results are as follows.<br>" ,   htmltools::img(src="images/htest_1.png", height = 200, width = 500)," <br> What is the decision at the $\\alpha = 0.02$ significance level? <br> <br>
-  a) Reject the null, the teacher is correct that at least 90% of students studied. <br>
-  b) Fail to reject the null, the teacher is correct that at least 90% of students studied. <br>
-  c) Reject the null, the teacher is incorrect and less than 90% of students studied. <br>
-  d) Fail to reject the null, the teacher is incorrect and less than 90% of students studied."),
+  paste0("Q17) In Question 16, the hypothesis test results are as follows.<br>" ,   htmltools::img(src="images/htest_2.png", height = 200, width = 500)," <br> What is the decision at the $\\alpha = 0.01$ significance level? <br> <br>
+  a) Reject the null, star wars is better than lord of the rings <br>
+  b) Reject the null, lord of the rings is better than star wars. <br>
+  c) Reject the null, there is a difference but we cannot determine which movie is better because we performed a two-tail test. <br>
+  d) Fail to reject the null, their is no significant difference in the rating of lord of the rings and star wars."),
   answer(c("wrong"), correct = TRUE),
   allow_retry = TRUE,
   incorrect = "submitted"
@@ -284,9 +283,9 @@ If for some reason you are not able to complete the code to obtain the results i
 
 ### Application 1 (5 points)
 
-Suppose we are interested in examining the average GPA of students who take STAT 202 at Northwestern University. 
+Suppose we are interested in examining the average number of minutes students who take STAT 202 at Northwestern University exercise per week. 
 
-Use the `survey` data to construct a 95% confidence interval for the average GPA (`gpa_nu`) of students who take STAT 202 at Northwestern University.
+Use the `survey` data to construct a 90% confidence interval for the average number of minutes that students who take STAT 202 at Northwestern University exercise per week (`exercise`).
 
 ```{r App1, exercise=TRUE}
 
@@ -306,9 +305,9 @@ question_text("", incorrect = "submitted",
 
 ### Application 2 (5 points)
 
-Suppose we are interested in examining the proportion of students who take STAT 202 at Northwestern University that are `Very happy`. 
+Suppose we are interested in examining the proportion of students who take STAT 202 at Northwestern University that are `First year`. 
 
-Use the `survey` data to construct a 98% confidence interval for the proportion of students who take STAT 202 at NU that are `Very happy`.
+Use the `survey` data to construct a 95% confidence interval for the proportion of students who take STAT 202 at NU who's `school_year` is `First year`.
 
 ```{r App2, exercise=TRUE}
 
@@ -329,12 +328,12 @@ question_text("", incorrect = "submitted",
 
 ### Application 3 (7 points)
 
-Is there significant evidence that `Extrovert`s who take STAT 202 at NU have more Instagram followers (`num_followers`) on average than `Introvert`s who take STAT 202 at NU.
+Is there significant evidence that students who take STAT 202 at NU that are `Very happy` have more Instagram followers (`num_followers`) on average than students who take STAT 202 at NU that are `Not too happy`?
 
-Use the `survey` data to conduct a hypothesis test for the difference in **average Instagram followers** between extroverts and introverts at the $\alpha$ = 0.10 significance level.
+Use the `survey` data to conduct a hypothesis test for the difference in **average Instagram followers** between Very happy students and Not too happy students at the $\alpha$ = 0.02 significance level.
 
-$$H_0: \mu_{extrovert} - \mu_{introvert} = 0$$
-$$H_A: \mu_{extrovert} - \mu_{introvert} \ne 0$$
+$$H_0: \mu_{very-happy} - \mu_{not-too-happy} = 0$$
+$$H_A: \mu_{very-happy} - \mu_{not-too-happy} \ne 0$$
 
 ```{r App3, exercise = TRUE}
 
