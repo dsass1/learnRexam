@@ -52,10 +52,7 @@ question_blank("Name: ___",
           correct = paste0(fontawesome::fa("check") ),
           incorrect = paste0(fontawesome::fa("xmark") ),
           allow_retry = FALSE )
-# have name, grade button, and print button on same line
-bootstrapPage(
-     div(style="display:inline-block", print_ui("Print") )
-)
+
 ```
 
 
@@ -210,12 +207,11 @@ quiz(
     incorrect = "submitted"
   ),
   question_wordbank(
-  "Q11) Which function/verb will...",
-    choices = c("links data wrangling together", "adds layers to a plot", "how variables are mapped to a plot"),
-    wordbank = c("%>%", "aes()", "+", "%<%", "ggplot()", "geom_*()", "dplyr"),
-    answer(c("%>%", "+", "aes()"), correct = TRUE),
+  "Q11) Which function/verb...",
+    choices = c("links data wrangling together", "specifies how variables are mapped to a plot", "adds layers to a plot"),
+    wordbank = c("%>%", "aes()", "+", "%<%", "ggplot()", "geom_*()", "dplyr", "//"),
+    answer(c("%>%", "aes()", "+"), correct = TRUE),
     allow_retry = TRUE,
-    arrange = "ordered",
     style = "exam",
     incorrect = "submitted"
   ),
@@ -314,11 +310,11 @@ You are welcome to open the dataset in RStudio Cloud as well if the information 
 
 Variables:
 
-- `quarter` -- Identifies in which quarter the student took stat 202 (fall 2022, summer 2022, spring 2022, winter 2022, fall 2021)
-- `num_party` -- "On average (approx.) how many parties a month do you attend?"
-- `personality` -- "Are you more of an introvert or extrovert? (Introvert, Extrovert)"
+- `quarter` -- Identifies in which quarter the student took stat 202 (winter 2023, fall 2022, summer 2022, spring 2022, winter 2022, fall 2021)
 - `gender_ident` -- "Which gender do you identify as (Male, Female). "Other" was removed to protect against the possibility of having their responses identified by other students.""
 - `school_year` -- "What year are you in school? (First year, Sophomore, Junior, Senior, Other)"
+- `num_party` -- "On average (approx.) how many parties a month do you attend?"
+- `personality` -- "Are you more of an introvert or extrovert? (Introvert, Extrovert)"
 - `height_inches` -- "How tall are you? (in inches)"
 - `happy` -- "How happy are you? (Very happy, Pretty happy, Not too happy, Don't know)"
 - `campus_housing` -- "Where do you live on campus? (North campus, South campus, Neither)"
