@@ -349,6 +349,10 @@ The `survey_f` dataset is a subset of the original `survey` data that only inclu
 
 <br>
 
+For each application **only output/print the requested information**. If you are outputting miscellaneous information there will be a deduction because it demonstrates a lack of understanding.
+
+<br>
+
 This code is here for reference. **You do NOT need to do anything with the code below.** Just use the dataset `survey_f` for the problems!
 
 ```{r App1, exercise = TRUE}
