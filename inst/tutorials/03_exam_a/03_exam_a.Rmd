@@ -1,0 +1,399 @@
+---
+title: "Exam 3"
+tutorial:
+  id: "isds_exam3a"
+  version: 0.1
+  
+output:
+  learnr::tutorial:
+    progressive: false
+    allow_skip: true
+    css: ["css/nu-theme.css"]
+runtime: shiny_prerendered
+description: >
+  This proficiency exam covers Chapter 9.2 - Chapter 12.
+---
+
+```{r setup, include=FALSE}
+library(skimr)
+library(learnr)
+library(tidyverse)
+library(ISDStutorials)
+library(gradethis)
+
+knitr::opts_chunk$set(echo = FALSE)
+gradethis_setup()
+options(tutorial.event_recorder = ISDStutorials::isds_recorder)
+
+survey <- read_rds("data/survey.rds") %>% 
+  select(quarter, gender_ident, school_year, num_party, fav_drink, personality, 
+          campus_housing, happy, gpa_hs, gpa_nu,  followers_insta,
+         followers_tiktok, brain_type, exercise) %>% 
+  mutate(
+    gpa_nu = ifelse(gpa_nu > 4, NA, gpa_nu),
+    gpa_hs = ifelse(gpa_hs > 5, NA, gpa_hs)
+    #salary = ifelse(salary < 500000, salary, NA)
+    )
+
+```
+
+
+
+```{r isds-header}
+# student name
+question_blank("Name: ___",
+                            answer_fn(function(value){
+                              if (length(value) >= 1 ) {
+                                return(mark_as(TRUE))
+                                }
+                              return(mark_as(FALSE) )
+                              }),
+          style = "notes",
+          correct = paste0(fontawesome::fa("check") ),
+          incorrect = paste0(fontawesome::fa("xmark") ),
+          allow_retry = FALSE )
+
+```
+
+## Instructions
+
+You have 50 minutes to complete this exam. The exam covers the material learned from Section 9.2 - Chapter 12. You are allowed one page of notes front and back.
+
+Once you are finished:
+
+-   Make sure every question/exercise has been submitted.
+-   Click the 'pdf' button to save the document as a pdf, you must have the exam open in a browser window for this button to work.
+-   Submit the completed pdf to Canvas.
+
+
+## Concept
+
+If one of your Concept answers does not submit manually enter the number followed by the answer (a, b, c, etc...) in this box.
+
+```{r Concept-help}
+question_text("", incorrect = "submitted",
+              answer("ManuallyGradedEverythingWrong", 
+                     correct = TRUE),
+              allow_retry = TRUE,
+              rows = 4)
+```
+  
+
+```{r Q}
+#reading check 2
+quiz(
+  caption = NULL,
+  #Q1
+  question_wordbank(
+  paste0("Q1) (2 pts) Consider the price of a customer's meal at a top rated restaurant in Chicago. It is known that the distribution for all customer's at this restaurant (population) is *left-skewed*. <br> <br> Match the following plots with the MOST APPROPRIATE option.<br>
+        a)", htmltools::img(src="images/exam3_sampling1c.png", height = 150, width = 200),
+        "&nbsp; b)", htmltools::img(src="images/exam3_sampling1d.png", height = 150, width = 200)," <br>
+        c)", htmltools::img(src="images/exam3_sampling1a.png", height = 150, width = 200),
+        " &nbsp; d)", htmltools::img(src="images/exam3_sampling1b.png", height = 150, width = 200) ),
+  choices = c("the distribution of the population (all customer's meal prices)", 
+              "a sampling distribution of 20,000 sample means from random samples with sample size n =4",
+              "a sampling distribution of 20,000 sample means from random samples with sample size n = 50",  
+              "the plot does not match any of the above scenarios"),
+  wordbank = c("Plot a", "Plot b", "Plot c", "Plot d"),
+  answer(c("Plot c","Plot d", "Plot a", "Plot b"), 
+         correct = TRUE),
+  allow_retry = TRUE,
+  style = "exam",
+  arrange = "ordered",
+  incorrect = "submitted"),
+  question_dropdown(
+    "Q2) Again, condider a top rated restaurant in Chicago and we are interested in the price a customer pays for a meal. Theoretically, say we surveyed 50 customers for the price they paid and calculated the average price, and repeated this process 20,000 times. What does one point/observation on this sampling distribution represent?",
+    answer("a single customer's meal price"),
+    answer("the average of 50 customer's meal price", correct = TRUE),
+    answer("the average of 20,000 customer's meal price"),
+    answer("the number of customer's that paid more than the average"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q3) A random sample of college students were asked how many exclusive relationships they have been in since attending college. The 95% confidence interval was found to be (2.7, 3.7). Which of the following is the correct interpretation of this confidence interval? <br>
+  **We are 95% confident that...**",
+    answer("a randomly chosen college student has been in 2.7 to 3.7 exclusive relationships."),
+    answer("95% of college students have been in 2.7 to 3.7 exclusive relationships"),
+    answer("the average number of exclusive relationships that college students have been in is between 2.7 and 3.7", correct = TRUE),
+    answer("for students in our sample the average number of exclusive relationships they have been is between 2.7 and 3.7."),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q4) Suppose we want to estimate $\\pi$, the proportion of students at Northwestern who support legalizing marijuana, so we collect a random sample of 100 students and find that 73 of them say they support legalization. We use this data to compute the following 98% confidence interval for $\\pi$: [0.612, 0.824]. Which one of the following statements is true?",
+    answer("Exactly 73% of Northwestern students support legalizing marijuana."),
+    answer("There is a 98% chance that $\\pi$ is between 0.612 and 0.824."),
+    answer("There is a 2% chance our interval does not contain the population parameter.", correct = TRUE),
+    answer("The margin of error of our interval is 2%."),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q5) When working with the sampling distribution of a sample statistic, which of the choices would *decrease* the margin of error?",
+    answer("there is no way to change the margin of error"),
+    answer("increase the standard error"),
+    answer("increase the confidence level (ex: 90% to 95%)"),
+    answer("increase the sample size", correct = TRUE),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q6) Which of the following is true?" ,
+    answer("a p-value is the probability that the null hypothesis is true"),
+    answer("a large p-value indicates you observed a large effect"),
+    answer("a p-value is the probability that the observed statistic was produced by chance alone"),
+    answer("a p-value is the probability that the alternative hypothesis is true"),
+    answer("a p-value is the probability of observing an estimate as extreme as our sample estimate if the null hypothesis is true", correct = TRUE),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q7) Which one of the statements below is FALSE when we increase the sample size from 100 to 800? Assume a two-tailed hypothesis test for the mean and no other alterations.",
+    answer("test statistic becomes larger"),
+    answer("p-value for a hypothesis test becomes larger", correct = TRUE),
+    answer("95% confidence interval becomes narrower"),
+    answer("standard error becomes smaller"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q8) We are trying to determine if the mean GPA for seniors and the mean GPA for first-year students is the same. We construct the following hypothesis test:
+  $$H_0: \\mu_{seniors} - \\mu_{first-years} = 0$$
+  $$H_A: \\mu_{seniors} - \\mu_{first-years} \\ne 0$$ 
+  with significance level of 0.10. <br>
+  As a class we perform repeated sampling where each of the 90 students in the class takes one random sample of 30 seniors and 70 first years to test the hypothesis. <br>
+  The registrar tells us the true difference in means is 0." ,
+    answer("We expect 30 students to decide that there is no difference"),
+    answer("We expect 9 students to decide that there is a non-zero difference", correct = TRUE),
+    answer("We expect 70 students to decide that there is a non-zero difference"),
+    answer("We expect 90 students to decide that there is no difference"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q9) Suppose we want to perform a hypothesis test for cancer. What is the person told and what is the truth for a Type I error?" ,
+    answer("the person is told they do not have cancer and the truth is they do not have cancer"),
+    answer("the person is told they have cancer and the truth is they do not have cancer", correct = TRUE),
+    answer("the person is told they do not have cancer and the truth is they have cancer"),
+    answer("the person is told they have cancer and the truth is they have cancer"),
+    answer("not enough information provided"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q10) A consultant conducts an experiment on the effect of webpage layout on sales for an internet company by randomizing individuals to either a new webpage (treatment) or to the old webpage (control). After the intervention the consultant performs a two-sample t-test on the sales from each group and obtains a p-value of 0.047. Which one of the following is a reasonable interpretation of their results?",
+    answer("the decision depends on the significance level they set before conducting the experiment", correct = TRUE),
+    answer("the p-value rounds to 0.05, so no decision can be made"),
+    answer("since the p-value is less than 0.05 the consultant can reject the null hypothesis."),
+    answer("since the p-value is greater than 0.01 the consultant can accept the null hypothesis"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q11) In hypothesis testing, a Type II error is more commonly known as a false positive.",
+    answer("TRUE"),
+    answer("FALSE", correct = TRUE),
+    allow_retry = TRUE,
+    style = "exam",
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q12) You can always perform a two-sided test even if the claim is stated as a one-sided test to avoid missing an effect in the opposite dirction of the claim.",
+    answer("TRUE", correct = TRUE),
+    answer("FALSE"),
+    allow_retry = TRUE,
+    style = "exam",
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q13) Controlling for a Type I error is always more important than controlling for a Type II error.",
+    answer("TRUE"),
+    answer("FALSE", correct = TRUE),
+    allow_retry = TRUE,
+    style = "exam",
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q14) If you increase alpha, $\\alpha$, by 5%, your Type II error rate will decrease by exactly 5%.",
+    answer("TRUE"),
+    answer("FALSE", correct = TRUE),
+    allow_retry = TRUE,
+    style = "exam",
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q15) In repeated sampling, the sampling distribution of a sample proportion is the chi-square distribution.",
+    answer("TRUE"),
+    answer("FALSE", correct = TRUE),
+    allow_retry = TRUE,
+    style = "exam",
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q16) A young and ambitious teacher believes at least 90% of her students will study for the final exam. The teacher decides to test this belief using a hypothesis test at the $\\alpha = 0.02$ significance level. What is an appropriate null hypothesis <br> <br>
+  a) $\\mu_{study} = 0.9$ <br>
+  b) $\\mu_{study} > 0.9$ <br>
+  c) $\\pi_{study} = 0.9$ <br>
+  d) $\\pi_{study} > 0.9$ <br>
+  e) $\\hat{\\pi}_{study} \\le 0.9$ <br>",
+    answer("a"),
+    answer("b"),
+    answer("c", correct = TRUE),
+    answer("d"),
+    answer("e"),
+    allow_retry = TRUE,
+    style = "exam",
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  paste0("Q17) In Question 16, the hypothesis test results are as follows.<br>" ,   htmltools::img(src="images/htest_1.png", height = 200, width = 500)," <br> What is the decision at the $\\alpha = 0.02$ significance level?"),
+    answer("Reject the null, the teacher is correct that at least 90% of students studied.", correct = TRUE),
+    answer("Fail to reject the null, the teacher is correct that at least 90% of students studied."),
+    answer("Reject the null, the teacher is incorrect and less than 90% of students studied."),
+    answer("Fail to reject the null, the teacher is incorrect and less than 90% of students studied."),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  )
+  
+)
+
+```
+
+
+## Application
+
+The following applications use the `survey` dataset which has been preloaded for you.
+
+This data has been pre-cleaned to remove any impossible observations. Missing values have **not** been removed and may need to be handled.
+
+<br>
+
+**NA values should NOT be included in the total count (`n`) of a proportion because we do not know what category they would fall in and it would skew our proportion.**
+
+<br>
+
+If for some reason you are not able to complete the code to obtain the results it would be wise to still interpret your problem with 'placeholder' values for partial credit.
+
+<br>
+
+### Application 1 (5 points)
+
+Suppose we are interested in examining the average GPA of students who take STAT 202 at Northwestern University. 
+
+Use the `survey` data to construct a 90% confidence interval for the average GPA (`gpa_nu`) of students who take STAT 202 at Northwestern University.
+
+```{r App1, exercise=TRUE}
+
+```
+
+<br>
+
+Interpret the **confidence interval** in the context of the problem.
+
+```{r App-describe1}
+question_text("", incorrect = "submitted",
+              answer("ManuallyGradedEverythingWrong", 
+                     correct = TRUE),
+              allow_retry = TRUE,
+              rows = 5)
+```
+
+### Application 2 (5 points)
+
+Suppose we are interested in examining the proportion of students who take STAT 202 at Northwestern University that are `Not too happy`. 
+
+Use the `survey` data to construct a 98% confidence interval for the proportion of students who take STAT 202 at NU that are `Not too happy`.
+
+```{r App2, exercise=TRUE}
+
+```
+
+<br>
+
+Interpret the **confidence interval** in the context of the problem.
+
+```{r App-describe2}
+question_text("", incorrect = "submitted",
+              answer("ManuallyGradedEverythingWrong", 
+                     correct = TRUE),
+              allow_retry = TRUE,
+              rows = 5)
+```
+
+
+### Application 3 (7 points)
+
+Is there significant evidence that `Extrovert`s who take STAT 202 at NU have more Instagram followers (`followers_insta`) on average than `Introvert`s who take STAT 202 at NU.
+
+Use the `survey` data to conduct a hypothesis test for the difference in **average Instagram followers** between extroverts and introverts at the $\alpha$ = 0.01 significance level.
+
+$$H_0: \mu_{extrovert} - \mu_{introvert} = 0$$
+$$H_A: \mu_{extrovert} - \mu_{introvert} \ne 0$$
+
+```{r App3, exercise = TRUE}
+
+```
+
+<br>
+
+State your p-value and interpret your decision in the context of the problem.
+
+```{r App-describe3}
+question_text("", incorrect = "submitted",
+              answer("ManuallyGradedEverythingWrong", 
+                     correct = TRUE),
+              allow_retry = TRUE,
+              rows = 10)
+```
+
+
+## survey Data
+
+You are welcome to open the dataset in RStudio Cloud as well if the information provided below is not sufficient for you.
+
+Variables:
+
+- `quarter` -- Identifies in which quarter the student took stat 202 (fall 2022, summer 2022, spring 2022, winter 2022, fall 2021)
+- `gender_ident` -- "Which gender do you identify as (Male, Female). "Other" was removed to protect against the possibility of having their responses identified by other students.""
+- `school_year` -- "What year are you in school? (First year, Sophomore, Junior, Senior, Other)"
+- `num_party` -- "On average (approx.) how many parties a month do you attend?"
+- `fav_drink` -- "What is your alcoholic drink of choice? (beer, don't drink, hard_liquor, wine)"
+- `personality` -- "Are you more of an introvert or extrovert? (Introvert, Extrovert)"
+- `campus_housing` -- "Where do you live on campus? (North campus, South campus, Neither)"
+- `happy` -- "How happy are you? (Very happy, Pretty happy, Not too happy, Don't know)"
+- `gpa_hs` -- "What was your high school GPA? If unknown type NA."
+- `gpa_nu` -- "What is your current GPA at NU? If unknown type NA."
+- `followers_insta` -- "How many followers do you have on Instagram? (approx)?"
+- `followers_tiktok` -- "How many followers do you have on TikTok? (approx)?"
+- `brain_type` -- "Do you consider yourself more "left" or "right" -brained (left-brain, right-brain)?"
+- `exercise` -- "Approximately, how many minutes do you spend exercising per week?"
+
+```{r}
+glimpse(survey)
+```
+
+```{r}
+skim(survey)
+```
+
