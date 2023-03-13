@@ -344,19 +344,6 @@ glimpse(survey)
 skim(survey)
 ```
 
-## Bonus
-
-```{r bonus}
-question_blank(
-  "In our daily class slides, we use the same dataset for all of our examples. What is the name of the dataset? ___",
-  answer(c(" "), correct = TRUE),
-  allow_retry = TRUE,
-  style = "exam",
-  incorrect = "submitted"
-  )
-```
-
-
 ## Submit
 
 Once you are finished:
