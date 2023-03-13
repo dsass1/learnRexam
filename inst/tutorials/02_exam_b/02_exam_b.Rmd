@@ -122,9 +122,9 @@ quiz(
   question_dropdown(
     paste("Q2) Examine the graph below and then select the best estimate of the correlation. <br>", htmltools::img(src="images/cor_2.png", height = 300, width = 300)),
     answer("-0.70"),
-    answer("-0.25"),
+    answer("-0.25", correct = TRUE),
     answer("0"),
-    answer("0.25", correct = TRUE),
+    answer("0.25"),
     answer("0.70"),
     allow_retry = TRUE,
     style = "exam",
@@ -216,10 +216,10 @@ quiz(
   ),
   question_dropdown(
   "Q9) The Illinois State Board of Education is interested in student satisfaction in regards to their learning experience in rural towns. The Board does not have the time or resources to travel to every one of these towns, instead they randomly select 5 towns and suvery all the schools students to evaluate their satisfaction level. What type of sample is this?" ,
-    answer("cluster sampling"),
+    answer("cluster sampling", correct = TRUE),
     answer("simple random sample"),
     answer("systematic sampling"),
-    answer("stratified sampling", correct = TRUE),
+    answer("stratified sampling"),
     answer("none of these"),
     allow_retry = TRUE,
     style = "exam",
@@ -291,8 +291,8 @@ quiz(
   ),
   question_dropdown(
   paste("Q15) Which of the following will give you the area of the shaded region for a standard normal distribution? <br>", htmltools::img(src="images/normal_dist_2.png", height = 300, width = 400)) ,
-    answer("pnorm(q = -2.5)"),
-    answer("pnorm(q = -2.5, lower.tail = FALSE)", correct = TRUE),
+    answer("pnorm(q = -2.5)", correct = TRUE),
+    answer("pnorm(q = -2.5, lower.tail = FALSE)"),
     answer("qnorm(p = -2.5, lower.tail = FALSE)"),
     answer("qnorm(p = -2.5)"),
     answer("1-pnorm(q = 2.5, lower.tail = FALSE)"),
@@ -427,7 +427,7 @@ survey %>%
 
 **Part 1**
 
-Using our `survey` dataset, build a **parrallel slopes** multiple regression model to predict `height_inches` based on `father_height` and `gender_ident`. 
+Using our `survey` dataset, build a **parallel slopes** multiple regression model to predict `height_inches` based on `father_height` and `gender_ident`. 
 
 Output the model `summary()` results. 
 
