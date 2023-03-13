@@ -46,7 +46,7 @@ survey <- read_rds("data/survey.rds") %>%
     salary = ifelse(salary < 500000, salary, NA)
     ) %>% 
   select(quarter, gender_ident, school_year, num_party, procrastinator, 
-          height_inches, happy, campus_housing,
+          height_inches, happy, campus_housing, smoke_weed,
          followers_insta, followers_tiktok, salary)
   
 ```
@@ -115,7 +115,7 @@ quiz(
     incorrect = "submitted"
   ),
   question_wordbank(
-  "Q3) Which of the following shows the... ",
+  "Q3-4) Which of the following shows the... ",
   choices = c("relationship between one numerical variable and one categorical variable?", "distirbution of one categorical variable?"),
   wordbank = c("barplot", "faceted histogram", "stacked barplot", 
                "boxplot", "scatterplot"),
@@ -125,7 +125,7 @@ quiz(
   incorrect = "submitted"
   ),
   question_wordbank(
-  paste("Q4) The table provides the first 8 observations from a sample of 200 individuals, who reported their age, race, income, and job satisfaction score on a scale from 0 to 100.", htmltools::img(src="images/01_tableB.png", height = 300, width = 500)),
+  paste("Q5-6) The table provides the first 8 observations from a sample of 200 individuals, who reported their age, race, income, and job satisfaction score on a scale from 0 to 100.", htmltools::img(src="images/01_tableB.png", height = 300, width = 500)),
   choices = c("Which type of graphic would be most useful for visualizing the relationship between `Age` and `Score`??",
               "Which type of graphic would be most useful for visualizing the relationship between `Income` and `Gender`?"),
   wordbank = c("histogram", "scatterplot", "linegraph", "side-by-side boxplot", "stacked barplots"),
@@ -134,7 +134,7 @@ quiz(
   style = "exam",
   incorrect = "submitted"
   ),
-  question_dropdown("Q5) Which of the following arguments in geom_bar()
+  question_dropdown("Q7) Which of the following arguments in geom_bar()
   will separate stacked bars of different categories to be side-by-side when mapping 2 categorical variables?",
     answer("fill = `dodge`"),
     answer("position = `dodge`", correct = TRUE),
@@ -146,7 +146,7 @@ quiz(
     style = "exam",
     incorrect = "submitted"),
   question_dropdown(
-    paste("Q5) The histogram below shows the distribution of a large company's annual employee income. Which of the following statements is TRUE concerning this distribution?", htmltools::img(src="images/02_grades.png", height = 300, width = 500)),
+    paste("Q8) The histogram below shows the distribution of a large company's annual employee income. Which of the following statements is TRUE concerning this distribution?", htmltools::img(src="images/02_grades.png", height = 300, width = 500)),
     answer("The distribution is skewed left and the mean is less than the median.", correct = TRUE),  
     answer("The distribution is skewed right and the mean is less than the median."),
     answer("The distribution is skewed left and the mean is greater than the median."),
@@ -158,7 +158,7 @@ quiz(
     incorrect = "submitted"
   ),
   question_wordbank(
-  "Q6) In the histogram from the previous problem. <br> How would the average grade change if the person with the lowest grade scored 5 percent better? How will the following statistics be impacted?",
+  "Q9-10) In the histogram from the previous problem. <br> How would the average grade change if the person with the lowest grade scored 5 percent better? How will the following statistics be impacted?",
     choices = c("average/mean", "IQR (Interquartile Range)"),
     wordbank = c("increase", "decrease", "stay the same"),
     answer(c("increase", "stay the same"), correct = TRUE),
@@ -168,7 +168,7 @@ quiz(
     incorrect = "submitted"
   ),
   question_dropdown(
-  "Q7) For the statistic, MEDIAN, indicate which of the four choices is correct.",
+  "Q11) For the statistic, MEDIAN, indicate which of the four choices is correct.",
     answer(c("Measure of Centrality/Center"), correct = TRUE),
     answer(c("Measure of Variability/Spread")),
     answer(c("Both a measure of Centrality and Variability")),
@@ -179,7 +179,7 @@ quiz(
     incorrect = "submitted"
   ),
   question_dropdown(
-  "Q8) For the statistic, MINIMUM, indicate which of the four choices is correct.",
+  "Q12) For the statistic, MINIMUM, indicate which of the four choices is correct.",
     answer(c("Measure of Centrality/Center")),
     answer(c("Measure of Variability/Spread")),
     answer(c("Both a measure of Centrality and Variability")),
@@ -190,7 +190,7 @@ quiz(
     incorrect = "submitted"
   ),
   question_dropdown(
-  "Q9) For the statistic, STANDARD DEVIATION, indicate which of the four choices is correct.",
+  "Q13) For the statistic, STANDARD DEVIATION, indicate which of the four choices is correct.",
     answer(c("Measure of Centrality/Center")),
     answer(c("Measure of Variability/Spread"), correct = TRUE),
     answer(c("Both a measure of Centrality and Variability")),
@@ -201,7 +201,7 @@ quiz(
     incorrect = "submitted"
   ),
   question_wordbank(
-  "Q10) Which function/verb will...",
+  "Q14-16) Which function/verb will...",
     choices = c("sort by a variable", "keep only desired variables", "perform an action per category"),
     wordbank = c("slice_max()", "count()", "mutate()", "group_by()", "filter()", "select()", "summarize()", "arrange()"),
     answer(c("arrange()", "select()", "group_by()"), correct = TRUE),
@@ -211,7 +211,7 @@ quiz(
     incorrect = "submitted"
   ),
   question_wordbank(
-  "Q11) Which function/verb...",
+  "Q17-19) Which function/verb...",
     choices = c("package used for data wrangling", "layer you add that controls they type of plot", "adds layers to a plot"),
     wordbank = c("%>%", "aes()", "+", "%<%", "ggplot()", "geom_*()", "dplyr", "//", "ggplot2", "moderndive"),
     answer(c("dplyr", "geom_*()", "+"), correct = TRUE),
@@ -220,7 +220,7 @@ quiz(
     incorrect = "submitted"
   ),
   question_dropdown(
-  "Q12)  Suppose we have a dataset (some data) and we want to remove invalid data entries for one of the numerical variables and then proceed to calculate the median for that variable per level/category for a categorical variable. Which general sequence of functions/verbs would achieve this?",
+  "Q20)  Suppose we have a dataset (some data) and we want to remove invalid data entries for one of the numerical variables and then proceed to calculate the median for that variable per level/category for a categorical variable. Which general sequence of functions/verbs would achieve this?",
     answer("some data %>% filter() %>% group_by() %>% summarize()", correct = TRUE),
     answer("some data %>% filter() %>% count()"),
     answer("some data %>% select() %>% group_by() %>% summarize()"),
@@ -332,6 +332,7 @@ Variables:
 - `height_inches` -- "How tall are you? (in inches)"
 - `happy` -- "How happy are you? (Very happy, Pretty happy, Not too happy, Don't know)"
 - `campus_housing` -- "Where do you live on campus? (North campus, South campus, Neither)"
+- `smoke_weed` -- "Do you smoke weed? (Yes, Occasionally, No)"
 - `followers_insta` -- "How many followers do you have on Instagram (approx.)?""
 - `followers_tiktok` -- "How many followers do you have on TikTok (approx.)?""
 - `salary` -- "What do you expect your starting salary to be after graduation, to the nearest thousand dollars? (ex: 47,000)"

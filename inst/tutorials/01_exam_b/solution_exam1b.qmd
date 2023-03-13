@@ -1,5 +1,6 @@
 ---
 title: "Solution Exam 1"
+subtitle: "Version B"
 format: 
   html:
     self-contained: true
@@ -9,42 +10,69 @@ execute:
   warning: false
 ---
 
-# Exam 1 Sec 21
+# Exam 1 Version B
 
 ```{r}
 library(tidyverse)
-survey <- read_rds("data/survey.rds")
+survey <- read_rds("data/survey.rds") %>%
+  # remove impossible data and extreme outliers
+  mutate(
+    followers_insta = ifelse(followers_insta == 0, NA,
+                           ifelse(followers_insta > 4000, NA,
+                                  followers_insta)),
+    followers_tiktok = ifelse(followers_tiktok == 0, NA,
+                           ifelse(followers_tiktok > 4000, NA,
+                                  followers_tiktok)),
+    height_inches = ifelse(height_inches < 42, NA,
+                           ifelse(height_inches > 84, NA,
+                                  height_inches)),
+    mother_height = ifelse(mother_height < 42, NA,
+                           ifelse(mother_height > 84, NA,
+                                  mother_height)),
+    father_height = ifelse(father_height < 42, NA,
+                           ifelse(father_height > 84, NA,
+                                  father_height)),
+    salary = ifelse(salary < 500000, salary, NA)
+    ) %>% 
+  select(quarter, gender_ident, school_year, num_party, procrastinator, 
+          height_inches, happy, campus_housing, smoke_weed,
+         followers_insta, followers_tiktok, salary)
 ```
 
 ## Concept
 
-- Q1) b TRUE 
-- Q2) d variables 
-- Q3) a faceted histogram 
-- Q4a) b scatterplot 
-- Q4b) e stacked barplots 
-- Q5) a 
-- Q6a) b decrease 
-- Q6b) c stay the same 
-- Q7a) d neither A nor B 
-- Q7b) a meansure of center 
-- Q7c) b measure of variation 
-- Q8a) c mutate 
-- Q8b) e filter 
-- Q8c) g summarize 
-- Q9) a
+- Q1) FALSE
+- Q2) variables 
+- Q3) faceted histogram 
+- Q4) barplot
+- Q5) scatterplot 
+- Q6) stacked barplots 
+- Q7) position = `dodge`
+- Q8) The distribution is skewed left and the mean is less than the median.
+- Q9) increase
+- Q10) stay the same 
+- Q11) Measure of Centrality/Center
+- Q12) Neither a measure of Centrality and Variability
+- Q13) Measure of Variability/Spread
+- Q14) arrange()
+- Q15) select()
+- Q16) group_by()
+- Q17) dplyr
+- Q18) geom_*()
+- Q19) +
+- Q20) some data %>% filter() %>% group_by() %>% summarize()
 
 ## Application 1
 
 ```{r}
 ggplot(survey, 
-       aes(x = num_followers, 
-           y = height_inches,
-           color = personality)) +
+       aes(x = followers_insta, 
+           y = followers_tiktok,
+           color = procrastinator)) +
   geom_point()
 ```
 
-No association
+Weak positive
 Should not be surprising (but as long as they defend opinion)
 
 ## Application 2
@@ -57,18 +85,24 @@ survey %>%
   arrange(mean)
 ```
 
-## Application 3
+
+## Application 2
 
 ```{r}
-ggplot(data = survey, aes(x=salary)) +
-  geom_histogram(bins = 18, color = "white")
+survey %>% 
+  mutate(height_feet = height_inches/12) %>% 
+  select(quarter, height_inches, height_feet)
 ```
+
+## Application 4
 
 ```{r}
-#any wrangling here will suffice so long as it works
+survey_party <- survey %>% 
+  filter(!is.na(smoke_weed), happy != "Don't know")
+
+ggplot(data = survey_party, aes(x=happy, fill = smoke_weed)) +
+  geom_bar(position = 'fill')
 ```
 
-- describe center in some way (if wrangling is not right can approximate based on picture instead)
-- describe spread in some way (if wrangling is not right can approximate based on picture instead)
-- right skewed
-- could defend unimodal or bimodal depending on graph
+
+- any explanation as long as it makes sense
