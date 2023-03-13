@@ -1,0 +1,516 @@
+---
+title: "Exam 2"
+tutorial:
+  id: "isds_exam2b"
+  version: 0.1
+  
+output:
+  learnr::tutorial:
+    progressive: false
+    allow_skip: true
+    css: ["css/nu-theme.css"]
+runtime: shiny_prerendered
+description: >
+  This proficiency exam covers Chapter 5 - Section 9.1.
+---
+
+```{r setup, include=FALSE}
+library(skimr)
+library(learnr)
+library(tidyverse)
+library(ISDStutorials)
+library(gradethis)
+
+knitr::opts_chunk$set(echo = FALSE)
+gradethis_setup()
+options(tutorial.event_recorder = ISDStutorials::isds_recorder)
+
+survey <- read_rds("data/survey.rds") %>%
+#survey <- survey %>% 
+  mutate(
+    followers_insta = ifelse(followers_insta == 0, NA,
+                           ifelse(followers_insta > 4000, NA,
+                                  followers_insta)),
+    followers_tiktok = ifelse(followers_tiktok == 0, NA,
+                           ifelse(followers_tiktok > 4000, NA,
+                                  followers_tiktok)),
+    height_inches = ifelse(height_inches < 42, NA,
+                           ifelse(height_inches > 84, NA,
+                                  height_inches)),
+    mother_height = ifelse(mother_height < 42, NA,
+                           ifelse(mother_height > 84, NA,
+                                  mother_height)),
+    father_height = ifelse(father_height < 42, NA,
+                           ifelse(father_height > 84, NA,
+                                  father_height)),
+    salary = ifelse(salary < 500000, salary, NA)
+    ) %>% 
+  select(quarter, gender_ident, school_year, num_party, fav_drink, personality, 
+          campus_housing, height_inches, mother_height, father_height, 
+         followers_insta, followers_tiktok,
+         exercise, athlete) %>% 
+  mutate(fav_drink = relevel(factor(fav_drink), ref = "beer")) 
+
+survey_m <- survey %>% 
+  filter(gender_ident == "Male")
+
+#model <- lm(num_party ~ fav_drink, data = survey_m)
+#summary(model)
+
+```
+
+
+
+```{r Name}
+# student name
+question_blank("Name: ___",
+                            answer_fn(function(value){
+                              if (length(value) >= 1 ) {
+                                return(mark_as(TRUE))
+                                }
+                              return(mark_as(FALSE) )
+                              }),
+          style = "notes",
+          correct = paste0(fontawesome::fa("check") ),
+          incorrect = paste0(fontawesome::fa("xmark") ),
+          allow_retry = FALSE )
+```
+
+
+## Instructions
+
+You have 50 minutes to complete this exam. The exam covers the material learned from Chapter 5 - Section 9.1. You are allowed one page of notes front and back.
+
+Once you are finished:
+
+-   Make sure your **name** is entered. If your name is not entered you cannot receive a grade.
+-   Make sure every question/exercise has been submitted/run.
+-   Click the 'pdf' button to save the document as a pdf, you must have the exam open in a browser window for this button to work.
+-   Submit the completed pdf to Canvas.
+
+
+## Concept (20 points)
+
+If one of your Concept answers does not submit manually enter the number followed by the answer (a, b, c, etc...) in this box.
+
+```{r Concept-help}
+question_text("", incorrect = "submitted",
+              answer("ManuallyGradedEverythingWrong", 
+                     correct = TRUE),
+              allow_retry = TRUE,
+              rows = 4)
+```
+
+```{r Q}
+#reading check 2
+quiz(
+  caption = NULL,
+  #Q1
+  question_dropdown(
+  "Q1) Consider the relationship between time spent running and distance traveled. <br>
+  Choose the option that best describes the correlation.",
+    answer("Exactly -1"),
+    answer("Between -1 and 0"),
+    answer("About 0"),
+    answer("Between 0 and 1", correct = TRUE),
+    answer("Exactly +1"),
+    answer("Not enough information"),
+    allow_retry = TRUE,
+    random_answer_order = FALSE,
+    style = "exam",
+    incorrect = "submitted"),
+  question_dropdown(
+    paste("Q2) Examine the graph below and then select the best estimate of the correlation. <br>", htmltools::img(src="images/cor_2.png", height = 300, width = 300)),
+    answer("-0.70"),
+    answer("-0.25"),
+    answer("0"),
+    answer("0.25", correct = TRUE),
+    answer("0.70"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  paste("Q3) Q3) You run a simple linear regression model to predict student SAT math scores based on the state's percentage of seniors/juniors taking the SAT (pct_taking). The model fitted value and residual for 5 states are shown below. <br>", htmltools::img(src="images/lm_sat_2.png", height = 150, width = 500), "<br> Did the model over- or under-estimate the mean SAT math score for OR (Oregon)?"),
+    answer("over-estimate"),
+    answer("under-estimate", correct = TRUE),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q4) Using the simple linear regression model output from Q3... <br> Which of the five states does the model estimate worst?",
+    answer("AZ"),
+    answer("IL"),
+    answer("MA"),
+    answer("OR"),
+    answer("SC", correct = TRUE),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q5) Consider the following model where age and marital status (single, married) are the explanatory/predictor variables to predict household income. The reference group for marital status is **single**. <br>
+  $\\widehat{income} = b_0 + b_1(age) + b_2(marital status) + b_3(age*marital status)$ <br><br>
+  What is the correct interpretation for $b_0$.",
+    answer("offset in intercept for single marital status"),
+    answer("offset in intercept for married marital status"),
+    answer("intercept for single marital status", correct = TRUE),
+    answer("intercept for married marital status"),
+    answer("offset in slope of age for single marital status"),
+    answer("offset in slope of age for married marital status"),
+    answer("slope of age for single marital status"),
+    answer("slope of age for married marital status"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = FALSE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q6) Consider the following model where age and marital status (single, married) are the explanatory/predictor variables to predict household income. The reference group for marital status is **single**. <br>
+  $\\widehat{income} = b_0 + b_1(age) + b_2(marital status) + b_3(age*marital status)$ <br><br>
+  What is the correct interpretation for $b_3$.",
+    answer("offset in intercept for single marital status"),
+    answer("offset in intercept for married marital status"),
+    answer("intercept for single marital status"),
+    answer("intercept for married marital status"),
+    answer("offset in slope of age for single marital status"),
+    answer("offset in slope of age for married marital status", correct = TRUE),
+    answer("slope of age for single marital status"),
+    answer("slope of age for married marital status"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = FALSE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  paste("Q7) You build a multiple regression model that predicts a professor's salary (salary) based on their years of service (years). You are curious if sex may also impact the professor's salary. The variable sex is an indicator variable where sex = 1 if the professor is Male and sex = 0 if the professor is female. The regression output equation is given below <br> <br>
+  $\\widehat{salary} = 82 +1.6(years) +21.4(sex) - 0.9(years)*(sex)$ 
+  <br> Which graph best matches the model? <br> <br>
+        a)", htmltools::img(src="images/reg_salary_1.png", height = 150, width = 200),
+        "&nbsp; b)", htmltools::img(src="images/reg_salary_2.png", height = 150, width = 200)," <br>
+        c)", htmltools::img(src="images/reg_salary_3.png", height = 150, width = 200),
+        " &nbsp; d)", htmltools::img(src="images/reg_salary_4.png", height = 150, width = 200) ),
+    answer("a"),
+    answer("b", correct = TRUE),
+    answer("c"),
+    answer("d"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = FALSE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q8) You want to evaluate whether in-person classes or on-line classes provide better learning outcomes for STAT 202.  Students choose if and when they take STAT 202. From the students that choose to take the class you randomly assign half of the students to the in-person class and half the students to the on-line class and compare the test scores in each section. What conclusions can we draw from this experiment?" ,
+    answer("causal conclusions generalized to the University"),
+    answer("no causal conclusions, correlation statement generalized to the University"),
+    answer("no causal conclusions, correlation statement only applicable to our sample"),
+    answer("causal conclusions only applicable to our sample", correct = TRUE),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q9) The Illinois State Board of Education is interested in student satisfaction in regards to their learning experience in rural towns. The Board does not have the time or resources to travel to every one of these towns, instead they randomly select 5 towns and suvery all the schools students to evaluate their satisfaction level. What type of sample is this?" ,
+    answer("cluster sampling"),
+    answer("simple random sample"),
+    answer("systematic sampling"),
+    answer("stratified sampling", correct = TRUE),
+    answer("none of these"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q10) To study job satisfaction of data scientists, a researcher obtained the email of all data scientists at the top 5 tech companies and emailed them a voluntary survey. The researcher computed an average job satisfaction level of 7 (on a scale of 1 to 10). <br>
+  What notation best describes the computed stress level of 7?
+  <br> <br>
+  a) $\\hat{\\pi}$ <br>
+  b) $s$ <br>
+  c) $\\mu$ <br>
+  d) $\\pi$ <br>
+  e) $\\bar{x}$" ,
+    answer("a"),
+    answer("b"),
+    answer("c"),
+    answer("d"),
+    answer("e", correct = TRUE),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = FALSE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q11) Based on Q10 above. <br>
+  The results can be generalized to..." ,
+    answer("all data scientists"),
+    answer("only our sample", correct = TRUE),
+    answer("all data scientists at the top 5 tech companies"),
+    answer("all people with a degree in data science"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q12) Suppose you want to study if adults who prefer to drink beer, wine, and water differ in terms of their mean weights. Data were collected from a random sample of World Campus students to address the research question above. The researchers found that adults who preferred beer tended to weigh more than those who preferred wine. Which one of the following interpretations is the most appropriate?",
+    answer("Adults who drink beer weigh more because they develop what is known as a beer belly."),
+    answer("More adults should drink wine because it causes you to weigh less."),
+    answer("Beer causes adults to weigh more because there were no confounding variables found in the dataset."),
+    answer("There could be a confounding variable such as gender, that explains the difference in weight between beer and wine drinkers.", correct = TRUE),
+    answer("You cannot draw any valid conclusions because the sample sizes are different between each group."),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q13) Consider the following sampling design. You are working on a hospital improvement team and want to understand the job satisfaction of nurses at hospitals in the Chicagoland area. There are 107 hospitals, you cannot possibly survey all of these hospitals so you randomly select 3 hospitals and survey all of the nurses in those hospitals. Is this a good sampling design?",
+    answer("Yes, since random sampling is used to select the 3 hospitals this is a good sampling design."),
+    answer("Yes, the stratums are likely heterogenous (mini representations of the population) meaning selecting 3 stratums is a good sampling design."),
+    answer("No, the groups are likely homogenous (within each hospital there is a shared characteristic impacting satisfaction level) and stratified sampling would be more appropriate.", correct = TRUE),
+    answer("No, while the stratums are heterogenous (mini representation of the population) we should do random sampling within each cluster to make a fair representation."),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_blank(
+  "<strong> Q14) (2 pts) The distribution of current gas prices in the United States is normally distributed with a mean of $3.60 and a standard deviation of $0.10. Based on the empirical rule, 95% of gas prices are currently between $___ and $___ . </strong>" ,
+    answer(c("3.40"), correct = TRUE),
+    answer(c("3.80"), correct = TRUE),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  paste("Q15) Which of the following will give you the area of the shaded region for a standard normal distribution? <br>", htmltools::img(src="images/normal_dist_2.png", height = 300, width = 400)) ,
+    answer("pnorm(q = -2.5)"),
+    answer("pnorm(q = -2.5, lower.tail = FALSE)", correct = TRUE),
+    answer("qnorm(p = -2.5, lower.tail = FALSE)"),
+    answer("qnorm(p = -2.5)"),
+    answer("1-pnorm(q = 2.5, lower.tail = FALSE)"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_blank(
+  "Q16) The number of hours spent on statistics homework a week follows a normal distribution with mean 4 hours and standard deviation of 0.5 hour. What would be the STAT (CV) corresponding to 5 hours? ___",
+    answer(c("2"), correct = TRUE),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  paste("Q17) The following output is from the survey_m dataset (a subset of the Stat 202 survey data to only include students who identify as male). A simple linear regression was run to predict num_party based on fav_drink. The variable `fav_drink` has 4 levels: {beer, don't_drink, hard_liquor, wine} <br>", htmltools::img(src="images/lm_model_survey_m.png", height = 300, width = 400),
+        "<br> What is the baseline/reference level?") ,
+    answer("beer", correct = TRUE),
+    answer("don't drink"),
+    answer("hard_liquor"),
+    answer("wine"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q18) Using the model summary output from Q17, male students with what `fav_drink` level are predicted to on average go to the least number of parties a month?" ,
+    answer("beer"),
+    answer("don't drink", correct = TRUE),
+    answer("hard_liquor"),
+    answer("wine"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "Q19) Using the model summary output from Q17, male students with what `fav_drink` level are predicted to on average go to the MOST number of parties a month?" ,
+    answer("beer"),
+    answer("don't drink"),
+    answer("hard_liquor", correct = TRUE),
+    answer("wine"),
+    allow_retry = TRUE,
+    style = "exam",
+    random_answer_order = TRUE,
+    incorrect = "submitted"
+  )
+  
+)
+
+```
+
+
+## Application (15 points)
+
+The following applications use the `survey` dataset which has been preloaded for you.
+
+This data has been pre-cleaned to remove any impossible observations. Missing values have **not** been removed and may need to be handled.
+
+<br>
+
+For each application **only output/print the requested information**. If you are outputting miscellaneous information there will be a deduction because it demonstrates a lack of understanding.
+
+<br>
+
+### Application 1 (9 points)
+
+**Part 1**
+
+Calculate the correlation between `followers_tiktok` and `followers_insta` using the `survey` dataset.
+
+```{r App1a, exercise=TRUE}
+
+```
+
+<br>
+
+**Part 2**
+
+Visualize the relationship of `followers_tiktok` by `followers_insta` and add the **line of best fit**.
+
+```{r App1b, exercise = TRUE}
+  
+```
+
+<br>
+
+**Part 3**
+
+Using the `survey` dataset, build a simple linear regression model that predicts `followers_tiktok` using `followers_insta`. Store the model as `model_followers` and print the `summary()`.
+
+```{r App1c, exercise = TRUE}
+
+```
+
+<br>
+
+**Part 4**
+
+Interpret the **slope** in the context of the problem.
+
+```{r App1d}
+question_text("", incorrect = "submitted",
+              answer("ManuallyGradedEverythingWrong", 
+                     correct = TRUE),
+              allow_retry = TRUE,
+              rows = 5)
+```
+
+
+**Part 5**
+
+Add the fitted values from your `model_followers` to the code below. 
+
+The code is started for you so that `NA` values are removed and only the relevant column is selected. All you have to do is add on a column for the fitted values. You can complete this even if you did not complete Part 3.
+
+```{r App1-setup}
+model_followers <- lm(followers_tiktok ~ followers_insta, data = survey)
+```
+
+```{r App1e, exercise = TRUE, exercise.setup = "App1-setup"}
+survey %>% 
+  filter(!is.na(followers_tiktok), !is.na(followers_insta)) %>% 
+  select(followers_tiktok)
+```
+
+
+### Application 2 (4 points)
+
+**Part 1**
+
+Using our `survey` dataset, build a **parrallel slopes** multiple regression model to predict `height_inches` based on `father_height` and `gender_ident`. 
+
+Output the model `summary()` results. 
+
+The variable `gender_ident` has 2 levels: {Male, Female}
+
+The category `Other` was excluded as there were too few observations making those student's responses identifiable.
+
+```{r App2, exercise = TRUE}
+
+```
+
+<br>
+
+**Part 2**
+
+Suppose a student's father is 68 inches tall (`father_height` = 68) and the student identifies as Male (`gender_ident` = `Male`). How tall do we predict this student to be?
+
+Can use the code chunk below as a calculator to output your prediction (the multiplication symbol is *).
+
+```{r App2b, exercise = TRUE}
+
+```
+
+
+### Application 3 (2 points)
+
+Suppose the number of minutes that a student athlete exercises each week follows a normal distribution with mean 500 and sd 100. The top 10% of athletes exercise more than how many minutes?
+
+Output your result using the code chunk.
+
+```{r App3, exercise = TRUE}
+
+```
+
+
+## survey Data
+
+You are welcome to open the dataset in RStudio Cloud as well if the information provided below is not sufficient for you.
+
+Variables:
+ 
+- `quarter` -- Identifies in which quarter the student took stat 202 (fall 2022, summer 2022, spring 2022, winter 2022, fall 2021)
+- `gender_ident` -- "Which gender do you identify as (Male, Female). "Other" was removed to protect against the possibility of having their responses identified by other students."
+- `school_year` -- "What year are you in school? (First year, Sophomore, Junior, Senior, Other)"
+- `num_party` -- "On average (approx.) how many parties a month do you attend?"
+- `fav_drink` -- "What is your alcoholic drink of choice? (beer, don't drink, hard_liquor, wine)"
+- `personality` -- "Are you more of an introvert or extrovert? (Introvert, Extrovert)"
+- `campus_housing` -- "Where do you live on campus? (North campus, South campus, Neither)"
+- `height_inches` -- "How tall are you? (in inches)"
+- `father_height` -- "How tall is your birth father? (in inches)"
+- `mother_height` -- "How tall is your birth mother? (in inches)"
+- `followers_insta` -- "How many followers do you have on Instagram? (approx)?"
+- `followers_tiktok` -- "How many followers do you have on TikTok? (approx)?"
+- `exercise` -- "Approximately, how many minutes do you spend exercising per week?"
+- `athlete` -- "Are you a student athlete? (No, Yes)"
+
+
+```{r}
+glimpse(survey)
+```
+
+```{r}
+skim(survey)
+```
+
+
+## Submit
+
+Once you are finished:
+
+-   **No "check mark" next to your name = 0 grade**
+-   Click the 'full reading check' button below. This will download a pdf document of your exam.
+-   Make sure all your answers are visible!
+-   Submit the downloaded pdf to Canvas.
+
+- **Important**: If at any time you were kicked out of the exam you will need to click/scroll back through each section so that it appears in your printed document.
+
+
+```{r}
+bootstrapPage(
+     div(style="display:inline-block",
+         print_ui("Print", label = "full reading check") ),
+     div(style="display:inline-block", 
+         p("then upload to Canvas.") ) 
+     )
+```

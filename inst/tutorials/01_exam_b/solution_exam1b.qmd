@@ -1,0 +1,74 @@
+---
+title: "Solution Exam 1"
+format: 
+  html:
+    self-contained: true
+
+execute:
+  message: false
+  warning: false
+---
+
+# Exam 1 Sec 21
+
+```{r}
+library(tidyverse)
+survey <- read_rds("data/survey.rds")
+```
+
+## Concept
+
+- Q1) b TRUE 
+- Q2) d variables 
+- Q3) a faceted histogram 
+- Q4a) b scatterplot 
+- Q4b) e stacked barplots 
+- Q5) a 
+- Q6a) b decrease 
+- Q6b) c stay the same 
+- Q7a) d neither A nor B 
+- Q7b) a meansure of center 
+- Q7c) b measure of variation 
+- Q8a) c mutate 
+- Q8b) e filter 
+- Q8c) g summarize 
+- Q9) a
+
+## Application 1
+
+```{r}
+ggplot(survey, 
+       aes(x = num_followers, 
+           y = height_inches,
+           color = personality)) +
+  geom_point()
+```
+
+No association
+Should not be surprising (but as long as they defend opinion)
+
+## Application 2
+
+```{r}
+survey %>% 
+  filter(school_year != "First year") %>% 
+  group_by(campus_housing) %>% 
+  summarize(mean = mean(num_party, na.rm= TRUE)) %>% 
+  arrange(mean)
+```
+
+## Application 3
+
+```{r}
+ggplot(data = survey, aes(x=salary)) +
+  geom_histogram(bins = 18, color = "white")
+```
+
+```{r}
+#any wrangling here will suffice so long as it works
+```
+
+- describe center in some way (if wrangling is not right can approximate based on picture instead)
+- describe spread in some way (if wrangling is not right can approximate based on picture instead)
+- right skewed
+- could defend unimodal or bimodal depending on graph

@@ -1,0 +1,127 @@
+---
+title: "Solution Exam 2"
+format: 
+  html:
+    self-contained: true
+
+execute:
+  message: false
+  warning: false
+---
+
+# Exam 2 Version A
+
+```{r}
+library(tidyverse)
+
+survey <- read_rds("data/survey.rds") %>%
+#survey <- survey %>% 
+  select(quarter, gender_ident, school_year, num_party, fav_drink, personality, 
+          campus_housing, height_inches, mother_height, father_height, 
+         exercise, athlete) %>% 
+  mutate(
+    height_inches = ifelse(height_inches < 42, NA,
+                           ifelse(height_inches > 84, NA,
+                                  height_inches)),
+    mother_height = ifelse(mother_height < 42, NA,
+                           ifelse(mother_height > 84, NA,
+                                  mother_height)),
+    father_height = ifelse(father_height < 42, NA,
+                           ifelse(father_height > 84, NA,
+                                  father_height))#,
+    #salary = ifelse(salary < 500000, salary, NA)
+    ) %>% 
+  mutate(fav_drink = relevel(fav_drink, ref = "wine"))
+
+survey_f <- survey %>% 
+  filter(gender_ident == "Female")
+```
+
+## Concept
+
+- Q1) About 0
+- Q2) 0.30
+- Q3) over-estimate
+- Q4) CA
+- Q5) intercept for males
+- Q6) offset in slope of age for females
+- Q7) a)
+- Q8) no causal conclusions, correlation statement generalized to the University
+- Q9) stratified sampling
+- Q10) a) $\\bar{x}$
+- Q11) only our sample
+- Q12) There could be a confounding variable such as student major, that explains the difference in mean salary between the internship and no internship groups
+- Q13) No, while the stratums are homogenous (within each stratum people share a characteristic) the upper class is being overrepresented in the sample because a small percent of the true population belongs to the upper class.
+- Q14) 30 and 36
+- Q15) pnorm(q = 1.25, lower.tail = FALSE)
+- Q16) -0.5
+- Q17) wine
+- Q18) don't drink
+- Q19) beer
+
+## Application 1
+
+**Part 1**
+```{r}
+survey_f %>% 
+  filter(!is.na(height_inches), !is.na(mother_height)) %>% 
+  select(height_inches, mother_height) %>% 
+  cor()
+```
+MANY ways to solve this.
+Should have **cor =   0.603**
+
+-1 cor should not be NA
+-1 wrong cor
+
+**Part 2**
+
+```{r}
+ggplot(survey_f, aes(x = mother_height, y = height_inches)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+
+**Part 3**
+```{r}
+model_height <- lm(height_inches ~ mother_height, data = survey_f)
+summary(model_height)
+```
+
+**Part 4**
+
+For every 1 inch increase in mother height, the EXPECTED/PREDICTED height of the female child increases by X.
+
+
+**Part 5**
+
+```{r}
+survey_f %>% 
+  filter(!is.na(height_inches), !is.na(mother_height)) %>% 
+  select(height_inches) %>% 
+  mutate(residuals = residuals(model_height))
+```
+
+
+## Application 2
+
+```{r}
+model2 <- lm(exercise ~ num_party*athlete, data = survey_f)
+
+summary(model2)
+```
+
+**Part 2**
+
+```{r}
+411.95 + 220.41*2 +96.18*1 -242.38*2*1
+```
+
+## Application 3
+
+```{r}
+pnorm(650, mean = 500, sd = 100) - pnorm(350, mean = 500, sd = 100)
+```
+
+
