@@ -132,7 +132,7 @@ quiz(
     incorrect = "submitted"
   ),
   question_dropdown(
-  paste("Q3) Q3) You run a simple linear regression model to predict student SAT math scores based on the state's percentage of seniors/juniors taking the SAT (pct_taking). The model fitted value and residual for 5 states are shown below. <br>", htmltools::img(src="images/lm_sat_2.png", height = 150, width = 500), "<br> Did the model over- or under-estimate the mean SAT math score for OR (Oregon)?"),
+  paste("Q3) You run a simple linear regression model to predict student SAT math scores based on the state's percentage of seniors/juniors taking the SAT (pct_taking). The model fitted value and residual for 5 states are shown below. <br>", htmltools::img(src="images/lm_sat_2.png", height = 150, width = 500), "<br> Did the model over- or under-estimate the mean SAT math score for OR (Oregon)?"),
     answer("over-estimate"),
     answer("under-estimate", correct = TRUE),
     allow_retry = TRUE,
