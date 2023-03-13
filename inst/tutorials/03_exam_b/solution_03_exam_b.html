@@ -2598,6 +2598,7 @@ vertical-align: -.125em;
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Solution Exam 3</h1>
+<p class="subtitle lead">Version B</p>
 </div>
 
 
@@ -2614,115 +2615,113 @@ vertical-align: -.125em;
 <section id="exam-3" class="level1">
 <h1>Exam 3</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>survey <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">&quot;data/survey.rds&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
 <section id="concept" class="level2">
 <h2 class="anchored" data-anchor-id="concept">Concept</h2>
 <ul>
-<li>Q1a) C</li>
-<li>Q1b) D<br>
+<li>Q1) Plot b</li>
+<li>Q2) Plot c<br>
 </li>
-<li>Q1c) A</li>
-<li>Q1d) B</li>
-<li>Q2) the average of 50 customer’s meal price</li>
-<li>Q3) the average number of exclusive relationships that college students have been in is between 2.7 and 3.7</li>
-<li>Q4) There is a 2% chance our interval does not contain the population parameter</li>
-<li>Q5) increase the sample size</li>
-<li>Q6) a p-value is the probability of observing an estimate as extreme as our sample estimate if the null hypothesis is true</li>
-<li>Q7) p-value for a hypothesis test becomes larger</li>
-<li>Q8) We expect 9 students to decide that there is a non-zero difference</li>
-<li>Q9) the person is told they have cancer and the truth is they do not have cancer</li>
+<li>Q3) Plot a</li>
+<li>Q4) the average number of times that a college student checks their phone is between 85 and 135 times per day</li>
+<li>Q5) There is a 6% chance our interval does not contain the population parameter</li>
+<li>Q6) increase the standard error</li>
+<li>Q7) standard error becomes larger</li>
+<li>Q8) We expect 90 students to decide that there is no difference</li>
+<li>Q9) the person is told they have diabetes and the truth is they do not have diabetes</li>
 <li>Q10) the decision depends on the significance level they set before conducting the experiment</li>
-<li>Q11) FALSE</li>
-<li>Q12) TRUE</li>
+<li>Q11) TRUE</li>
+<li>Q12) FALSE</li>
 <li>Q13) FALSE</li>
-<li>Q14) FALSE</li>
+<li>Q14) TRUE</li>
 <li>Q15) FALSE</li>
-<li>Q16) c</li>
-<li>Q17) Fail to reject the null, the teacher is correct that at least 90% of students studied.</li>
+<li>Q16) FALSE</li>
+<li>Q17) c</li>
+<li>Q18) Reject the null, there is statistically significant evidence that star wars is better than lord of the rings.</li>
 </ul>
 </section>
 <section id="application-1" class="level2">
 <h2 class="anchored" data-anchor-id="application-1">Application 1</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> survey<span class="sc">$</span>gpa_nu, <span class="at">conf.level =</span> <span class="fl">0.9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> survey<span class="sc">$</span>exercise, <span class="at">conf.level =</span> <span class="fl">0.99</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
 
-data:  survey$gpa_nu
-t = 171.65, df = 211, p-value &lt; 2.2e-16
+data:  survey$exercise
+t = 14.182, df = 293, p-value &lt; 2.2e-16
 alternative hypothesis: true mean is not equal to 0
-90 percent confidence interval:
- 3.659582 3.730710
+99 percent confidence interval:
+ 202.4946 293.0972
 sample estimates:
 mean of x 
- 3.695146 </code></pre>
+ 247.7959 </code></pre>
 </div>
 </div>
-<p>We are 90% confident that the average gpa for <strong>students who take STAT 202</strong> at NU is between xx and xx.</p>
+<p>We are 99% confident that the average weekly minutes of exercise for <strong>students who take STAT 202</strong> at NU is between xx and xx.</p>
 </section>
 <section id="application-2" class="level2">
 <h2 class="anchored" data-anchor-id="application-2">Application 2</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(happy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(school_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 2
-  happy             n
-  &lt;chr&gt;         &lt;int&gt;
-1 Don&#39;t know       58
-2 Not too happy    80
-3 Pretty happy    436
-4 Very happy      108</code></pre>
+<pre><code># A tibble: 5 × 2
+  school_year     n
+  &lt;chr&gt;       &lt;int&gt;
+1 First year    370
+2 Junior         68
+3 Other           5
+4 Senior         31
+5 Sophomore     208</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x =</span> <span class="dv">80</span>, <span class="at">n =</span> <span class="dv">682</span>, <span class="at">conf.level =</span> <span class="fl">0.98</span>, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x =</span> <span class="dv">370</span>, <span class="at">n =</span> <span class="dv">677</span>, <span class="at">conf.level =</span> <span class="fl">0.90</span>, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     1-sample proportions test without continuity correction
 
-data:  80 out of 682, null probability 0.5
-X-squared = 399.54, df = 1, p-value &lt; 2.2e-16
+data:  370 out of 677, null probability 0.5
+X-squared = 5.8626, df = 1, p-value = 0.01547
 alternative hypothesis: true p is not equal to 0.5
-98 percent confidence interval:
- 0.0916052 0.1490248
+90 percent confidence interval:
+ 0.5149345 0.5777527
 sample estimates:
         p 
-0.1173021 </code></pre>
+0.5465288 </code></pre>
 </div>
 </div>
-<p>We are 98% confident that the proportion of <strong>students who take STAT 202</strong> at NU that are very happy is between xx and xx.</p>
+<p>We are 90% confident that the proportion of <strong>students who take STAT 202</strong> at NU that are First years is between xx and xx.</p>
 </section>
 <section id="application-3" class="level2">
 <h2 class="anchored" data-anchor-id="application-3">Application 3</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>extrovert <span class="ot">&lt;-</span> survey <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(personality <span class="sc">==</span> <span class="st">&quot;Extrovert&quot;</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>introvert <span class="ot">&lt;-</span> survey <span class="sc">%&gt;%</span> </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(personality <span class="sc">==</span> <span class="st">&quot;Introvert&quot;</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> extrovert<span class="sc">$</span>followers_insta, <span class="at">y =</span> introvert<span class="sc">$</span>followers_insta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>happy <span class="ot">&lt;-</span> survey <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(happy <span class="sc">==</span> <span class="st">&quot;Very happy&quot;</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>sad <span class="ot">&lt;-</span> survey <span class="sc">%&gt;%</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(happy <span class="sc">==</span> <span class="st">&quot;Not too happy&quot;</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> happy<span class="sc">$</span>followers_insta, <span class="at">y =</span> sad<span class="sc">$</span>followers_insta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
 
-data:  extrovert$followers_insta and introvert$followers_insta
-t = 5.8061, df = 307.23, p-value = 1.594e-08
+data:  happy$followers_insta and sad$followers_insta
+t = 3.4402, df = 68.956, p-value = 0.000991
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- 297.7863 603.1034
+ 188.9847 710.7346
 sample estimates:
 mean of x mean of y 
-1312.6414  862.1965 </code></pre>
+1307.8056  857.9459 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#might have added on conf.level = 0.99</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if did not add conf.level that is okay</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#if added on any conf.level that is NOT 0.99 error! Deduct!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#might have added on conf.level = 0.97</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if did not add conf.level that is okay</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#if added on any conf.level that is NOT 0.97 error! Deduct!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Sample interpretation:</p>
-<p>Assuming the <strong>average number of Instagram followers is the same</strong> between extroverts and introverts for <strong>students who take STAT 202</strong> at NU, there is a xx% chance of seeing data as extreme as ours. At the alpha = 0.01 significance level, we <strong>reject the null hypothesis</strong>. There is a difference between average number of followers and since our sample estimate of extroverts is higher than introverts, <strong>extroverts have more followers</strong>.</p>
+<p>Assuming the <strong>average number of Instagram followers is the same</strong> between Very happy and Not too happy <strong>students who take STAT 202</strong> at NU, there is a xx% chance of seeing data as extreme as ours. At the alpha = 0.03 significance level, we <strong>reject the null hypothesis</strong>. There is a difference between average number of followers and since our sample estimate of extroverts is higher than introverts, this implies that <strong>Very happy students have more followers</strong>.</p>
 </section>
 </section>
 
