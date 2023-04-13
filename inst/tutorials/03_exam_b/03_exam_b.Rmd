@@ -5,10 +5,9 @@ tutorial:
   version: 0.1
   
 output:
-  learnr::tutorial:
+  ISDSfunctions::tutorial:
     progressive: false
     allow_skip: true
-    css: ["css/nu-theme.css"]
 runtime: shiny_prerendered
 description: >
   This proficiency exam covers Chapter 9.2 - Chapter 12.
@@ -129,7 +128,7 @@ quiz(
     answer("There is a 6% chance our interval does not contain the population parameter", correct = TRUE),
     answer("Exactly 42% of Northwestern students eat breakfast each day."),
     answer("The margin of error of our interval is 6%."),
-    answer("There is a 94% chance that $\\pi$ is between 0.365 and 0.475."),
+    answer("There is a 94% chance that pi (population) is between 0.365 and 0.475."),
     allow_retry = TRUE,
     style = "exam",
     random_answer_order = TRUE,
@@ -138,8 +137,8 @@ quiz(
   question_dropdown(
   "Q6) When working with the sampling distribution of a sample statistic, which of the choices would *decrease* the margin of error?",
     answer("there is no way to change the margin of error"),
-    answer("increase the standard error", correct = TRUE),
-    answer("decrease the confidence level (ex: 95% to 90%)"),
+    answer("increase the standard error"),
+    answer("decrease the confidence level (ex: 95% to 90%)", correct = TRUE),
     answer("decrease the sample size"),
     allow_retry = TRUE,
     style = "exam",
@@ -149,8 +148,8 @@ quiz(
   question_dropdown(
   "Q7) Which one of the statements below is TRUE when we increase the sample size from 100 to 800? Assume a two-tailed hypothesis test for the mean and no other alterations.",
     answer("corresponding test statistic becomes smaller (less extreme/closer to 0)"),
-    answer("standard error becomes larger", correct = TRUE),
-    answer("p-value for a hypothesis test becomes smaller"),
+    answer("standard error becomes larger"),
+    answer("p-value for a hypothesis test becomes smaller", correct = TRUE),
     answer("95% confidence interval becomes wider"),
     allow_retry = TRUE,
     style = "exam",
@@ -177,8 +176,8 @@ quiz(
   question_dropdown(
   "Q9) Suppose we want to perform a hypothesis test for diabetes. What is the person told and what is the truth for a Type II error?" ,
     answer("the person is told they do not have diabetes and the truth is they do not have diabetes"),
-    answer("the person is told they have diabetes and the truth is they do not have diabetes", correct = TRUE),
-    answer("the person is told they do not have diabetes and the truth is they have diabetes"),
+    answer("the person is told they have diabetes and the truth is they do not have diabetes"),
+    answer("the person is told they do not have diabetes and the truth is they have diabetes", correct = TRUE),
     answer("the person is told they have diabetes and the truth is they have diabetes"),
     answer("not enough information provided"),
     allow_retry = TRUE,

@@ -50,10 +50,10 @@ survey <- read_rds("data/survey.rds") %>%
 - Q3) Plot a
 - Q4) the average number of times that a college student checks their phone is between 85 and 135 times per day
 - Q5) There is a 6% chance our interval does not contain the population parameter
-- Q6) increase the standard error
-- Q7) standard error becomes larger
+- Q6) decrease the confidence level (ex: 95% to 90%)
+- Q7) p-value for a hypothesis test becomes smaller
 - Q8) We expect 90 students to decide that there is no difference
-- Q9) the person is told they have diabetes and the truth is they do not have diabetes
+- Q9) the person is told they do not have diabetes and the truth is they have diabetes
 - Q10) the decision depends on the significance level they set before conducting the experiment
 - Q11) TRUE
 - Q12) FALSE
@@ -61,7 +61,7 @@ survey <- read_rds("data/survey.rds") %>%
 - Q14) TRUE
 - Q15) FALSE
 - Q16) FALSE
-- Q17) c
+- Q17) b
 - Q18) Reject the null, there is statistically significant evidence that star wars is better than lord of the rings.
 
 ## Application 1

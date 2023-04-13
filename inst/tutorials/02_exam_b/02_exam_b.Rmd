@@ -228,7 +228,7 @@ quiz(
   ),
   question_dropdown(
   "Q10) To study job satisfaction of data scientists, a researcher obtained the email of all data scientists at the top 5 tech companies and emailed them a voluntary survey. The researcher computed an average job satisfaction level of 7 (on a scale of 1 to 10). <br>
-  What notation best describes the computed stress level of 7?
+  What notation best describes the computed job satisfaction level of 7?
   <br> <br>
   a) $\\hat{\\pi}$ <br>
   b) $s$ <br>
