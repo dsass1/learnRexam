@@ -57,20 +57,9 @@ survey <- read_rds("data/survey.rds") %>%
 ```{r, context = "server"}
 lock_server("lock", 
             ex = c("App1", "App2", "App3", "App4"), ex_pts = c(4, 4, 2, 3),
-            manual = c("App1-desc", "App4-desc"), manual_pts = c(1, 1))
+            manual = c("App1-desc", "App4-desc"), manual_pts = c(1, 1),
+            exclude = "Name")
 #reset_server("reset")
-```
-
-```{r Name2}
-# student name
-question_blank("Name: ___",
-              answer_fn(function(value){
-                              if(length(value) >= 1 ) {
-                                return(mark_as(TRUE))
-                                }
-                              return(mark_as(FALSE) )
-                              }),
-              allow_retry = FALSE )
 ```
 
 
