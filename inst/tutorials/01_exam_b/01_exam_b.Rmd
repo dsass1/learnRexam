@@ -2,7 +2,7 @@
 title: "Exam 1"
 tutorial:
   id: "isds_exam1b"
-  version: 0.2
+  version: 0.1
   
 output:
   ISDSfunctions::tutorial:
@@ -61,7 +61,7 @@ lock_server("lock",
 #reset_server("reset")
 ```
 
-```{r Name}
+```{r Name2}
 # student name
 question_blank("Name: ___",
               answer_fn(function(value){
@@ -71,6 +71,20 @@ question_blank("Name: ___",
                               return(mark_as(FALSE) )
                               }),
               correct = "Submitted",
+              incorrect = "Submitted",
+              allow_retry = FALSE )
+```
+
+
+```{r Name}
+# student name
+question_text("Name:",
+              answer_fn(function(value){
+                              if(length(value) >= 1 ) {
+                                return(mark_as(TRUE))
+                                }
+                              return(mark_as(FALSE) )
+                              }),
               incorrect = "Submitted",
               allow_retry = FALSE )
 ```
@@ -91,7 +105,6 @@ Once you are finished:
 ## Concept (20 points)
 
 ```{r Q}
-#reading check 2
 exam(
   shuffle = TRUE,
   caption = NULL,
@@ -191,7 +204,7 @@ exam(
   ),
   question_wordbank(
   "Which function/verb is a...",
-    choices = c("package used for data wrangling", "layer you add that controls they type of plot", "operator that adds layers to a plot"),
+    choices = c("package used for data wrangling", "layer you add that controls the type of plot", "operator that adds layers to a plot"),
     wordbank = c("%>%", "aes()", "+", "%<%", "ggplot()", "geom_*()", "dplyr", "//", "ggplot2", "moderndive"),
     answer(c("dplyr", "geom_*()", "+"), correct = TRUE),
     allow_retry = TRUE,
