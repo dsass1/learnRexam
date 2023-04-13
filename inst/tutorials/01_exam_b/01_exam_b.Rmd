@@ -70,8 +70,6 @@ question_blank("Name: ___",
                                 }
                               return(mark_as(FALSE) )
                               }),
-              correct = "Submitted",
-              incorrect = "Submitted",
               allow_retry = FALSE )
 ```
 
