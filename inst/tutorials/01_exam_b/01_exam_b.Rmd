@@ -92,8 +92,8 @@ Once you are finished:
 ## Concept (20 points)
 
 ```{r Q}
-exam(
-  shuffle = TRUE,
+quiz(
+  #shuffle = TRUE,
   caption = NULL,
   #Q1
   question_dropdown(
