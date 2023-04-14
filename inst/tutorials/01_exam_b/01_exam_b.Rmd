@@ -384,9 +384,10 @@ skim(survey)
 Once you are finished:
 
 -   **No Name = 0 grade**
+-   Make sure you **submitted** the Application sections
 -   Click the 'lock' button below. Once you click this you will not be able to make any changes to your exam!
--   Once the lock is pressed a `print` option will become available
--   Click print and submit the downloaded html to Canvas.
+-   Once the exam is locked you will be able to click on the 'download exam' button.
+-   Submit the completed html to Canvas.
 
 ```{r}
 lock_button_ui(id = "lock")
