@@ -70,7 +70,8 @@ survey_m <- survey %>%
 lock_server("lock", 
             ex = c("App1a", "App1b", "App1c", "App1e",
                    "App2a", "App2b"), ex_pts = c(2, 2, 2, 2, 2, 2),
-            manual = c("App1-desc", "App2-desc"), manual_pts = c(2, 2))
+            manual = c("App1-desc", "App2-desc"), manual_pts = c(2, 2),
+            exclude = "Name")
 #reset_server("reset")
 ```
 
