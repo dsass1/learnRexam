@@ -1,0 +1,13 @@
+name: 01_exam_b
+title: 01_exam_b
+username:
+account: amkuyper
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8852656
+bundleId: 7089850
+url: https://amkuyper.shinyapps.io/01_exam_b/
+when: 1681481423.65821
+lastSyncTime: 1681481423.65822
+asMultiple: FALSE
+asStatic: FALSE
