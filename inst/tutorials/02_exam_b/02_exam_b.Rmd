@@ -392,12 +392,13 @@ survey %>%
   cor(use = "complete.obs")
 ```
 
-```{r App1a-code-check}
+```{r App1a-check}
 grade_this_code(
   correct = "Submitted",
   incorrect = "Submitted"
 )
 ```
+
 <br>
 
 **Part 2**
@@ -415,7 +416,7 @@ ggplot(survey, aes(followers_insta, followers_tiktok)) +
   geom_smooth(method = "lm", se = FALSE)
 ```
 
-```{r App1b-code-check}
+```{r App1b-check}
 grade_this_code(
   correct = "Submitted",
   incorrect = "Submitted"
@@ -438,7 +439,7 @@ model_followers <- lm(followers_tiktok ~ followers_insta, data = survey)
 summary(model_followers)
 ```
 
-```{r App1c-code-check}
+```{r App1c-check}
 grade_this_code(
   correct = "Submitted",
   incorrect = "Submitted"
@@ -483,7 +484,7 @@ survey %>%
   mutate(fitted = fitted(model_followers))
 ```
 
-```{r App1e-code-check}
+```{r App1e-check}
 grade_this_code(
   correct = "Submitted",
   incorrect = "Submitted"
@@ -511,7 +512,7 @@ model_ex <- lm(exercise ~ num_party * athlete, data = survey)
 summary(model_ex)
 ```
 
-```{r App2a-code-check}
+```{r App2a-check}
 grade_this_code(
   correct = "Submitted",
   incorrect = "Submitted"
@@ -534,7 +535,7 @@ Use the code chunk below as a calculator to output your prediction (the multipli
 470.02 + 47.68*2 + 79.26 - 39.40*2
 ```
 
-```{r App2b-code-check}
+```{r App2b-check}
 grade_this_code(
   correct = "Submitted",
   incorrect = "Submitted"

@@ -234,7 +234,7 @@ ggplot(survey, aes(x = followers_insta, y = followers_tiktok, color = procrastin
   geom_point()
 ```
 
-```{r App1-code-check}
+```{r App1-check}
 grade_this_code(
   correct = "Submitted",
   incorrect = "Submitted"
@@ -276,7 +276,7 @@ survey %>%
   arrange(mean)
 ```
 
-```{r App2-code-check}
+```{r App2-check}
 grade_this_code(
   correct = "Submitted",
   incorrect = "Submitted"
@@ -302,7 +302,7 @@ survey %>%
   select(quarter, height_inches, height_feet)
 ```
 
-```{r App3-code-check}
+```{r App3-check}
 grade_this_code(
   correct = "Submitted",
   incorrect = "Submitted"
@@ -335,7 +335,7 @@ ggplot(survey_party, aes(x = happy, fill = smoke_weed)) +
   geom_bar(position = "fill")
 ```
 
-```{r App4-code-check}
+```{r App4-check}
 grade_this_code(
   correct = "Submitted",
   incorrect = "Submitted"
