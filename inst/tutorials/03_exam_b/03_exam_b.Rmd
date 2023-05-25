@@ -96,9 +96,10 @@ You have 50 minutes to complete this exam. The exam covers the material learned 
 
 Once you are finished:
 
--   Make sure every question/exercise has been submitted.
--   Click the 'pdf' button to save the document as a pdf, you must have the exam open in a browser window for this button to work.
--   Submit the completed pdf to Canvas.
+-   View Submissions to make sure every question/exercise has been submitted.
+-  Click the 'lock exam' button. You will not be able to make any changes once this is clicked. 
+-   Once the exam is locked you will be able to click on the 'download exam' button.
+-   Submit the completed html to Canvas.
 
 
 ## Concept (20 points)
