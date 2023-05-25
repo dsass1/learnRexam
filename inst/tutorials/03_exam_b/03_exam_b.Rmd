@@ -190,17 +190,33 @@ quiz(
   $$H_0: \\mu_{seniors} - \\mu_{first-years} = 0$$
   $$H_A: \\mu_{seniors} - \\mu_{first-years} \\ne 0$$ 
   with significance level of 0.10. <br>
-  As a class we perform repeated sampling where each of the 100 students in the class takes one random sample of 30 seniors and 50 first years to test the hypothesis. <br>
+  As a class we perform repeated sampling where each of the 90 students in the class takes one random sample of 30 seniors and 70 first years to test the hypothesis. <br>
   The registrar tells us the true difference in means is 0." ,
-    answer("We expect 80 students to decide that there is NO difference"),
-    answer("We expect 8 students to decide that there is a NON-ZERO difference"),
-    answer("We expect 10 students to decide that there is NO difference"),
-    answer("We expect 90 students to decide that there is NO difference", correct = TRUE),
-    answer("We cannot have any valid conclusions because the sample sizes of seniors and first years was unequal."),
+    answer("We expect 30 students to decide that there is no difference"),
+    answer("We expect 9 students to decide that there is a non-zero difference", correct = TRUE),
+    answer("We expect 70 students to decide that there is a non-zero difference"),
+    answer("We expect 90 students to decide that there is no difference"),
+  answer("We cannot have any valid conclusions because the sample sizes of seniors and first years was unequal."),
     allow_retry = TRUE,
     random_answer_order = TRUE,
     incorrect = "submitted"
   ),
+  # question_dropdown(
+  # "Q8) We are trying to determine if the mean GPA for seniors and the mean GPA for first-year students is the same. We construct the following hypothesis test:
+  # $$H_0: \\mu_{seniors} - \\mu_{first-years} = 0$$
+  # $$H_A: \\mu_{seniors} - \\mu_{first-years} \\ne 0$$ 
+  # with significance level of 0.10. <br>
+  # As a class we perform repeated sampling where each of the 100 students in the class takes one random sample of 30 seniors and 50 first years to test the hypothesis. <br>
+  # The registrar tells us the true difference in means is 0." ,
+  #   answer("We expect 80 students to decide that there is NO difference"),
+  #   answer("We expect 8 students to decide that there is a NON-ZERO difference"),
+  #   answer("We expect 10 students to decide that there is NO difference"),
+  #   answer("We expect 90 students to decide that there is NO difference", correct = TRUE),
+  #   answer("We cannot have any valid conclusions because the sample sizes of seniors and first years was unequal."),
+  #   allow_retry = TRUE,
+  #   random_answer_order = TRUE,
+  #   incorrect = "submitted"
+  # ),
   question_dropdown(
   "Q9) Suppose we want to perform a hypothesis test for diabetes. What is the person told and what is the truth for a Type II error?" ,
     answer("the person is told they do not have diabetes and the truth is they do not have diabetes"),
@@ -348,7 +364,7 @@ grade_this_code(
 
 Suppose we are interested in examining the difference in proportion of students who take STAT 202 at NU that are `Extrovert` who go to "5+" parties a month and `Introvert` who go to "5+" parties a month.
 
-In other words, use the `personality` and `party_bin` variables in the `survey` data to **construct a 90% confidence interval** for the difference in proportion of `Extrovert` s who attend `5+` parties and `Introvert` s who attend `5+` parties. 
+In other words, use the `personality` and `party_bin` variables in the `survey` data to **construct a 90% confidence interval** for the difference in proportion of `Extrovert` s who attend `"5+"` parties and `Introvert` s who attend `"5+"` parties. 
 
 ```{r App2, exercise=TRUE}
 
@@ -371,7 +387,7 @@ grade_this_code(
 ```
 <br>
 
-Interpret the **confidence interval** in the context of the problem. Then use the confidence interval to answer if there is a difference in proportions, if so, do extroverts or introverts attend more parties?
+Interpret the **confidence interval** in the context of the problem. Then use the confidence interval to answer: is there a difference in proportions, if so, do extroverts or introverts attend more parties?
 
 ```{r App2-desc}
 question_text("", incorrect = "submitted",
