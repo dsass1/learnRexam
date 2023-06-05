@@ -54,7 +54,7 @@ survey <- read_rds("data/survey.rds")
 #     ) %>%
 #   select(quarter, gender_ident, school_year, num_party, personality,
 #           height_inches, happy, campus_housing, smoke_weed,
-#          followers_insta, followers_tiktok, salary, instagram, tiktok)
+#          followers_insta, followers_tiktok, salary)
 # write_rds(survey, file = "survey.rds")
   
 ```
@@ -363,7 +363,7 @@ Variables:
 - `gender_ident` -- "Which gender do you identify as (Male, Female). "Other" was removed to protect against the possibility of having their responses identified by other students.""
 - `school_year` -- "What year are you in school? (First year, Sophomore, Junior, Senior, Other)"
 - `num_party` -- "On average (approx.) how many parties a month do you attend?"
-- `procrastinator` -- "Do you consider yourself a procrastinator? (Yes, No)"
+- `personality` -- "Do you consider yourself an Introvert or Extrovert? (Introvert, Extrovert)"
 - `height_inches` -- "How tall are you? (in inches)"
 - `happy` -- "How happy are you? (Very happy, Pretty happy, Not too happy, Don't know)"
 - `campus_housing` -- "Where do you live on campus? (North campus, South campus, Neither)"
