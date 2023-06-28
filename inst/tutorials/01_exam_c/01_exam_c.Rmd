@@ -10,7 +10,7 @@ output:
     allow_skip: true
 runtime: shiny_prerendered
 description: >
-  This proficiency exam covers Preface - Chapter 4.
+  This proficiency exam covers Preface - Chapter 3.
 ---
 
 ```{r setup, include=FALSE}
@@ -78,13 +78,14 @@ question_text("Name:",
                                 }
                               return(mark_as(FALSE) )
                               }),
+              correct = "Submitted",
               incorrect = "Submitted",
               allow_retry = FALSE )
 ```
 
 ## Instructions
 
-You have 50 minutes to complete this exam. The exam covers the material learned from Preface - Chapter 4. You are allowed one page of notes front and back.
+You have 50 minutes to complete this exam. The exam covers the material learned from Preface - Chapter 3.
 
 Once you are finished:
 
@@ -98,12 +99,12 @@ Once you are finished:
 ## Concept (20 points)
 
 ```{r Q}
-quiz(
-  #shuffle = TRUE,
+exam(
+  shuffle = TRUE,
   caption = NULL,
   #Q1
   question_dropdown(
-  paste("Q1) The following code is in a code chunk:", htmltools::img(src="images/00_math6.png", height = 75, width = 200), "<br> What is the output?"),
+  paste("The following code is in a code chunk:", htmltools::img(src="images/00_math6.png", height = 75, width = 200), "<br> What is the output?"),
     answer(3),
     answer("TRUE"),
     answer("FALSE", TRUE),
@@ -112,10 +113,11 @@ quiz(
     answer(0),
     allow_retry = TRUE,
     random_answer_order = TRUE,
+    correct = "Submitted",
     incorrect = "submitted"
   ),
   question_dropdown(
-    "Q2) In a typical dataframe, ___ correspond to observations.",
+    "In a typical dataframe, ___ correspond to observations.",
     answer("columns"),
     answer("rows", correct = TRUE),
     answer("values"),
@@ -123,28 +125,31 @@ quiz(
     answer("cells"),
     allow_retry = TRUE,
     random_answer_order = TRUE,
+    correct = "Submitted",
     incorrect = "submitted"
   ),
   question_wordbank(
-  "Q3) Which of the following shows the... ",
+  "Which of the following shows the... ",
   choices = c("distirbution of two categorical variable?", "relationship between one numerical variable and one categorical variable?"),
   wordbank = c("barplot", "side-by-side boxplot", "stacked barplot", 
                "histogram", "scatterplot"),
   answer(c("stacked barplot", "side-by-side boxplot"), correct = TRUE),
   allow_retry = TRUE,
+  correct = "Submitted",
   incorrect = "submitted"
   ),
   question_wordbank(
-  paste("Q4) The table provides the first 8 observations from a sample of 200 individuals, who reported their age, race, income, and job satisfaction score on a scale from 0 to 100.", htmltools::img(src="images/01_tableA.png", height = 300, width = 500)),
+  paste("The table provides the first 8 observations from a sample of 200 individuals, who reported their age, race, income, and job satisfaction score on a scale from 0 to 100.", htmltools::img(src="images/01_tableA.png", height = 300, width = 500)),
   box = 8,
   choices = c("Which type of graphic would be most useful for visualizing the relationship between `Income` and `Score`?",
               "Which type of graphic would be most useful for visualizing the relationship between `Age` and `Race`?"),
   wordbank = c("histogram", "scatterplot", "linegraph", "side-by-side boxplot", "stacked barplots"),
   answer(c("scatterplot", "stacked barplots"), correct = TRUE),
   allow_retry = TRUE,
+  correct = "Submitted",
   incorrect = "submitted"
   ),
-  question_dropdown("Q5) Which of the following arguments in geom_bar()
+  question_dropdown("Which of the following arguments in geom_bar()
   will represent a proportion with all the bars at the top when mapping 2 categorical variables?",
     answer("fill = `dodge`"),
     answer("position = `dodge`"),
@@ -153,9 +158,10 @@ quiz(
     answer("fill = `position`"),
     allow_retry = TRUE,
     random_answer_order = TRUE,
+    correct = "Submitted",
     incorrect = "submitted"),
   question_dropdown(
-    paste("Q6) The histogram below shows the distribution of a large company's annual employee income. Which of the following statements is TRUE concerning this distribution?", htmltools::img(src="images/02_income.png", height = 300, width = 500)),
+    paste("The histogram below shows the distribution of a large company's annual employee income. Which of the following statements is TRUE concerning this distribution?", htmltools::img(src="images/02_income.png", height = 300, width = 500)),
     answer("The distribution is skewed left and the mean is less than the median."),  
     answer("The distribution is skewed right and the mean is less than the median."),
     answer("The distribution is skewed left and the mean is greater than the median."),
@@ -163,19 +169,21 @@ quiz(
     answer("The distribution is symmetric and the mean is equal to the median."),
     allow_retry = TRUE,
     random_answer_order = TRUE,
+    correct = "Submitted",
     incorrect = "submitted"
   ),
   question_wordbank(
-  "Q7) In the histogram from the previous problem. <br> Consider the person with the lowest income got a $5,000 pay cut (decrease). How will the following statistics be impacted?",
+  "Consider a distribution of a large company's annual employee income. How will the following statistics be impacted if the person with the lowest income got a $5,000 pay cut (decrease)?",
     choices = c("average/mean", "IQR (Interquartile Range)"),
     wordbank = c("increase", "decrease", "stay the same"),
     answer(c("decrease", "stay the same"), correct = TRUE),
     allow_retry = TRUE,
     random_answer_order = TRUE,
+    correct = "Submitted",
     incorrect = "submitted"
   ),
   question_wordbank(
-  "Q8) Match the following statistics with whether it measures centrality, variablity, both, or neither.",
+  "Match the following statistics with whether it measures centrality, variablity, both, or neither.",
     choices = c("Interquartile Range", "Mean", "Skewness"),
     wordbank = c("Centrality", "Variabiltiy/Spread", "Both Centrality and Variability", "Neither Centrality nor Variability"),
     answer(c("Variabiltiy/Spread", "Centrality", "Neither Centrality nor Variability"), correct = TRUE),
@@ -183,27 +191,30 @@ quiz(
     box = 4,
     arrange = "ordered",
     random_answer_order = FALSE,
+    correct = "Submitted",
     incorrect = "submitted"
   ),
   question_wordbank(
-  "Q9) Which function/verb will...",
+  "Which function/verb will...",
     choices = c("create a new variable", "keep only observations that meet a criteria", "compute the mean of a variable"),
     wordbank = c("slice_max()", "count()", "mutate()", "group_by()", "filter()", "select()", "summarize()", "arrange()"),
     answer(c("mutate()", "filter()", "summarize()"), correct = TRUE),
     allow_retry = TRUE,
     arrange = "ordered",
+    correct = "Submitted",
     incorrect = "submitted"
   ),
   question_wordbank(
-  "Q10) Which function/verb...",
+  "Which function/verb...",
     choices = c("links data wrangling together", "specifies how variables are mapped to a plot", "package used for data visualization"),
     wordbank = c("%>%", "aes()", "+", "%<%", "ggplot()", "geom_*()", "dplyr", "//", "ggplot2", "moderndive"),
     answer(c("%>%", "aes()", "ggplot2"), correct = TRUE),
     allow_retry = TRUE,
+    correct = "Submitted",
     incorrect = "submitted"
   ),
   question_dropdown(
-  "Q11) Suppose we have a dataset (some data) and we want to get the total number of observations within each level/category of a categorical variable; and then we want to display the results with the level/category with the largest number of observations in it at the top of the output. Which general sequence of functions/verbs would achieve this?",
+  "Suppose we have a dataset (some data) and we want to get the total number of observations within each level/category of a categorical variable; and then we want to display the results with the level/category with the largest number of observations in it at the top of the output. Which general sequence of functions/verbs would achieve this?",
     answer("some data %>% count() %>% arrange(desc())", correct = TRUE),
     answer("some data %>% count() %>% arrange()"),
     answer("some data %>% mutate() %>% arrange(desc())"),
@@ -211,6 +222,7 @@ quiz(
     answer("some data %>% summarize() %>% arrange(desc())"),
     answer("some data %>% summarize() %>% arrange()"),
     allow_retry = TRUE,
+    correct = "Submitted",
     incorrect = "submitted"
   )
 )
@@ -228,14 +240,14 @@ For each application **only output/print the requested information**. If you are
 
 ### Application 1 (4 points)
 
-Construct a scatterplot of `height_inches` by `num_party`. Set the `shape` equal to `personality`.
+Construct a scatterplot of `height_inches` by `num_party`. Set the `color` equal to `personality`.
 
 ```{r App1, exercise=TRUE}
 
 ```
 
 ```{r App1-solution, exercise.reveal_solution = FALSE}
-ggplot(survey, aes(x = num_party, y = height_inches, shape = personality)) +
+ggplot(survey, aes(x = num_party, y = height_inches, color = personality)) +
   geom_point()
 ```
 
