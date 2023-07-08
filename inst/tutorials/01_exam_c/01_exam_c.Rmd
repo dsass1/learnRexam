@@ -20,9 +20,9 @@ library(ISDSfunctions)
 library(gradethis)
 library(skimr)
 
-gradethis_setup(pass = "Submitted",
-                fail = "Submitted",
-                error_checker.message = "Submitted",
+gradethis_setup(pass = "submitted",
+                fail = "submitted",
+                error_checker.message = "submitted",
                 fail.hint = FALSE
                 )
 
@@ -78,8 +78,8 @@ question_text("Name:",
                                 }
                               return(mark_as(FALSE) )
                               }),
-              correct = "Submitted",
-              incorrect = "Submitted",
+              correct = "submitted",
+              incorrect = "submitted",
               allow_retry = FALSE )
 ```
 
@@ -99,8 +99,9 @@ Once you are finished:
 ## Concept (20 points)
 
 ```{r Q}
-exam(
-  shuffle = TRUE,
+#exam(
+#  shuffle = TRUE,
+quiz(  
   caption = NULL,
   #Q1
   question_dropdown(
@@ -113,7 +114,7 @@ exam(
     answer(0),
     allow_retry = TRUE,
     random_answer_order = TRUE,
-    correct = "Submitted",
+    correct = "submitted",
     incorrect = "submitted"
   ),
   question_dropdown(
@@ -125,7 +126,7 @@ exam(
     answer("cells"),
     allow_retry = TRUE,
     random_answer_order = TRUE,
-    correct = "Submitted",
+    correct = "submitted",
     incorrect = "submitted"
   ),
   question_wordbank(
@@ -135,7 +136,7 @@ exam(
                "histogram", "scatterplot"),
   answer(c("stacked barplot", "side-by-side boxplot"), correct = TRUE),
   allow_retry = TRUE,
-  correct = "Submitted",
+  correct = "submitted",
   incorrect = "submitted"
   ),
   question_wordbank(
@@ -146,7 +147,7 @@ exam(
   wordbank = c("histogram", "scatterplot", "linegraph", "side-by-side boxplot", "stacked barplots"),
   answer(c("scatterplot", "stacked barplots"), correct = TRUE),
   allow_retry = TRUE,
-  correct = "Submitted",
+  correct = "submitted",
   incorrect = "submitted"
   ),
   question_dropdown("Which of the following arguments in geom_bar()
@@ -158,7 +159,7 @@ exam(
     answer("fill = `position`"),
     allow_retry = TRUE,
     random_answer_order = TRUE,
-    correct = "Submitted",
+    correct = "submitted",
     incorrect = "submitted"),
   question_dropdown(
     paste("The histogram below shows the distribution of a large company's annual employee income. Which of the following statements is TRUE concerning this distribution?", htmltools::img(src="images/02_income.png", height = 300, width = 500)),
@@ -169,7 +170,7 @@ exam(
     answer("The distribution is symmetric and the mean is equal to the median."),
     allow_retry = TRUE,
     random_answer_order = TRUE,
-    correct = "Submitted",
+    correct = "submitted",
     incorrect = "submitted"
   ),
   question_wordbank(
@@ -179,7 +180,7 @@ exam(
     answer(c("decrease", "stay the same"), correct = TRUE),
     allow_retry = TRUE,
     random_answer_order = TRUE,
-    correct = "Submitted",
+    correct = "submitted",
     incorrect = "submitted"
   ),
   question_wordbank(
@@ -191,7 +192,7 @@ exam(
     box = 4,
     arrange = "ordered",
     random_answer_order = FALSE,
-    correct = "Submitted",
+    correct = "submitted",
     incorrect = "submitted"
   ),
   question_wordbank(
@@ -201,7 +202,7 @@ exam(
     answer(c("mutate()", "filter()", "summarize()"), correct = TRUE),
     allow_retry = TRUE,
     arrange = "ordered",
-    correct = "Submitted",
+    correct = "submitted",
     incorrect = "submitted"
   ),
   question_wordbank(
@@ -210,7 +211,7 @@ exam(
     wordbank = c("%>%", "aes()", "+", "%<%", "ggplot()", "geom_*()", "dplyr", "//", "ggplot2", "moderndive"),
     answer(c("%>%", "aes()", "ggplot2"), correct = TRUE),
     allow_retry = TRUE,
-    correct = "Submitted",
+    correct = "submitted",
     incorrect = "submitted"
   ),
   question_dropdown(
@@ -222,7 +223,7 @@ exam(
     answer("some data %>% summarize() %>% arrange(desc())"),
     answer("some data %>% summarize() %>% arrange()"),
     allow_retry = TRUE,
-    correct = "Submitted",
+    correct = "submitted",
     incorrect = "submitted"
   )
 )
@@ -253,8 +254,8 @@ ggplot(survey, aes(x = num_party, y = height_inches, color = personality)) +
 
 ```{r App1-check}
 grade_this_code(
-  correct = "Submitted",
-  incorrect = "Submitted"
+  correct = "submitted",
+  incorrect = "submitted"
 )
 ```
 
@@ -292,8 +293,8 @@ survey %>%
 
 ```{r App2-check}
 grade_this_code(
-  correct = "Submitted",
-  incorrect = "Submitted"
+  correct = "submitted",
+  incorrect = "submitted"
 )
 ```
 
@@ -322,8 +323,8 @@ survey %>%
 
 ```{r App3-check}
 grade_this_code(
-  correct = "Submitted",
-  incorrect = "Submitted"
+  correct = "submitted",
+  incorrect = "submitted"
 )
 ```
 
@@ -350,8 +351,8 @@ ggplot(survey, aes(x = followers_insta)) +
 
 ```{r App4-check}
 grade_this_code(
-  correct = "Submitted",
-  incorrect = "Submitted"
+  correct = "submitted",
+  incorrect = "submitted"
 )
 ```
 
