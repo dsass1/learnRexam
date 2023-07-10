@@ -407,11 +407,11 @@ exam(
     correct = "submitted",
     incorrect = "submitted"
   ),
-  question_blank(
-  "The number of hours spent on statistics homework a week follows a normal distribution with mean 3 hours and standard deviation of 1 hour. What would be the STAT (CV) corresponding to 2.5 hours? ___",
-    answer(c("-0.5"), correct = TRUE),
+  question_numeric(
+  "The number of hours spent on statistics homework a week follows a normal distribution with mean 3 hours and standard deviation of 1 hour. What would be the STAT (CV) corresponding to 2.5 hours?",
+    answer(-0.5, correct = TRUE),
     allow_retry = TRUE,
-    random_answer_order = TRUE,
+    step = 0.01,
     correct = "submitted",
     incorrect = "submitted"
   )
