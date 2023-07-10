@@ -2,10 +2,10 @@
 title: "Exam 2"
 tutorial:
   id: "isds_exam2c"
-  version: 0.1
+  version: 0.2
   
 output:
-  learnr::tutorial:
+  ISDSfunctions::tutorial:
     progressive: false
     allow_skip: true
 runtime: shiny_prerendered
@@ -71,11 +71,11 @@ survey_f <- survey %>%
 
 ```{r, context = "server"}
 lock_server("lock", 
-            show_correct = TRUE,
-            graded = c("Q-8"), graded_pts = c(2),
+            show_correct = FALSE,
+            graded = c("Q-R"), graded_pts = c(2),
             ex = c("App1a", "App1b", "App1c", "App1e",
-                   "App2a", "App2b"), ex_pts = c(2, 2, 2, 2, 2, 2),
-            manual = c("App1-desc", "App2-desc"), manual_pts = c(2, 2),
+                   "App2a", "App2b", "App3"), ex_pts = c(2, 2, 2, 2, 2, 2,2),
+            manual = c("App1-desc"), manual_pts = c(2),
             exclude = "Name")
 
 #reset_server("reset")
@@ -90,6 +90,7 @@ question_text("Name:",
                                 }
                               return(mark_as(FALSE) )
                               }),
+              correct = "submitted",
               incorrect = "submitted",
               allow_retry = FALSE )
 ```
@@ -155,9 +156,9 @@ exam(
   ),question_dropdown(
     paste("Examine the graph below and then select the best estimate of the correlation. <br>", htmltools::img(src="images/cor_4.png", height = 200, width = 200)),
     answer("-0.9"),
-    answer("-0.6"),
+    answer("-0.6", correct = TRUE),
     answer("0"),
-    answer("0.6", correct = TRUE),
+    answer("0.6"),
     answer("0.9"),
     allow_retry = TRUE,
     random_answer_order = FALSE,
@@ -226,8 +227,29 @@ exam(
     allow_retry = TRUE,
     random_answer_order = FALSE,
     correct = "submitted",
-    incorrect = "submitted"
+    incorrect = "submitted",
+    options = list(group = "lm_type",
+                   label = "Q-R"
+                   )
   ),
+  question_wordbank(
+    "(2 pts) Consider the following model where graduation rate (rate) and whether or not the college is public or private (type) are the explanatory/predictor variables to predict college tuition cost. The reference group for type is **private**. <br>
+    $\\widehat{tuition} = b_0 + b_1(rate) + b_2(type)$",
+    choices = c("What does b_1 represent (ie: intercept/slope/offset)?",
+              "Which 'type' is b_1 for (ie: public/private/both)?",
+              "What does b_2 represent (ie: intercept/slope/offset)?",
+              "Which 'type' is b_2 for (ie: public/private/both)?"),
+    wordbank = c("intercept", "offset in intercept", "slope", "offset in slope", "public colleges", "private colleges", "both public and private colleges"),
+    answer(c("slope", "both public and private colleges","offset in intercept","public colleges"), correct = TRUE),
+      arrange = "none",
+      box = 7,
+      allow_retry = TRUE,
+      random_answer_order = FALSE,
+      correct = "submitted",
+      incorrect = "submitted",
+      options = list(group = "lm_type",
+                     label = "Q-R")
+    ),
   # question_radio(
   # "Consider the following model where graduation rate (rate) and whether or not the college is public or private (type) are the explanatory/predictor variables to predict college tuition cost. The reference group for type is **public**. <br>
   # $\\widehat{tuition} = b_0 + b_1(rate) + b_2(type)$ <br><br>
@@ -283,7 +305,7 @@ exam(
   question_wordbank(
   paste("The following output is from the survey_f dataset (a subset of the Stat 202 survey data to only include students who identify as female). A simple linear regression was run to predict num_party based on fav_drink. The variable `fav_drink` has 4 levels: {beer, don't_drink, hard_liquor, wine} <br>", htmltools::img(src="images/lm_model_survey_f.png", height = 300, width = 400)),
   choices = c("What is the baseline/reference level?",
-            "Female students with what `fav_drink` level are predicted to on average go to the least number of parties a month?",
+            "Female students with what `fav_drink` level are predicted to on average go to the LEAST number of parties a month?",
             "Female students with what `fav_drink` level are predicted to on average go to the MOST number of parties a month?"),
   wordbank = c("beer", "don't_drink", "hard_liquor", "wine"),
   answer(c("don't_drink","hard_liquor","wine"), correct = TRUE),
@@ -305,7 +327,7 @@ exam(
     incorrect = "submitted"
   ),
   question_dropdown(
-  "The Illinois State Board of Education is interested in student satisfaction in regards to their learning experience in rural towns. The Board does not have the time or resources to travel to every one of these towns, instead they randomly select 5 towns and suvery all the schools students to evaluate their satisfaction level. What type of sample is this?" ,
+  "The Illinois State Board of Education is interested in student satisfaction in regards to their learning experience in rural towns. The Board does not have the time or resources to travel to every one of these towns, instead they randomly select 5 towns and suvery all the schools' students to evaluate their satisfaction level. What type of sample is this?" ,
     answer("cluster sampling", correct = TRUE),
     answer("simple random sample"),
     answer("systematic sampling"),
@@ -340,6 +362,7 @@ exam(
     answer("all U.S. medical school students"),
     allow_retry = TRUE,
     random_answer_order = TRUE,
+    correct = "submitted",
     incorrect = "submitted",
     options = list(multi_part = "stress")
   ),
@@ -367,7 +390,7 @@ exam(
   ),
   question_dropdown(
     "A worldwide survey was conducted via the internet to determine overall happiness and quality of life. The average happiness rating for all countries was 6 out of 10.",
-    answer("This is likely an accurate estimate because the survey was made available to everyone."),
+    answer("This is likely an accurate estimate because the survey was made available on the internet to everyone."),
     answer("This is likely an accurate estimate because every country is represented in the average."),
     answer("This is likely too high of an estimate because of under-coverage in those with a lower socioeconomic status.", correct = TRUE),
     answer("This is likely too low of an estimate because of under-coverage in those with a higher socioeconomic status."),
@@ -377,7 +400,7 @@ exam(
     incorrect = "submitted"
   ),
   question_blank(
-  "The average age US adults expects to marry follows a normal distribution with mean 28 and standard deviation of 2. Based on the empirical rule, 95% of adults expect to marry between ___ and ___" ,
+  "The average age US adults expect to marry follows a normal distribution with mean 28 and standard deviation of 2. Based on the empirical rule, 95% of adults expect to marry between ___ and ___" ,
     answer("24", correct = TRUE),
     answer("32", correct = TRUE),
     allow_retry = TRUE,
@@ -429,8 +452,8 @@ survey %>%
 
 ```{r App1a-check}
 grade_this_code(
-  correct = "Submitted",
-  incorrect = "Submitted"
+  correct = "submitted",
+  incorrect = "submitted"
 )
 ```
 
@@ -446,15 +469,15 @@ Visualize the relationship of `height_inches` by `father_height` and add the **l
 
 
 ```{r App1b-solution, exercise.reveal_solution = FALSE}
-ggplot(survey, aes(height_inches, father_height)) +
+ggplot(survey, aes(x = father_height, y = height_inches)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE)
 ```
 
 ```{r App1b-check}
 grade_this_code(
-  correct = "Submitted",
-  incorrect = "Submitted"
+  correct = "submitted",
+  incorrect = "submitted"
 )
 ```
 <br>
@@ -476,8 +499,8 @@ summary(model_height)
 
 ```{r App1c-check}
 grade_this_code(
-  correct = "Submitted",
-  incorrect = "Submitted"
+  correct = "submitted",
+  incorrect = "submitted"
 )
 ```
 <br>
@@ -521,12 +544,12 @@ survey %>%
 
 ```{r App1e-check}
 grade_this_code(
-  correct = "Submitted",
-  incorrect = "Submitted"
+  correct = "submitted",
+  incorrect = "submitted"
 )
 ```
 
-### Application 2 (6 points)
+### Application 2 (4 points)
 
 **Part 1**
 
@@ -549,15 +572,15 @@ summary(model_followers)
 
 ```{r App2a-check}
 grade_this_code(
-  correct = "Submitted",
-  incorrect = "Submitted"
+  correct = "submitted",
+  incorrect = "submitted"
 )
 ```
 <br>
 
 **Part 2**
 
-Suppose we have a student that identifies as Male (`gender_ident` = "Male) and has 700 followers on Instagram (`followers_insta` = 700). How many followers do we predict this student has on TikTok?
+Suppose we have a student that identifies as Male (`gender_ident` = "Male") and has 700 followers on Instagram (`followers_insta` = 700). How many followers do we predict this student has on TikTok?
 
 Use the code chunk below as a calculator to output your prediction (the multiplication symbol is *).
 
@@ -567,30 +590,39 @@ Use the code chunk below as a calculator to output your prediction (the multipli
 
 
 ```{r App2b-solution, exercise.reveal_solution = FALSE}
--16.57089 + 0.13591*700 + 46.85162 -0.06134*700
+-22.78536 + 0.14060*700 -59.59666 + 0.05994*700
 ```
 
 ```{r App2b-check}
 grade_this_code(
-  correct = "Submitted",
-  incorrect = "Submitted"
+  correct = "submitted",
+  incorrect = "submitted"
 )
 ```
 <br>
 
-**Part 3**
 
-Interpret the **offset in slope** in the context of the problem.
+### Application 3 (2 points)
 
-```{r App2-desc}
-question_text("", incorrect = "submitted",
-              answer("ManuallyGradedEverythingWrong", 
-                     correct = TRUE),
-              allow_retry = TRUE,
-              rows = 4)
+Suppose the number of followers that a student has on Instagram follows a normal distribution with mean 1200 and sd 400. What proportion of students have **between** 750 and 1050 followers?
+
+Output your result using the code chunk.
+
+```{r App3, exercise = TRUE}
+
 ```
 
 
+```{r App3-solution, exercise.reveal_solution = FALSE}
+pnorm(1050, mean = 1200, sd = 400) - pnorm(750, mean = 1200, sd = 400)
+```
+
+```{r App3-check}
+grade_this_code(
+  correct = "submitted",
+  incorrect = "submitted"
+)
+```
 
 ## survey Data
 
@@ -628,7 +660,7 @@ skim(survey)
 
 Once you are finished:
 
--   Click "View submissions" to make sure all questions and exercises are submitted -- **Un-submitted questions will receive a 0.**
+-   Click "Check submissions" to make sure all questions and exercises are submitted -- **Un-submitted questions will receive a 0.**
 -   Once all questions/exercises are submitted click the 'lock exam' button. Once you click this you will not be able to make any changes to your exam!
 -   Once the lock is pressed a `Download Exam` option will become available,
 -   Download and **Check your HTML!** - if any response is "NA" but you submitted it simply click the Download Exam button again.
