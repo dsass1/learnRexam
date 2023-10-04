@@ -285,15 +285,14 @@ question_text("", incorrect = "submitted",
 
 ### Application 3 (4 points)
 
-Let's determine how many students in our class prefer each type of drink.
+For our class, let's determine if there is a difference in the distribution of followers on Instagram for introverts and extroverts.
 
 In other words,
 
 - start with the `survey` data
 - include only student's that have `quarter` of "fall 2023"
 - compute the mean and standard deviation of `followers_insta` by `personality`
-- Print the results with the lowest mean on top
-- make sure you print/output the results
+- print/output the results with the lowest mean on top
 
 ```{r App3, exercise=TRUE}
 
