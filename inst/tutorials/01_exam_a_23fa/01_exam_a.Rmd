@@ -50,10 +50,10 @@ survey <- read_rds("data/survey.rds")
 
 ```{r, context = "server"}
 lock_server("lock", 
-            ex = c("App1", "App2", "App3"), 
-            ex_pts = c(5, 6, 6),
-            manual = c("App1-desc", "App2-desc", "App3-desc"), 
-            manual_pts = c(2, 2, 2),
+            ex = c("App1", "App2", "App3", "App4"), 
+            ex_pts = c(1, 5, 6, 6),
+            manual = c("App2-desc", "App4-desc"), 
+            manual_pts = c(1, 1),
             exclude = "Name")
 ```
 
@@ -339,7 +339,7 @@ grade_this_code(
 
 Describe and compare the histogram.
 
-```{r App4-describe}
+```{r App4-desc}
 question_text("", incorrect = "submitted",
               answer("ManuallyGradedEverythingWrong", 
                      correct = TRUE),
