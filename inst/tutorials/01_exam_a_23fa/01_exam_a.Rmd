@@ -129,8 +129,8 @@ exam(
   ),
   question_wordbank(
   paste("The table provides the first 8 observations from a sample of 200 individuals, who reported their age, race, income, and job satisfaction score on a scale from 0 to 100.", htmltools::img(src="images/01_tableA.png", height = 300, width = 500)),
-  choices = c("Which type of graphic would be most useful for visualizing the relationship between `Income` and `Score`?",
-              "Which type of graphic would be most useful for visualizing the relationship between `Age` and `Race`?"),
+  choices = c("Which type of graphic would be most useful for visualizing the relationship between income and score?",
+              "Which type of graphic would be most useful for visualizing the relationship between age and race?"),
   wordbank = c("histogram", "scatterplot", "linegraph", "side-by-side boxplot", "stacked barplots"),
   answer(c("scatterplot", "stacked barplots"), correct = TRUE),
   allow_retry = TRUE,
@@ -138,7 +138,7 @@ exam(
   incorrect = "submitted"
   ),
   question_dropdown("Which of the following arguments in geom_bar()
-  will represent a proportion with all the bars at the top when mapping 2 categorical variables?",
+  will turn bar heights into proportions?",
     answer("fill = `dodge`"),
     answer("position = `dodge`"),
     answer("position = `fill`", correct = TRUE),
@@ -149,7 +149,7 @@ exam(
     correct = "submitted",
     incorrect = "submitted"),
   question_dropdown(
-    paste("The histogram below shows the distribution of a large company's annual employee income. Which of the following statements is TRUE concerning this distribution?", htmltools::img(src="images/02_income.png", height = 300, width = 500)),
+    paste("The histogram below shows the distribution of a large company's annual employee income. Which of the following statements is TRUE concerning this distribution? <br>", htmltools::img(src="images/02_income.png", height = 300, width = 500)),
     answer("The distribution is skewed left and the mean is less than the median."),  
     answer("The distribution is skewed right and the mean is less than the median."),
     answer("The distribution is skewed left and the mean is greater than the median."),
@@ -163,7 +163,7 @@ exam(
   ),
   question_wordbank(
   "In the histogram from the previous problem. <br> Consider the person with the lowest income got a $5,000 pay cut (decrease). How will the following statistics be impacted?",
-    choices = c("average/mean", "IQR (Interquartile Range)"),
+    choices = c("mean/average", "IQR (Interquartile Range)"),
     wordbank = c("increase", "decrease", "stay the same"),
     answer(c("decrease", "stay the same"), correct = TRUE),
     allow_retry = TRUE,
@@ -181,11 +181,11 @@ exam(
     box = 4,
     arrange = "ordered",
     random_answer_order = FALSE,
-    correct = "Submitted",
+    correct = "submitted",
     incorrect = "submitted"
   ),
   question_wordbank(
-  "Which function/verb will...",
+  "Which function will allow you to...",
     choices = c("create a new variable", "keep only observations that meet a criteria", "compute the mean of a variable"),
     wordbank = c("slice_max()", "count()", "mutate()", "group_by()", "filter()", "select()", "summarize()", "arrange()"),
     answer(c("mutate()", "filter()", "summarize()"), correct = TRUE),
@@ -195,8 +195,8 @@ exam(
     incorrect = "submitted"
   ),
   question_wordbank(
-  "Which function/verb...",
-    choices = c("links data wrangling together", "specifies how variables are mapped to a plot", "package used for data visualization"),
+  "Match the description with the appropriate function or package.",
+    choices = c("links data wrangling together", "specifies how variables are mapped to plot attributes", "package used for data visualization"),
     wordbank = c("%>%", "aes()", "+", "%<%", "ggplot()", "geom_*()", "dplyr", "//", "ggplot2", "moderndive"),
     answer(c("%>%", "aes()", "ggplot2"), correct = TRUE),
     allow_retry = TRUE,
@@ -291,7 +291,7 @@ In other words,
 
 - start with the `survey` data
 - include only student's that have `quarter` of "fall 2023"
-- compute the mean and standard deviation of `followers_insta` by `personality`
+- compute the mean, standard deviation, and count of `followers_insta` by `personality`
 - print/output the results with the lowest mean on top
 
 ```{r App3, exercise=TRUE}
@@ -317,7 +317,7 @@ grade_this_code(
 
 ### Application 4 (5 points)
 
-Construct a histogram of `followers_insta`. Facet the histogram based on `personality`. Choose an appropriate number of bins and change the border color to "white".
+Construct a histogram of `followers_insta`. Facet the histogram based on `personality`. Choose an appropriate number of bins AND have it defined in code. Change the border color to "white".
 
 ```{r App4, exercise=TRUE}
 
@@ -326,7 +326,7 @@ Construct a histogram of `followers_insta`. Facet the histogram based on `person
 
 ```{r App4-solution, exercise.reveal_solution = FALSE}
 ggplot(survey, aes(x = followers_insta)) +
-  geom_histogram(color = "white", bins = 8)+
+  geom_histogram(color = "white", bins = 30)+
   facet_wrap(~ personality)
 ```
 
