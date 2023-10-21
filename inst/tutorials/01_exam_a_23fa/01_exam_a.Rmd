@@ -87,7 +87,6 @@ Once you are finished:
 ## Concept (20 points)
 
 ```{r Q}
-#reading check 2
 exam(
   shuffle = TRUE,
   caption = NULL,
@@ -176,7 +175,7 @@ exam(
   "Match the following statistics with whether it measures centrality, variablity, both, or neither.",
     choices = c("Median", "Maximum", "Standard Deviation"),
     wordbank = c("Centrality", "Variabiltiy/Spread", "Both Centrality and Variability", "Neither Centrality nor Variability"),
-    answer(c("Variabiltiy/Spread", "Centrality", "Neither Centrality nor Variability"), correct = TRUE),
+    answer(c("Centrality",  "Neither Centrality nor Variability", "Variabiltiy/Spread"), correct = TRUE),
     allow_retry = TRUE,
     box = 4,
     arrange = "ordered",
