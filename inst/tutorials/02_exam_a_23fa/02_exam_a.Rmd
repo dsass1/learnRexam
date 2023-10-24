@@ -128,7 +128,7 @@ exam(
     options= list(multi_part = "cor")
   ),
   question_dropdown(
-  paste("You run a simple linear regression model to predict student SAT math scores based on the state's percentage of seniors/juniors taking the SAT (pct_taking). The model fitted value and residual for 5 states are shown below. <br>", htmltools::img(src="images/lm_sat_1.png", height = 150, width = 500), "<br> Did the model over- or under-estimate the mean SAT math score for NV (Nevada)?"),
+  paste("You run a simple linear regression model to predict student SAT math scores based on the state's percentage of seniors/juniors taking the SAT (pct_taking). The model fitted value and residual for 5 states are shown below. <br><br>", htmltools::img(src="images/lm_sat_1.png", height = 150, width = 500), "<br><br> Did the model over- or under-estimate the mean SAT math score for NV (Nevada)?"),
     answer("over-estimate", correct = TRUE),
     answer("under-estimate"),
     answer("correct estimate"),
@@ -139,7 +139,7 @@ exam(
     options= list(multi_part = "lm")
   ),
   question_dropdown(
-  "Using the simple linear regression model output above... <br> Which of the five states does the model estimate best?",
+  "Using the simple linear regression model output above... <br><br> Which of the five states does the model estimate best?",
     answer("CA", correct = TRUE),
     answer("IL"),
     answer("KS"),
@@ -152,7 +152,7 @@ exam(
     options= list(multi_part = "lm")
   ),
   question_numeric(
-  "Again using the simple linear regression model output above... <br> what is the fitted/predicted value for Kansas (`KS`)?",
+  "Again using the simple linear regression model output above... <br><br> what is the fitted/predicted value for Kansas (`KS`)?",
     answer(559.49, correct = TRUE),
     allow_retry = TRUE,
     step = 0.01,
@@ -161,8 +161,8 @@ exam(
     options= list(multi_part = "lm")
   ),
   question_wordbank(
-  "Consider the following model where age and gender are the explanatory/predictor variables, and **male** is the reference group for gender. <br>
-  $\\hat{y} = b_0 + b_1(age) + b_2(gender) + b_3(age*gender)$",
+  "Consider the following model where age and gender are the explanatory/predictor variables, and **male** is the reference group for gender. <br><br>
+  $$\\hat{y} = b_0 + b_1(age) + b_2(gender) + b_3(age*gender)$$ <br>",
   choices = c("What is the correct interpretation for \\(b_0\\)?",
               "What is the correct interpretation for \\(b_3\\)?"),
   wordbank = c("offset in intercept for males", "offset in intercept for females",
@@ -177,7 +177,7 @@ exam(
   question_dropdown(
   paste("You build a multiple regression model that predicts a student's final exam score (final) based on their midterm exam score (midterm). You suspect that whether or not the student studied also plays an impact on their final exam score. The variable study is an indicator variable where study = 1 if the student studied and study = 0 if the student did not study. The regression output equation is given below <br> <br>
   $\\widehat{final} = -10 +1(midterm) +5(study)$ 
-  <br> Which graph best matches the model? <br> <br>
+  <br> <br> Which graph best matches the model? <br> <br>
         a)", htmltools::img(src="images/mid_study_1.png", height = 150, width = 200),
         "&nbsp; b)", htmltools::img(src="images/mid_study_2.png", height = 150, width = 200)," <br>
         c)", htmltools::img(src="images/mid_study_3.png", height = 150, width = 200),
@@ -192,7 +192,7 @@ exam(
     incorrect = "submitted"
   ),
   question_dropdown(
-  "You want to evaluate whether in-person classes or on-line classes provide better learning outcomes for STAT 202. You randomly select 200 students to take STAT 202 and let each student choose whether they take the class in-person or on-line and compare the test scores in each section. What conclusions can we draw from this experiment?" ,
+  "You want to evaluate whether in-person classes or on-line classes provide better learning outcomes for STAT 202. You randomly select 200 students to take STAT 202 and let each student choose whether they take the class in-person or on-line and compare the test scores in each section. <br><br> What conclusions can we draw from this experiment?" ,
     answer("causal conclusions generalized to the University"),
     answer("no causal conclusions, correlation statement generalized to the University", correct = TRUE),
     answer("no causal conclusions, correlation statement only applicable to our sample"),
@@ -202,7 +202,7 @@ exam(
     correct = "submitted",
     incorrect = "submitted"
   ),
-  question_wordbank("Northwestern is interested in understanding the quality of athletics at the school. Identify the type of sampling method used:",
+  question_wordbank("Northwestern is interested in understanding the quality of athletics at the school. <br> <br> Identify the type of sampling method used: <br>",
     choices = c("Northwestern randomly chooses 3 athletes from every one of its sports teams to participate in a survey",
                 "Northwestern alphabatizes a list of all student athletes by last name and surveys the first 50 names."),
     box = 8,
@@ -225,7 +225,7 @@ exam(
   #   incorrect = "submitted"
   # ),
   question_radio(
-  "To study stress levels of US medical school students, researchers obtained a complete list of names of students enrolled in accredited schools of medicine in the U.S. They listed the students alphabetically and then contacted the first and last 50 names in the list for their study and computed an average stress level of 8 (on a scale of 1 to 10). <br>
+  "To study stress levels of US medical school students, researchers obtained a complete list of names of students enrolled in accredited schools of medicine in the U.S. They listed the students alphabetically and then contacted the first and last 50 names in the list for their study and computed an average stress level of 8 (on a scale of 1 to 10). <br> <br>
   What notation best describes the computed stress level of 8?",
     answer("$\\hat{\\pi}$"),
     answer("$s$"),
@@ -239,7 +239,7 @@ exam(
     options= list(multi_part = "gen")
   ),
   question_dropdown(
-  "Based on the question above. <br>
+  "Based on the question above. <br> <br>
   The results can be generalized to..." ,
     answer("all current U.S. students"),
     answer("only our sample", correct = TRUE),
@@ -252,27 +252,38 @@ exam(
     options= list(multi_part = "gen")
   ),
   question_dropdown(
-  "A large university wanted to study the relationship between completing an internship during college and students' future earning potential. From the same graduating class, they selected a random sample of 80 students who completed an internship and 100 students who did not complete an internship and examined their salaries five years after graduation. They found that there was a statistically higher mean salary for the internship group than for the noninternship group. Which one of the following interpretations is the most appropriate?" ,
-    answer("More students should complete internships because having an internship produces a higher salary."),
-    answer("There could be a confounding variable such as student major, that explains the difference in mean salary between the internship and no internship groups", correct = TRUE),
+  "A large university wanted to study the relationship between completing an internship during college and students' future earning potential. From the same graduating class, they selected a random sample of 80 students who completed an internship and 100 students who did not complete an internship and examined their salaries five years after graduation. They found that there was a statistically higher mean salary for the internship group than for the noninternship group. <br> <br> Which one of the following interpretations is the most appropriate?" ,
+    answer("More students should complete internships because the data suggests having an internship produces a higher salary on average."),
+    answer("There could be a confounding variable such as student major, that explains the difference in mean salary between the internship and no internship groups.", correct = TRUE),
     answer("We cannot infer anything from these data since the distributions of salaries is likely right skewed."),
     answer("You cannot draw any valid conclusions because the sample sizes are different."),
     allow_retry = TRUE,
     random_answer_order = TRUE,
     correct = "submitted",
     incorrect = "submitted"
-  ),
+  ), # another version taking complete random sample from students
   question_dropdown(
-  "Consider the following sampling design. You are working on a political campaign team and want to survey the population to determine people's opinion on student loan forgiveness. The population is divided into stratums (lower class, middle class, and upper class). You randomly survey 300 people from each class to determine the proportion of people in favor of the student loan forgiveness. Is this a good sampling design?",
-    answer("Yes, since random sampling is used to select people from each stratum this is a good sampling design."),
-    answer("Yes, the stratums are homogenous (within each stratum people share a characteristic) meaning selecting 300 people from each stratum is a good sampling design."),
-    answer("No, the groups are heterogenous (mini representations of the population) and cluster sampling would be more appropriate."),
-    answer("No, while the stratums are homogenous (within each stratum people share a characteristic) the upper class is being overrepresented in the sample because a small percent of the true population belongs to the upper class.", correct = TRUE),
+  "Consider the following sampling design. You are working on a hospital improvement team and want to understand the job satisfaction of nurses at hospitals in the Chicagoland area. There are 107 hospitals, you cannot possibly survey all of these hospitals so you randomly select 3 hospitals and survey all of the nurses in those hospitals. <br> <br>  Is this a good sampling design?",
+    answer("Yes, since random sampling is used to select the 3 hospitals this is a good sampling design."),
+    answer("Yes, the groups are likely heterogenous (mini representations of the population) meaning selecting 3 groups is a good sampling design."),
+    answer("No, the groups are likely homogenous (within each group people share a characteristic) and stratified sampling would be more appropriate.", correct = TRUE),
+    answer("No, while the groups are heterogenous (mini representation of the population) we should do random sampling within each group to make a fair representation."),
     allow_retry = TRUE,
     random_answer_order = TRUE,
     correct = "submitted",
     incorrect = "submitted"
   )
+  # question_dropdown(
+  # "Consider the following sampling design. You are working on a political campaign team and want to survey the population to determine people's opinion on student loan forgiveness. The population is divided into stratums (lower class, middle class, and upper class). You randomly survey 300 people from each class to determine the proportion of people in favor of the student loan forgiveness. Is this a good sampling design?",
+  #   answer("Yes, since random sampling is used to select people from each stratum this is a good sampling design."),
+  #   answer("Yes, the stratums are homogenous (within each stratum people share a characteristic) meaning selecting 300 people from each stratum is a good sampling design."),
+  #   answer("No, the groups are heterogenous (mini representations of the population) and cluster sampling would be more appropriate."),
+  #   answer("No, while the stratums are homogenous (within each stratum people share a characteristic) the upper class is being overrepresented in the sample because a small percent of the true population belongs to the upper class.", correct = TRUE),
+  #   allow_retry = TRUE,
+  #   random_answer_order = TRUE,
+  #   correct = "submitted",
+  #   incorrect = "submitted"
+  # )
   
   
 )
