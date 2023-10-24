@@ -532,7 +532,7 @@ question_wordbank(
             HTML("Students with what <code>fav_drink</code> level are predicted to on average go to the <b>LEAST</b> number of parties a month?"),
             HTML("Students with what <code>fav_drink</code>  level are predicted to on average go to the <b>MOST</b> number of parties a month?") ),
   wordbank = c("beer", "don't_drink", "hard_liquor", "wine"),
-  answer(c("wine","hard_liquor","beer"), correct = TRUE),
+  answer(c("don't drink","hard_liquor","beer"), correct = TRUE),
     allow_retry = TRUE,
     random_answer_order = TRUE,
     correct = "submitted",
