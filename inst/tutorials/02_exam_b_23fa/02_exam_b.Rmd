@@ -441,14 +441,14 @@ survey %>%
 ```
 
 
-```{r App1e-solution, exercise.reveal_solution = FALSE}
+```{r App2e-solution, exercise.reveal_solution = FALSE}
 survey %>% 
   filter(!is.na(followers_tiktok), !is.na(followers_insta)) %>% 
-  select(followers_tiktok) %>% 
+  select(followers_tiktok, followers_insta) %>% 
   mutate(fitted = fitted(model_followers))
 ```
 
-```{r App1e-check}
+```{r App2e-check}
 grade_this_code(
   correct = "Submitted",
   incorrect = "Submitted"
