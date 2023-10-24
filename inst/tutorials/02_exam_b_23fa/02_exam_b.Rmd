@@ -251,10 +251,10 @@ exam(
     options= list(multi_part = "gen")
   ),
   question_dropdown(
-  "Suppose you want to study if adults who prefer to drink beer, wine, and water differ in terms of their mean weights. Data were collected from a random sample of World Campus students to address the research question above. The researchers found that adults who preferred beer tended to weigh more than those who preferred wine. <br> <br> Which one of the following interpretations is the most appropriate?",
-    answer("Adults who drink beer weigh more because they develop what is known as a beer belly."),
-    answer("More adults should drink wine because it causes you to weigh less."),
-    answer("Beer causes adults to weigh more because there were no confounding variables found in the dataset."),
+  "Suppose you want to study if U.S. college students who prefer to drink beer, wine, and water differ in terms of their mean weights. Data were collected from a random sample of U.S. college students to address the research question above. The researchers found that college students who preferred beer tended to weigh more than those who preferred wine. <br> <br> Which one of the following interpretations is the most appropriate?",
+    answer("College students who drink beer weigh more because they develop what is known as a beer belly."),
+    answer("More college students should drink wine because it causes you to weigh less."),
+    answer("Beer causes college students to weigh more because there were no confounding variables found in the dataset."),
     answer("There could be a confounding variable such as gender, that explains the difference in weight between beer and wine drinkers.", correct = TRUE),
     answer("You cannot draw any valid conclusions because the sample sizes are different between each group."),
     allow_retry = TRUE,
@@ -532,7 +532,7 @@ question_wordbank(
             HTML("Students with what <code>fav_drink</code> level are predicted to on average go to the <b>LEAST</b> number of parties a month?"),
             HTML("Students with what <code>fav_drink</code>  level are predicted to on average go to the <b>MOST</b> number of parties a month?") ),
   wordbank = c("beer", "don't_drink", "hard_liquor", "wine"),
-  answer(c("don't drink","hard_liquor","beer"), correct = TRUE),
+  answer(c("don't_drink","hard_liquor","beer"), correct = TRUE),
     allow_retry = TRUE,
     random_answer_order = TRUE,
     correct = "submitted",
