@@ -115,7 +115,7 @@ Once you are finished:
 
 ```{r Q}
 exam(
-  #shuffle = TRUE,
+  shuffle = TRUE,
   caption = NULL,
   #swap for 95% CI
   question_blank(
