@@ -113,7 +113,7 @@ Once you are finished:
 
 ```{r Q}
 exam(
-  shuffle = TRUE,
+  #shuffle = TRUE,
   caption = NULL,
   #Q1
   question_blank(
@@ -149,14 +149,14 @@ exam(
     incorrect = "submitted"
   ),
   question_wordbank(
-  paste0("(2 pts) Consider sampling from a left skewed population, match each of the following statements to either plot A, B, C or D pictured below.<br>", 
+  paste0("(2 pts) Consider sampling from a right skewed population, match each of the following statements to either plot A, B, C or D pictured below.<br>", 
          htmltools::img(src="images/sampling_dist_L.png", height = 350, width = 500)),
   choices = c("Statement 1: a single random sample of n = 100 observations from this *population*", 
               "Statement 2: a sampling distribution of 100 sample means from random samples with sample size n = 40.",
               "Statement 3: a sampling distribution of 100 sample means from random samples with sample size n = 5",
               "Statement 4: the plot does not match any of the above scenarios"),
   wordbank = c("Plot a", "Plot b", "Plot c", "Plot d"),
-  answer(c("Plot c","Plot d", "Plot a", "Plot b"), 
+  answer(c("Plot b","Plot a", "Plot d", "Plot c"), 
          correct = TRUE),
   allow_retry = TRUE,
   arrange = "ordered",
@@ -164,7 +164,7 @@ exam(
   incorrect = "submitted",
   options= list(label = "sample")),
   question_dropdown(
-  "A random sample of college students were asked how many exclusive relationships they have been in since attending college. The 95% confidence interval was found to be (2.7, 3.7). Which of the following is the correct interpretation of this confidence interval? <br>
+  "A random sample of college students were asked how many exclusive relationships they have been in since attending college. The 95% confidence interval was found to be (2.7, 3.7).<br><br> Which of the following is the correct interpretation of this confidence interval? <br><br>
   **We are 95% confident that...**",
     answer("a randomly chosen college student has been in 2.7 to 3.7 exclusive relationships."),
     answer("95% of college students have been in 2.7 to 3.7 exclusive relationships"),
@@ -176,9 +176,9 @@ exam(
     incorrect = "submitted"
   ),
   question_dropdown(
-  "Suppose we want to estimate $\\pi$, the proportion of students at Northwestern who support legalizing marijuana, so we collect a random sample of 100 students and find that 73 of them say they support legalization. We use this data to compute the following 98% confidence interval for $\\pi$: [0.612, 0.824]. Which one of the following statements is true?",
+  "Suppose we want to estimate $\\pi$, the proportion of students at Northwestern who support legalizing marijuana, so we collect a random sample of 100 students and find that 73 of them say they support legalization. We use this data to compute the following 98% confidence interval for $\\pi$: [0.612, 0.824]. <br> <br>  Which one of the following statements is true?",
     answer("Exactly 73% of Northwestern students support legalizing marijuana."),
-    answer("There is a 98% chance that $\\pi$ is between 0.612 and 0.824."),
+    answer("There is a 98% chance that the population parameter is between 0.612 and 0.824."),
     answer("There is a 2% chance our interval does not contain the population parameter.", correct = TRUE),
     answer("The margin of error of our interval is 2%."),
     allow_retry = TRUE,
@@ -198,8 +198,8 @@ exam(
     incorrect = "submitted"
   ),
   question_dropdown(
-  "Which one of the statements below is FALSE when we increase the sample size from 100 to 800? Assume a two-tailed hypothesis test for the mean and no other alterations.",
-    answer("test statistic becomes larger"),
+  "Assume a two-tailed hypothesis test for the mean and no other alterations.  <br> <br> Which one of the statements below is FALSE when we increase the sample size from 100 to 800?",
+    answer("test statistic becomes larger (more extreme/further from 0)"),
     answer("p-value for a hypothesis test becomes larger", correct = TRUE),
     answer("95% confidence interval becomes narrower"),
     answer("standard error becomes smaller"),
@@ -209,16 +209,19 @@ exam(
     incorrect = "submitted"
   ),
   question_dropdown(
-  "We are trying to determine if the mean GPA for seniors and the mean GPA for first-year students is the same. We construct the following hypothesis test:
+  "We are trying to determine if the mean GPA for seniors and the mean GPA for first-year students is the same. We construct the following hypothesis test at the 0.10 significance level:
+  <br> 
   $$H_0: \\mu_{seniors} - \\mu_{first-years} = 0$$
   $$H_A: \\mu_{seniors} - \\mu_{first-years} \\ne 0$$ 
-  with significance level of 0.10. <br>
-  As a class we perform repeated sampling where each of the 90 students in the class takes one random sample of 30 seniors and 70 first years to test the hypothesis. <br>
-  The registrar tells us the true difference in means is 0." ,
+  <br>
+  As a class we perform repeated sampling where each of the 90 students in the class takes one random sample of 30 seniors and 70 first years to test the hypothesis. <br> <br>
+  The registrar tells us the true difference in means is 0. <br> <br>
+  Which of the following is a reasonable expectation?" ,
     answer("We expect 30 students to decide that there is no difference"),
     answer("We expect 9 students to decide that there is a non-zero difference", correct = TRUE),
     answer("We expect 70 students to decide that there is a non-zero difference"),
     answer("We expect 90 students to decide that there is no difference"),
+    answer("We cannot have any valid conclusions because the sample sizes of seniors and first years was unequal."),
     allow_retry = TRUE,
     random_answer_order = TRUE,
     correct = "submitted",
@@ -237,7 +240,7 @@ exam(
     incorrect = "submitted"
   ),
   question_dropdown(
-  "A consultant conducts an experiment on the effect of webpage layout on sales for an internet company by randomizing individuals to either a new webpage (treatment) or to the old webpage (control). After the intervention the consultant performs a two-sample t-test on the sales from each group and obtains a p-value of 0.047. Which one of the following is a reasonable interpretation of their results?",
+  "A consultant conducts an experiment on the effect of webpage layout on sales for an internet company by randomizing individuals to either a new webpage (treatment) or to the old webpage (control). After the intervention the consultant performs a two-sample t-test on the sales from each group and obtains a p-value of 0.047. <br> <br> Which one of the following is a reasonable interpretation of their results?",
     answer("the decision depends on the significance level they set before conducting the experiment", correct = TRUE),
     answer("the p-value rounds to 0.05, so no decision can be made"),
     answer("since the p-value is less than 0.05 the consultant can reject the null hypothesis."),
@@ -275,11 +278,11 @@ exam(
     options= list(multi_part = "htest")
   ),
   question_dropdown(
-  paste0("In the previous question, the hypothesis test results are as follows.<br>" ,   htmltools::img(src="images/htest_1.png", height = 200, width = 500)," <br> What is the decision at the $\\alpha = 0.02$ significance level?"),
-    answer("Reject the null, there is significant evidence that at least 90% of students studied.", correct = TRUE),
-    answer("Fail to reject the null, there is evidence to support that at least 90% of students could have studied."),
+  paste0("In the previous question, the hypothesis test results are as follows.<br> <br>" ,   htmltools::img(src="images/htest_1.png", height = 200, width = 500)," <br> <br> What is the decision at the $\\alpha = 0.02$ significance level?"),
+    answer("Reject the null, there is insufficent evidence to say that the number of students that studied is different than 90%."),
+    answer("Fail to reject the null, there is insufficent evidence to say that the number of students that studied is different than 90%.", correct = TRUE),
     answer("Reject the null, there is significant evidence that less than 90% of students studied."),
-    answer("Fail to reject the null, there is evidence to support that less than 90% of students studied."),
+    answer("Fail to reject the null, there is significant evidenct that less than 90% of students studied."),
     allow_retry = TRUE,
     random_answer_order = TRUE,
     correct = "submitted",
@@ -404,7 +407,7 @@ question_text("", incorrect = "submitted",
 
 ### Application 3 (6 points)
 
-Is there significant evidence that students who take STAT 202 at NU on average have over a 3.5 gpa  at NU (`gpa_nu`)?
+Is there significant evidence that students who take STAT 202 at NU on average have over a 3.5 gpa at NU (`gpa_nu`)?
 
 Use the `survey_sample` data to conduct a hypothesis test for the **average** `gpa_nu` at the $\alpha$ = 0.02 significance level.
 
