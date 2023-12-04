@@ -94,7 +94,7 @@ Once you are finished:
 
 ```{r Q}
 exam(
-  #shuffle = TRUE,
+  shuffle = TRUE,
   caption = NULL,
   #Q1
   question_dropdown(
