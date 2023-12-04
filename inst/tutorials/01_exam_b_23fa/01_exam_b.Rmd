@@ -168,7 +168,7 @@ exam(
     options= list(multi_part = "skew")
   ),
   question_wordbank(
-  paste("In the histogram from the previous problem. <br> Consider if the person with the lowest grade scored 5% better. <br> <br> How will the following statistics be impacted? <br> <br>", htmltools::img(src="images/02_grades.png", height = 300, width = 500)),
+  "In the histogram from the previous problem. <br> <br> Consider if the person with the lowest grade scored 5% better. <br> <br> How will the following statistics be impacted?",
     choices = c("median", "standard deviation"),
     wordbank = c("increase", "decrease", "stay the same"),
     answer(c("stay the same", "decrease"), correct = TRUE),
