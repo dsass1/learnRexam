@@ -381,7 +381,7 @@ In other words, use the `campus_housing` and `party_bin` variables in the `surve
 
 ```{r App2-solution, exercise.reveal_solution = FALSE}
 survey_sample %>% 
-  count(personality, party_bin)
+  count(campus_housing, party_bin)
 
 prop.test(x = c(101, 61), n = c(255, 319), conf.level = 0.9, correct = FALSE)
 ```

@@ -152,10 +152,10 @@ make any changes once this is clicked.</li>
 </div>
 </div>
 <div class="panel panel-default tutorial-question-container">
-<div data-label="sample" class="tutorial-question panel-body">
-<div id="sample-answer_container" class="shiny-html-output"></div>
-<div id="sample-message_container" class="shiny-html-output"></div>
-<div id="sample-action_button_container" class="shiny-html-output"></div>
+<div data-label="Q-3" class="tutorial-question panel-body">
+<div id="Q-3-answer_container" class="shiny-html-output"></div>
+<div id="Q-3-message_container" class="shiny-html-output"></div>
+<div id="Q-3-action_button_container" class="shiny-html-output"></div>
 <script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
 </div>
 </div>
@@ -184,10 +184,10 @@ make any changes once this is clicked.</li>
 </div>
 </div>
 <div class="panel panel-default tutorial-question-container">
-<div data-label="Q-7" class="tutorial-question panel-body">
-<div id="Q-7-answer_container" class="shiny-html-output"></div>
-<div id="Q-7-message_container" class="shiny-html-output"></div>
-<div id="Q-7-action_button_container" class="shiny-html-output"></div>
+<div data-label="sample" class="tutorial-question panel-body">
+<div id="sample-answer_container" class="shiny-html-output"></div>
+<div id="sample-message_container" class="shiny-html-output"></div>
+<div id="sample-action_button_container" class="shiny-html-output"></div>
 <script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
 </div>
 </div>
@@ -736,221 +736,7 @@ tutorialExtras:::question_prerendered_chunk(structure(list(type = "learnr_text",
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-tutorialExtras:::question_prerendered_chunk(structure(list(type = "blank", label = "Q-1", question = structure("The average age a professional football player expects to retire follows a normal distribution with mean 33 and standard deviation of 3. Based on the empirical rule, 95% of professional football players expect to retire between ___ and ___", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_12d95ef", 
-    option = "27", value = "27", label = structure("27", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3f5fd27", 
-    option = "39", value = "39", label = structure("39", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
-"character")), try_again = structure("submitted", html = TRUE, class = c("html", 
-"character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "Q-1-answer", question = "Q-1"), loading = structure("<strong>Loading:<\u002fstrong>\nThe average age a professional football player expects to retire follows a normal distribution with mean 33 and standard deviation of 3. Based on the empirical rule, 95% of professional football players expect to retire between ___ and ___\n<br/><br/><br/>", html = TRUE, class = c("html", 
-"character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 781040471.6363, options = list(placeholder = "Enter answer here...", 
-        trim = TRUE)), class = c("blank", "tutorial_question"
-)), session = session)
-</script>
-
-
-<script type="application/shiny-prerendered" data-context="server">
-tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-2", question = structure("You are constructing a 98% confidence interval for a proportion. Which of the following would give you one of the critical values?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_9c8128b", 
-    option = "qnorm(p = 0.98)", value = "qnorm(p = 0.98)", label = structure("qnorm(p = 0.98)", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ead514b", 
-    option = "qnorm(p = 0.99)", value = "qnorm(p = 0.99)", label = structure("qnorm(p = 0.99)", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4d7a1a4", 
-    option = "qnorm(p = 0.02)", value = "qnorm(p = 0.02)", label = structure("qnorm(p = 0.02)", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_65f1bb4", 
-    option = "qt(p = 0.01, df = 100)", value = "qt(p = 0.01, df = 100)", 
-    label = structure("qt(p = 0.01, df = 100)", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_635a3e2", 
-    option = "1-qnorm(p = 0.01)", value = "1-qnorm(p = 0.01)", 
-    label = structure("1-qnorm(p = 0.01)", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
-"character")), try_again = structure("submitted", html = TRUE, class = c("html", 
-"character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "Q-2-answer", question = "Q-2"), loading = structure("<strong>Loading:<\u002fstrong>\nYou are constructing a 98% confidence interval for a proportion. Which of the following would give you one of the critical values?\n<br/><br/><br/>", html = TRUE, class = c("html", 
-"character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1259935348.4133, options = structure(list(), class = "sortable_options")), class = c("dropdown", 
-"tutorial_question")), session = session)
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-tutorialExtras:::question_prerendered_chunk(structure(list(type = "wordbank", label = "sample", question = structure("Consider sampling from a left skewed population, match each of the following statements to either plot A, B, C or D pictured below.<br> <img src=\"data:image/png;base64,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\" height=\"350\" width=\"500\"/>", html = TRUE, class = c("html", 
-"character")), choices = c("Statement 1: a single random sample of n = 100 observations from this *population*", 
-"Statement 2: a sampling distribution of 100 sample means from random samples with sample size n = 40.", 
-"Statement 3: a sampling distribution of 100 sample means from random samples with sample size n = 5", 
-"Statement 4: the plot does not match any of the above scenarios"
-), wordbank = c("Plot a", "Plot b", "Plot c", "Plot d"), box = 9, 
-    arrange = "ordered", answers = list(structure(list(id = "lnr_ans_c9cf823", 
-        option = c("Plot d", "Plot c", "Plot a", "Plot b"), value = c("Plot d", 
-        "Plot c", "Plot a", "Plot b"), label = structure("Plot d\nPlot c\nPlot a\nPlot b", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
-    "character")), try_again = structure("Try Again", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
-    "character")), try_again = structure("submitted", html = TRUE, class = c("html", 
-    "character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
-    "character")), message = NULL, post_message = NULL), ids = list(
-        answer = "sample-answer", question = "sample"), loading = structure("<strong>Loading:<\u002fstrong>\nConsider sampling from a left skewed population, match each of the following statements to either plot A, B, C or D pictured below.<br> <img src=\"data:image/png;base64,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\" height=\"350\" width=\"500\"/>\n<br/><br/><br/>", html = TRUE, class = c("html", 
-    "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1871026130.62874, options = list(label = "sample")), class = c("wordbank", 
-"tutorial_question")), session = session)
-</script>
-
-
-<script type="application/shiny-prerendered" data-context="server">
-tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-4", question = structure("A random sample of college students were asked approximately how many times they check their phone per day. The 90% confidence interval was found to be (85, 135). <br><br>Which of the following is the correct interpretation of this confidence interval? <br><br>\n<strong>We are 90% confident that…<\u002fstrong>", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_a7e916", 
-    option = "90% of college students check their phone between 85 and 135 times per day.", 
-    value = "90% of college students check their phone between 85 and 135 times per day.", 
-    label = structure("90% of college students check their phone between 85 and 135 times per day.", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7c9bf96", 
-    option = "for students in our sample the average number of times they have checked their phone is between 85 and 135.", 
-    value = "for students in our sample the average number of times they have checked their phone is between 85 and 135.", 
-    label = structure("for students in our sample the average number of times they have checked their phone is between 85 and 135.", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ba4c07e", 
-    option = "a randomly chosen college student checks their phone between 85 and 135 times per day.", 
-    value = "a randomly chosen college student checks their phone between 85 and 135 times per day.", 
-    label = structure("a randomly chosen college student checks their phone between 85 and 135 times per day.", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_999b20d", 
-    option = "the average number of times that a college student checks their phone is between 85 and 135 times per day.", 
-    value = "the average number of times that a college student checks their phone is between 85 and 135 times per day.", 
-    label = structure("the average number of times that a college student checks their phone is between 85 and 135 times per day.", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9bd05f9", 
-    option = "none of the choices are correct.", value = "none of the choices are correct.", 
-    label = structure("none of the choices are correct.", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
-"character")), try_again = structure("submitted", html = TRUE, class = c("html", 
-"character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "Q-4-answer", question = "Q-4"), loading = structure("<strong>Loading:<\u002fstrong>\nA random sample of college students were asked approximately how many times they check their phone per day. The 90% confidence interval was found to be (85, 135). <br><br>Which of the following is the correct interpretation of this confidence interval? <br><br>\n<strong>We are 90% confident that…<\u002fstrong>\n<br/><br/><br/>", html = TRUE, class = c("html", 
-"character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1897610743.11636, options = structure(list(), class = "sortable_options")), class = c("dropdown", 
-"tutorial_question")), session = session)
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-5", question = structure("Suppose we want to estimate \\(\\pi\\), the proportion of students at Northwestern who eat breakfast each day, so we collect a random sample of 100 students and find that 42 of them eat breakfast each day. We use this data to compute the following 94% confidence interval for \\(\\pi\\): [0.365, 0.475]. <br> <br> Which one of the following statements is true?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_14eb4f4", 
-    option = "There is a 6% chance our interval does not contain the population parameter", 
-    value = "There is a 6% chance our interval does not contain the population parameter", 
-    label = structure("There is a 6% chance our interval does not contain the population parameter", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d919da0", 
-    option = "Exactly 42% of Northwestern students eat breakfast each day.", 
-    value = "Exactly 42% of Northwestern students eat breakfast each day.", 
-    label = structure("Exactly 42% of Northwestern students eat breakfast each day.", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8327c96", 
-    option = "The margin of error of our interval is 6%.", value = "The margin of error of our interval is 6%.", 
-    label = structure("The margin of error of our interval is 6%.", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_bbbd57e", 
-    option = "There is a 94% chance that the population parameter is between 0.365 and 0.475.", 
-    value = "There is a 94% chance that the population parameter is between 0.365 and 0.475.", 
-    label = structure("There is a 94% chance that the population parameter is between 0.365 and 0.475.", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
-"character")), try_again = structure("submitted", html = TRUE, class = c("html", 
-"character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "Q-5-answer", question = "Q-5"), loading = structure("<strong>Loading:<\u002fstrong>\nSuppose we want to estimate \\(\\pi\\), the proportion of students at Northwestern who eat breakfast each day, so we collect a random sample of 100 students and find that 42 of them eat breakfast each day. We use this data to compute the following 94% confidence interval for \\(\\pi\\): [0.365, 0.475]. <br> <br> Which one of the following statements is true?\n<br/><br/><br/>", html = TRUE, class = c("html", 
-"character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1961619315.08655, options = structure(list(), class = "sortable_options")), class = c("dropdown", 
-"tutorial_question")), session = session)
-</script>
-
-
-<script type="application/shiny-prerendered" data-context="server">
-tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-6", question = structure("When working with the sampling distribution of a sample statistic, which of the choices would <em>decrease<\u002fem> the margin of error?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_84dc335", 
-    option = "there is no way to change the margin of error", 
-    value = "there is no way to change the margin of error", 
-    label = structure("there is no way to change the margin of error", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_33a374e", 
-    option = "increase the standard error", value = "increase the standard error", 
-    label = structure("increase the standard error", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_61a3a3d", 
-    option = "decrease the confidence level (ex: 95% to 90%)", 
-    value = "decrease the confidence level (ex: 95% to 90%)", 
-    label = structure("decrease the confidence level (ex: 95% to 90%)", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_34e84eb", 
-    option = "decrease the sample size", value = "decrease the sample size", 
-    label = structure("decrease the sample size", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
-"character")), try_again = structure("submitted", html = TRUE, class = c("html", 
-"character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "Q-6-answer", question = "Q-6"), loading = structure("<strong>Loading:<\u002fstrong>\nWhen working with the sampling distribution of a sample statistic, which of the choices would <em>decrease<\u002fem> the margin of error?\n<br/><br/><br/>", html = TRUE, class = c("html", 
-"character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 165185609.923079, options = structure(list(), class = "sortable_options")), class = c("dropdown", 
-"tutorial_question")), session = session)
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-7", question = structure("Assume a two-tailed hypothesis test for the mean and no other alterations. <br> <br> Which one of the statements below is TRUE when we increase the sample size from 100 to 800?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_d1bbf17", 
-    option = "corresponding test statistic becomes smaller (less extreme/closer to 0)", 
-    value = "corresponding test statistic becomes smaller (less extreme/closer to 0)", 
-    label = structure("corresponding test statistic becomes smaller (less extreme/closer to 0)", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8111bb6", 
-    option = "standard error becomes larger", value = "standard error becomes larger", 
-    label = structure("standard error becomes larger", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5f64ad1", 
-    option = "p-value for a hypothesis test becomes smaller", 
-    value = "p-value for a hypothesis test becomes smaller", 
-    label = structure("p-value for a hypothesis test becomes smaller", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4fac2ad", 
-    option = "95% confidence interval becomes wider", value = "95% confidence interval becomes wider", 
-    label = structure("95% confidence interval becomes wider", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
-"character")), try_again = structure("submitted", html = TRUE, class = c("html", 
-"character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "Q-7-answer", question = "Q-7"), loading = structure("<strong>Loading:<\u002fstrong>\nAssume a two-tailed hypothesis test for the mean and no other alterations. <br> <br> Which one of the statements below is TRUE when we increase the sample size from 100 to 800?\n<br/><br/><br/>", html = TRUE, class = c("html", 
-"character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1211087276.43604, options = structure(list(), class = "sortable_options")), class = c("dropdown", 
-"tutorial_question")), session = session)
-</script>
-
-
-<script type="application/shiny-prerendered" data-context="server">
-tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-8", question = structure("We are trying to determine if the mean GPA for seniors and the mean GPA for first-year students is the same. We construct the following hypothesis test at the 0.10 significance level:\n<br>\n$$H_0: \\mu_{seniors} - \\mu_{first-years} = 0$$\n$$H_A: \\mu_{seniors} - \\mu_{first-years} \\ne 0$$\n<br>\nAs a class we perform repeated sampling where each of the 90 students in the class takes one random sample of 30 seniors and 70 first years to test the hypothesis. <br> <br>\nThe registrar tells us the true difference in means is 0. <br> <br>\nWhich of the following is a reasonable expectation?", html = TRUE, class = c("html", 
+tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-1", question = structure("We are trying to determine if the mean GPA for seniors and the mean GPA for first-year students is the same. We construct the following hypothesis test at the 0.10 significance level:\n<br>\n$$H_0: \\mu_{seniors} - \\mu_{first-years} = 0$$\n$$H_A: \\mu_{seniors} - \\mu_{first-years} \\ne 0$$\n<br>\nAs a class we perform repeated sampling where each of the 90 students in the class takes one random sample of 30 seniors and 70 first years to test the hypothesis. <br> <br>\nThe registrar tells us the true difference in means is 0. <br> <br>\nWhich of the following is a reasonable expectation?", html = TRUE, class = c("html", 
 "character")), answers = list(structure(list(id = "lnr_ans_52856f7", 
     option = "We expect 30 students to decide that there is no difference", 
     value = "We expect 30 students to decide that there is no difference", 
@@ -982,14 +768,288 @@ tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", la
 "character")), try_again = structure("submitted", html = TRUE, class = c("html", 
 "character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
-    answer = "Q-8-answer", question = "Q-8"), loading = structure("<strong>Loading:<\u002fstrong>\nWe are trying to determine if the mean GPA for seniors and the mean GPA for first-year students is the same. We construct the following hypothesis test at the 0.10 significance level:\n<br>\n$$H_0: \\mu_{seniors} - \\mu_{first-years} = 0$$\n$$H_A: \\mu_{seniors} - \\mu_{first-years} \\ne 0$$\n<br>\nAs a class we perform repeated sampling where each of the 90 students in the class takes one random sample of 30 seniors and 70 first years to test the hypothesis. <br> <br>\nThe registrar tells us the true difference in means is 0. <br> <br>\nWhich of the following is a reasonable expectation?\n<br/><br/><br/>", html = TRUE, class = c("html", 
+    answer = "Q-1-answer", question = "Q-1"), loading = structure("<strong>Loading:<\u002fstrong>\nWe are trying to determine if the mean GPA for seniors and the mean GPA for first-year students is the same. We construct the following hypothesis test at the 0.10 significance level:\n<br>\n$$H_0: \\mu_{seniors} - \\mu_{first-years} = 0$$\n$$H_A: \\mu_{seniors} - \\mu_{first-years} \\ne 0$$\n<br>\nAs a class we perform repeated sampling where each of the 90 students in the class takes one random sample of 30 seniors and 70 first years to test the hypothesis. <br> <br>\nThe registrar tells us the true difference in means is 0. <br> <br>\nWhich of the following is a reasonable expectation?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = TRUE, 
     seed = 939687742.062424, options = structure(list(), class = "sortable_options")), class = c("dropdown", 
 "tutorial_question")), session = session)
 </script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-2", question = structure("Assume a two-tailed hypothesis test for the mean and no other alterations. <br> <br> Which one of the statements below is TRUE when we increase the sample size from 100 to 800?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_d1bbf17", 
+    option = "corresponding test statistic becomes smaller (less extreme/closer to 0)", 
+    value = "corresponding test statistic becomes smaller (less extreme/closer to 0)", 
+    label = structure("corresponding test statistic becomes smaller (less extreme/closer to 0)", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8111bb6", 
+    option = "standard error becomes larger", value = "standard error becomes larger", 
+    label = structure("standard error becomes larger", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5f64ad1", 
+    option = "p-value for a hypothesis test becomes smaller", 
+    value = "p-value for a hypothesis test becomes smaller", 
+    label = structure("p-value for a hypothesis test becomes smaller", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4fac2ad", 
+    option = "95% confidence interval becomes wider", value = "95% confidence interval becomes wider", 
+    label = structure("95% confidence interval becomes wider", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
+"character")), try_again = structure("submitted", html = TRUE, class = c("html", 
+"character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = NULL), ids = list(
+    answer = "Q-2-answer", question = "Q-2"), loading = structure("<strong>Loading:<\u002fstrong>\nAssume a two-tailed hypothesis test for the mean and no other alterations. <br> <br> Which one of the statements below is TRUE when we increase the sample size from 100 to 800?\n<br/><br/><br/>", html = TRUE, class = c("html", 
+"character")), random_answer_order = TRUE, allow_retry = TRUE, 
+    seed = 1211087276.43604, options = structure(list(), class = "sortable_options")), class = c("dropdown", 
+"tutorial_question")), session = session)
+</script>
  
 <script type="application/shiny-prerendered" data-context="server">
-tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-9", question = structure("Suppose we want to perform a hypothesis test for diabetes. What is the person told and what is the truth for a Type II error?", html = TRUE, class = c("html", 
+tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-3", question = structure("Suppose we want to estimate \\(\\pi\\), the proportion of students at Northwestern who eat breakfast each day, so we collect a random sample of 100 students and find that 42 of them eat breakfast each day. We use this data to compute the following 94% confidence interval for \\(\\pi\\): [0.365, 0.475]. <br> <br> Which one of the following statements is true?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_14eb4f4", 
+    option = "There is a 6% chance our interval does not contain the population parameter", 
+    value = "There is a 6% chance our interval does not contain the population parameter", 
+    label = structure("There is a 6% chance our interval does not contain the population parameter", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d919da0", 
+    option = "Exactly 42% of Northwestern students eat breakfast each day.", 
+    value = "Exactly 42% of Northwestern students eat breakfast each day.", 
+    label = structure("Exactly 42% of Northwestern students eat breakfast each day.", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8327c96", 
+    option = "The margin of error of our interval is 6%.", value = "The margin of error of our interval is 6%.", 
+    label = structure("The margin of error of our interval is 6%.", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_bbbd57e", 
+    option = "There is a 94% chance that the population parameter is between 0.365 and 0.475.", 
+    value = "There is a 94% chance that the population parameter is between 0.365 and 0.475.", 
+    label = structure("There is a 94% chance that the population parameter is between 0.365 and 0.475.", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
+"character")), try_again = structure("submitted", html = TRUE, class = c("html", 
+"character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = NULL), ids = list(
+    answer = "Q-3-answer", question = "Q-3"), loading = structure("<strong>Loading:<\u002fstrong>\nSuppose we want to estimate \\(\\pi\\), the proportion of students at Northwestern who eat breakfast each day, so we collect a random sample of 100 students and find that 42 of them eat breakfast each day. We use this data to compute the following 94% confidence interval for \\(\\pi\\): [0.365, 0.475]. <br> <br> Which one of the following statements is true?\n<br/><br/><br/>", html = TRUE, class = c("html", 
+"character")), random_answer_order = TRUE, allow_retry = TRUE, 
+    seed = 1961619315.08655, options = structure(list(), class = "sortable_options")), class = c("dropdown", 
+"tutorial_question")), session = session)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-4", question = structure("A consultant conducts an experiment on the effect of webpage layout on sales for an internet company by randomizing individuals to either a new webpage (treatment) or to the old webpage (control). After the intervention the consultant performs a two-sample t-test on the sales from each group and obtains a p-value of 0.047. <br> <br> Which one of the following is a reasonable interpretation of their results?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_687d35c", 
+    option = "the decision depends on the significance level they set before conducting the experiment", 
+    value = "the decision depends on the significance level they set before conducting the experiment", 
+    label = structure("the decision depends on the significance level they set before conducting the experiment", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c58cbbf", 
+    option = "the p-value rounds to 0.05, so no decision can be made", 
+    value = "the p-value rounds to 0.05, so no decision can be made", 
+    label = structure("the p-value rounds to 0.05, so no decision can be made", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_38258c8", 
+    option = "since the p-value is less than 0.05 the consultant can reject the null hypothesis.", 
+    value = "since the p-value is less than 0.05 the consultant can reject the null hypothesis.", 
+    label = structure("since the p-value is less than 0.05 the consultant can reject the null hypothesis.", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_128a3eb", 
+    option = "since the p-value is greater than 0.01 the consultant can accept the null hypothesis", 
+    value = "since the p-value is greater than 0.01 the consultant can accept the null hypothesis", 
+    label = structure("since the p-value is greater than 0.01 the consultant can accept the null hypothesis", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
+"character")), try_again = structure("submitted", html = TRUE, class = c("html", 
+"character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = NULL), ids = list(
+    answer = "Q-4-answer", question = "Q-4"), loading = structure("<strong>Loading:<\u002fstrong>\nA consultant conducts an experiment on the effect of webpage layout on sales for an internet company by randomizing individuals to either a new webpage (treatment) or to the old webpage (control). After the intervention the consultant performs a two-sample t-test on the sales from each group and obtains a p-value of 0.047. <br> <br> Which one of the following is a reasonable interpretation of their results?\n<br/><br/><br/>", html = TRUE, class = c("html", 
+"character")), random_answer_order = TRUE, allow_retry = TRUE, 
+    seed = 500211166.767071, options = structure(list(), class = "sortable_options")), class = c("dropdown", 
+"tutorial_question")), session = session)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-5", question = structure("You are constructing a 98% confidence interval for a proportion. Which of the following would give you one of the critical values?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_9c8128b", 
+    option = "qnorm(p = 0.98)", value = "qnorm(p = 0.98)", label = structure("qnorm(p = 0.98)", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ead514b", 
+    option = "qnorm(p = 0.99)", value = "qnorm(p = 0.99)", label = structure("qnorm(p = 0.99)", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4d7a1a4", 
+    option = "qnorm(p = 0.02)", value = "qnorm(p = 0.02)", label = structure("qnorm(p = 0.02)", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_65f1bb4", 
+    option = "qt(p = 0.01, df = 100)", value = "qt(p = 0.01, df = 100)", 
+    label = structure("qt(p = 0.01, df = 100)", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_635a3e2", 
+    option = "1-qnorm(p = 0.01)", value = "1-qnorm(p = 0.01)", 
+    label = structure("1-qnorm(p = 0.01)", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
+"character")), try_again = structure("submitted", html = TRUE, class = c("html", 
+"character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = NULL), ids = list(
+    answer = "Q-5-answer", question = "Q-5"), loading = structure("<strong>Loading:<\u002fstrong>\nYou are constructing a 98% confidence interval for a proportion. Which of the following would give you one of the critical values?\n<br/><br/><br/>", html = TRUE, class = c("html", 
+"character")), random_answer_order = TRUE, allow_retry = TRUE, 
+    seed = 1259935348.4133, options = structure(list(), class = "sortable_options")), class = c("dropdown", 
+"tutorial_question")), session = session)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+tutorialExtras:::question_prerendered_chunk(structure(list(type = "wordbank", label = "Q-6", question = structure("True or False?", html = TRUE, class = c("html", 
+"character")), choices = c("In hypothesis testing, a Type I error is more commonly known as a false positive.", 
+"Controlling for a Type I error is always more important than controlling for a Type II error.", 
+"If you decrease alpha, (significance level), by 3%, your Type II error rate will increase by exactly 3%.", 
+"In repeated sampling, the sampling distribution of a sample proportion will center around the true population proportion.", 
+"a p-value is the probability that the null hypothesis is true", 
+"A claim states `Extroverts have more friends than Introverts`, so we can only conduct a one-sided test."
+), wordbank = c("TRUE", "FALSE"), box = 9, arrange = "random", 
+    answers = list(structure(list(id = "lnr_ans_79cbe08", option = c("TRUE", 
+    "FALSE", "FALSE", "TRUE", "FALSE", "FALSE"), value = c("TRUE", 
+    "FALSE", "FALSE", "TRUE", "FALSE", "FALSE"), label = structure("TRUE\nFALSE\nFALSE\nTRUE\nFALSE\nFALSE", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
+    "character")), try_again = structure("Try Again", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
+    "character")), try_again = structure("submitted", html = TRUE, class = c("html", 
+    "character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
+    "character")), message = NULL, post_message = NULL), ids = list(
+        answer = "Q-6-answer", question = "Q-6"), loading = structure("<strong>Loading:<\u002fstrong>\nTrue or False?\n<br/><br/><br/>", html = TRUE, class = c("html", 
+    "character")), random_answer_order = TRUE, allow_retry = TRUE, 
+    seed = 431532995.799052, options = structure(list(), class = "sortable_options")), class = c("wordbank", 
+"tutorial_question")), session = session)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+tutorialExtras:::question_prerendered_chunk(structure(list(type = "wordbank", label = "sample", question = structure("Consider sampling from a left skewed population, match each of the following statements to either plot A, B, C or D pictured below.<br> <img src=\"data:image/png;base64,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\" height=\"350\" width=\"500\"/>", html = TRUE, class = c("html", 
+"character")), choices = c("Statement 1: a single random sample of n = 100 observations from this *population*", 
+"Statement 2: a sampling distribution of 100 sample means from random samples with sample size n = 40.", 
+"Statement 3: a sampling distribution of 100 sample means from random samples with sample size n = 5", 
+"Statement 4: the plot does not match any of the above scenarios"
+), wordbank = c("Plot a", "Plot b", "Plot c", "Plot d"), box = 9, 
+    arrange = "ordered", answers = list(structure(list(id = "lnr_ans_c9cf823", 
+        option = c("Plot d", "Plot c", "Plot a", "Plot b"), value = c("Plot d", 
+        "Plot c", "Plot a", "Plot b"), label = structure("Plot d\nPlot c\nPlot a\nPlot b", html = TRUE, class = c("html", 
+        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
+    "character")), try_again = structure("Try Again", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
+    "character")), try_again = structure("submitted", html = TRUE, class = c("html", 
+    "character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
+    "character")), message = NULL, post_message = NULL), ids = list(
+        answer = "sample-answer", question = "sample"), loading = structure("<strong>Loading:<\u002fstrong>\nConsider sampling from a left skewed population, match each of the following statements to either plot A, B, C or D pictured below.<br> <img src=\"data:image/png;base64,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\" height=\"350\" width=\"500\"/>\n<br/><br/><br/>", html = TRUE, class = c("html", 
+    "character")), random_answer_order = TRUE, allow_retry = TRUE, 
+    seed = 1871026130.62874, options = list(label = "sample")), class = c("wordbank", 
+"tutorial_question")), session = session)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+tutorialExtras:::question_prerendered_chunk(structure(list(type = "blank", label = "Q-8", question = structure("The average age a professional football player expects to retire follows a normal distribution with mean 33 and standard deviation of 3. Based on the empirical rule, 95% of professional football players expect to retire between ___ and ___", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_12d95ef", 
+    option = "27", value = "27", label = structure("27", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3f5fd27", 
+    option = "39", value = "39", label = structure("39", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
+"character")), try_again = structure("submitted", html = TRUE, class = c("html", 
+"character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = NULL), ids = list(
+    answer = "Q-8-answer", question = "Q-8"), loading = structure("<strong>Loading:<\u002fstrong>\nThe average age a professional football player expects to retire follows a normal distribution with mean 33 and standard deviation of 3. Based on the empirical rule, 95% of professional football players expect to retire between ___ and ___\n<br/><br/><br/>", html = TRUE, class = c("html", 
+"character")), random_answer_order = FALSE, allow_retry = TRUE, 
+    seed = 781040471.6363, options = list(placeholder = "Enter answer here...", 
+        trim = TRUE)), class = c("blank", "tutorial_question"
+)), session = session)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-9", question = structure("When working with the sampling distribution of a sample statistic, which of the choices would <em>decrease<\u002fem> the margin of error?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_84dc335", 
+    option = "there is no way to change the margin of error", 
+    value = "there is no way to change the margin of error", 
+    label = structure("there is no way to change the margin of error", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_33a374e", 
+    option = "increase the standard error", value = "increase the standard error", 
+    label = structure("increase the standard error", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_61a3a3d", 
+    option = "decrease the confidence level (ex: 95% to 90%)", 
+    value = "decrease the confidence level (ex: 95% to 90%)", 
+    label = structure("decrease the confidence level (ex: 95% to 90%)", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_34e84eb", 
+    option = "decrease the sample size", value = "decrease the sample size", 
+    label = structure("decrease the sample size", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
+"character")), try_again = structure("submitted", html = TRUE, class = c("html", 
+"character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = NULL), ids = list(
+    answer = "Q-9-answer", question = "Q-9"), loading = structure("<strong>Loading:<\u002fstrong>\nWhen working with the sampling distribution of a sample statistic, which of the choices would <em>decrease<\u002fem> the margin of error?\n<br/><br/><br/>", html = TRUE, class = c("html", 
+"character")), random_answer_order = TRUE, allow_retry = TRUE, 
+    seed = 165185609.923079, options = structure(list(), class = "sortable_options")), class = c("dropdown", 
+"tutorial_question")), session = session)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-10", question = structure("A random sample of college students were asked approximately how many times they check their phone per day. The 90% confidence interval was found to be (85, 135). <br><br>Which of the following is the correct interpretation of this confidence interval? <br><br>\n<strong>We are 90% confident that…<\u002fstrong>", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_a7e916", 
+    option = "90% of college students check their phone between 85 and 135 times per day.", 
+    value = "90% of college students check their phone between 85 and 135 times per day.", 
+    label = structure("90% of college students check their phone between 85 and 135 times per day.", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7c9bf96", 
+    option = "for students in our sample the average number of times they have checked their phone is between 85 and 135.", 
+    value = "for students in our sample the average number of times they have checked their phone is between 85 and 135.", 
+    label = structure("for students in our sample the average number of times they have checked their phone is between 85 and 135.", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ba4c07e", 
+    option = "a randomly chosen college student checks their phone between 85 and 135 times per day.", 
+    value = "a randomly chosen college student checks their phone between 85 and 135 times per day.", 
+    label = structure("a randomly chosen college student checks their phone between 85 and 135 times per day.", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_999b20d", 
+    option = "the average number of times that a college student checks their phone is between 85 and 135 times per day.", 
+    value = "the average number of times that a college student checks their phone is between 85 and 135 times per day.", 
+    label = structure("the average number of times that a college student checks their phone is between 85 and 135 times per day.", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9bd05f9", 
+    option = "none of the choices are correct.", value = "none of the choices are correct.", 
+    label = structure("none of the choices are correct.", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
+"character")), try_again = structure("submitted", html = TRUE, class = c("html", 
+"character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = NULL), ids = list(
+    answer = "Q-10-answer", question = "Q-10"), loading = structure("<strong>Loading:<\u002fstrong>\nA random sample of college students were asked approximately how many times they check their phone per day. The 90% confidence interval was found to be (85, 135). <br><br>Which of the following is the correct interpretation of this confidence interval? <br><br>\n<strong>We are 90% confident that…<\u002fstrong>\n<br/><br/><br/>", html = TRUE, class = c("html", 
+"character")), random_answer_order = TRUE, allow_retry = TRUE, 
+    seed = 1897610743.11636, options = structure(list(), class = "sortable_options")), class = c("dropdown", 
+"tutorial_question")), session = session)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-11", question = structure("Suppose we want to perform a hypothesis test for diabetes. What is the person told and what is the truth for a Type II error?", html = TRUE, class = c("html", 
 "character")), answers = list(structure(list(id = "lnr_ans_1aa4bd8", 
     option = "the person is told they do not have diabetes and the truth is they do not have diabetes", 
     value = "the person is told they do not have diabetes and the truth is they do not have diabetes", 
@@ -1020,69 +1080,9 @@ tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", la
 "character")), try_again = structure("submitted", html = TRUE, class = c("html", 
 "character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
-    answer = "Q-9-answer", question = "Q-9"), loading = structure("<strong>Loading:<\u002fstrong>\nSuppose we want to perform a hypothesis test for diabetes. What is the person told and what is the truth for a Type II error?\n<br/><br/><br/>", html = TRUE, class = c("html", 
+    answer = "Q-11-answer", question = "Q-11"), loading = structure("<strong>Loading:<\u002fstrong>\nSuppose we want to perform a hypothesis test for diabetes. What is the person told and what is the truth for a Type II error?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = TRUE, 
     seed = 276775162.871117, options = structure(list(), class = "sortable_options")), class = c("dropdown", 
-"tutorial_question")), session = session)
-</script>
-
-
-<script type="application/shiny-prerendered" data-context="server">
-tutorialExtras:::question_prerendered_chunk(structure(list(type = "dropdown", label = "Q-10", question = structure("A consultant conducts an experiment on the effect of webpage layout on sales for an internet company by randomizing individuals to either a new webpage (treatment) or to the old webpage (control). After the intervention the consultant performs a two-sample t-test on the sales from each group and obtains a p-value of 0.047. <br> <br> Which one of the following is a reasonable interpretation of their results?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_687d35c", 
-    option = "the decision depends on the significance level they set before conducting the experiment", 
-    value = "the decision depends on the significance level they set before conducting the experiment", 
-    label = structure("the decision depends on the significance level they set before conducting the experiment", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c58cbbf", 
-    option = "the p-value rounds to 0.05, so no decision can be made", 
-    value = "the p-value rounds to 0.05, so no decision can be made", 
-    label = structure("the p-value rounds to 0.05, so no decision can be made", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_38258c8", 
-    option = "since the p-value is less than 0.05 the consultant can reject the null hypothesis.", 
-    value = "since the p-value is less than 0.05 the consultant can reject the null hypothesis.", 
-    label = structure("since the p-value is less than 0.05 the consultant can reject the null hypothesis.", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_128a3eb", 
-    option = "since the p-value is greater than 0.01 the consultant can accept the null hypothesis", 
-    value = "since the p-value is greater than 0.01 the consultant can accept the null hypothesis", 
-    label = structure("since the p-value is greater than 0.01 the consultant can accept the null hypothesis", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
-"character")), try_again = structure("submitted", html = TRUE, class = c("html", 
-"character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "Q-10-answer", question = "Q-10"), loading = structure("<strong>Loading:<\u002fstrong>\nA consultant conducts an experiment on the effect of webpage layout on sales for an internet company by randomizing individuals to either a new webpage (treatment) or to the old webpage (control). After the intervention the consultant performs a two-sample t-test on the sales from each group and obtains a p-value of 0.047. <br> <br> Which one of the following is a reasonable interpretation of their results?\n<br/><br/><br/>", html = TRUE, class = c("html", 
-"character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 500211166.767071, options = structure(list(), class = "sortable_options")), class = c("dropdown", 
-"tutorial_question")), session = session)
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-tutorialExtras:::question_prerendered_chunk(structure(list(type = "wordbank", label = "Q-11", question = structure("True or False?", html = TRUE, class = c("html", 
-"character")), choices = c("In hypothesis testing, a Type I error is more commonly known as a false positive.", 
-"Controlling for a Type I error is always more important than controlling for a Type II error.", 
-"If you decrease alpha, (significance level), by 3%, your Type II error rate will increase by exactly 3%.", 
-"In repeated sampling, the sampling distribution of a sample proportion will center around the true population proportion.", 
-"a p-value is the probability that the null hypothesis is true", 
-"A claim states `Extroverts have more friends than Introverts`, so we can only conduct a one-sided test."
-), wordbank = c("TRUE", "FALSE"), box = 9, arrange = "random", 
-    answers = list(structure(list(id = "lnr_ans_79cbe08", option = c("TRUE", 
-    "FALSE", "FALSE", "TRUE", "FALSE", "FALSE"), value = c("TRUE", 
-    "FALSE", "FALSE", "TRUE", "FALSE", "FALSE"), label = structure("TRUE\nFALSE\nFALSE\nTRUE\nFALSE\nFALSE", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
-    "character")), try_again = structure("Try Again", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("submitted", html = TRUE, class = c("html", 
-    "character")), try_again = structure("submitted", html = TRUE, class = c("html", 
-    "character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
-    "character")), message = NULL, post_message = NULL), ids = list(
-        answer = "Q-11-answer", question = "Q-11"), loading = structure("<strong>Loading:<\u002fstrong>\nTrue or False?\n<br/><br/><br/>", html = TRUE, class = c("html", 
-    "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 431532995.799052, options = structure(list(), class = "sortable_options")), class = c("wordbank", 
 "tutorial_question")), session = session)
 </script>
 
@@ -1360,7 +1360,7 @@ learnr:::store_exercise_cache(structure(list(label = "App2", global_setup = stru
 
 <script type="application/shiny-prerendered" data-context="server">
 tutorialExtras:::question_prerendered_chunk(structure(list(type = "learnr_text", label = "App2-desc", question = structure("", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_db9ab40", 
+"character")), answers = list(structure(list(id = "lnr_ans_442f1ef", 
     option = "ManuallyGradedEverythingWrong", value = "ManuallyGradedEverythingWrong", 
     label = structure("ManuallyGradedEverythingWrong", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1371,7 +1371,7 @@ tutorialExtras:::question_prerendered_chunk(structure(list(type = "learnr_text",
 "character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "App2-desc-answer", question = "App2-desc"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 1811359943.15652, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 453861497.288654, 
     options = list(placeholder = "Enter answer here...", trim = TRUE, 
         rows = 5)), class = c("learnr_text", "tutorial_question"
 )), session = session)
@@ -1446,7 +1446,7 @@ learnr:::store_exercise_cache(structure(list(label = "App3", global_setup = stru
  
 <script type="application/shiny-prerendered" data-context="server">
 tutorialExtras:::question_prerendered_chunk(structure(list(type = "learnr_text", label = "App3-desc", question = structure("", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_c5b0f5e", 
+"character")), answers = list(structure(list(id = "lnr_ans_4e79a2", 
     option = "ManuallyGradedEverythingWrong", value = "ManuallyGradedEverythingWrong", 
     label = structure("ManuallyGradedEverythingWrong", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1457,7 +1457,7 @@ tutorialExtras:::question_prerendered_chunk(structure(list(type = "learnr_text",
 "character")), incorrect = structure("submitted", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "App3-desc-answer", question = "App3-desc"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 2041464197.04937, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 1509959545.79687, 
     options = list(placeholder = "Enter answer here...", trim = TRUE, 
         rows = 10)), class = c("learnr_text", "tutorial_question"
 )), session = session)
