@@ -66,6 +66,9 @@ survey <- read_rds("data/survey.rds")
 
 ```{r, context = "server"}
 lock_server("lock", 
+            show_correct = TRUE,
+            graded = c("Code"),
+            graded_pts = c(0),
             ex = c("App1", "App2", "App3", "App4"), 
             ex_pts = c(1, 5, 6, 6),
             manual = c("App2-desc", "App4-desc"), 
@@ -89,6 +92,15 @@ question_text("Name:",
 
 
 ## Instructions
+
+```{r Code}
+question_text("Enter the exam code provided to verify you are in class.",
+              answer("data24", correct = TRUE),
+              answer("anu24", correct = TRUE),
+              correct = "submitted",
+              incorrect = "submitted",
+              allow_retry = FALSE )
+```
 
 You have 50 minutes to complete this exam. The exam covers the material learned from Preface - Chapter 4. You are allowed one page of notes front and back.
 
@@ -406,15 +418,20 @@ skim(survey)
 
 Once you are finished:
 
--   Click "Check submissions" to make sure all questions and exercises are submitted -- **Un-submitted questions will receive a 0.**
+-   Click "Check submissions" to make sure all questions and exercises are submitted -- **Un-submitted questions/applications will receive a 0.**
+
+
+```{r}
+lock_check_ui(id = "lock")
+```
+
+<br>
+
 -   Once all questions/exercises are submitted click the **Lock Exam** button. Once you click this you will not be able to make any changes to your exam!
 -   Once the lock is pressed a **Download Exam** option will become available,
 -   Download and **Check your HTML!**
 -   Upload the html to Canvas.
 
-```{r}
-lock_check_ui(id = "lock")
-```
 <br>
 ```{r}
 lock_button_ui(id = "lock")
