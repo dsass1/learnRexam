@@ -73,6 +73,9 @@ survey_sample <- read_rds("data/survey_sample.rds")
 
 ```{r, context = "server"}
 lock_server("lock", 
+            show_correct = TRUE,
+            # graded = c("Code"),
+            # graded_pts = c(0),
             graded = c("sample"),
             graded_pts = c(2),
             ex = c("App1a", "App1b", 
@@ -102,7 +105,7 @@ question_text("Name:",
 ```{r Code}
 question_text("Enter the exam code provided to verify you are in class. This must be submitted at the beginning of your exam. Failure to do so will result in an exam grade of 0.",
               answer_fn(function(value){
-                              if(str_remove_all(str_to_lower(value), " ") %in% c("20reg","stat20") ) {
+                              if(str_remove_all(str_to_lower(value), " ") %in% c("break24","24done") ) {
                                 return(mark_as(TRUE))
                                 }
                               return(mark_as(FALSE) )
@@ -263,15 +266,16 @@ exam(
   # Q11
   question_wordbank(
   "True or False?",
-    choices = c("In hypothesis testing, a Type II error is more commonly known as a false negative.",
-                "Controlling for a Type I error is always of equal importance as controlling for a Type II error.",
-                
-                "In repeated sampling, the sampling distribution of a sample mean is the chi-square distribution.",
-                "In a randomized experiment a consultant performs a two-sample t-test and obtains a p-value of 0.047. Since the p-value is less than 0.05 the consultant can reject the null hypothesis.",
-                 "You can always perform a two-sided test even if the claim is stated as a one-sided test to avoid missing an effect in the opposite dirction of the claim.",
-                "If you increase alpha, (significance level), by 5%, your Type II error rate will also increase by some quantity (but not necessarily 5%)."),
+    choices = c(
+      "In hypothesis testing, a Type II error is more commonly known as a false negative.",
+      # "Controlling for a Type I error is always of equal importance as controlling for a Type II error." FALSE,
+      "In repeated sampling, the sampling distribution of a sample mean is the chi-square distribution.",
+      "In a randomized experiment a consultant performs a two-sample t-test and obtains a p-value of 0.047. Since the p-value is less than 0.05 the consultant can reject the null hypothesis.",
+      "You can always perform a two-sided test even if the claim is stated as a one-sided test to avoid missing an effect in the opposite dirction of the claim.",
+      "If you increase alpha, (significance level), by 5%, your Type II error rate will also increase by some quantity (but not necessarily 5%)."
+      ),
     wordbank = c("TRUE", "FALSE"),
-    answer(c("TRUE", "FALSE", "FALSE", "FALSE", "TRUE", "FALSE"), correct = TRUE),
+    answer(c("TRUE", "FALSE", "FALSE", "TRUE", "FALSE"), correct = TRUE),
     allow_retry = TRUE,
     box = 9,
     correct = "submitted",
