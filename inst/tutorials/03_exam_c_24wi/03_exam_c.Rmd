@@ -1,0 +1,500 @@
+---
+title: "Exam 3"
+tutorial:
+  id: "isds_exam3c"
+  version: 0.1
+  
+output:
+  learnr::tutorial:
+    progressive: false
+    allow_skip: true
+    css: ["css/nu-theme.css"]
+runtime: shiny_prerendered
+description: >
+  This proficiency exam covers Chapter 9 - Chapter 12.
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(tidyverse)
+library(tutorialExtras)
+library(gradethis)
+library(skimr)
+
+gradethis_setup(pass = "submitted",
+                fail = "submitted",
+                error_checker.message = "submitted",
+                fail.hint = FALSE
+                )
+
+tutorialExtras_setup(is_exam = TRUE)
+
+knitr::opts_chunk$set(echo = FALSE)
+
+survey_sample <- read_rds("data/survey_sample.rds")
+ 
+# survey <- exam_data |>
+#   mutate(
+#     followers_insta = ifelse(followers_insta == 0, NA,
+#                            ifelse(followers_insta > 4000, NA,
+#                                   followers_insta)),
+#     followers_tiktok = ifelse(followers_tiktok == 0, NA,
+#                            ifelse(followers_tiktok > 4000, NA,
+#                                   followers_tiktok)),
+#     height_inches = ifelse(height_inches < 42, NA,
+#                            ifelse(height_inches > 84, NA,
+#                                   height_inches)),
+#     mother_height = ifelse(mother_height < 42, NA,
+#                            ifelse(mother_height > 84, NA,
+#                                   mother_height)),
+#     father_height = ifelse(father_height < 42, NA,
+#                            ifelse(father_height > 84, NA,
+#                                   father_height)),
+#     salary = ifelse(salary < 500000, salary, NA),
+#     gpa_nu = ifelse(gpa_nu > 4, NA, gpa_nu),
+#     gpa_hs = ifelse(gpa_hs > 5, NA, gpa_hs),
+#     num_party = ifelse(num_party > 25, NA,
+#                        ifelse(num_party < 0, NA, num_party)),
+#     exercise = ifelse(exercise > 2500, NA, exercise),
+#     marry = ifelse(marry >60, NA, marry),
+#     party_bin = ifelse(party_bin == "0", 0,
+#                        ifelse(party_bin == "1-2", "1-4",
+#                               ifelse(party_bin == "3-4", "1-4", "5+")))
+#     ) %>%
+#   filter(campus_housing != "Neither") |>
+#   select(quarter, gender_ident, school_year, party_bin,  personality,
+#           campus_housing, brain_type, marry, love_first_sight, gpa_nu)
+# 
+# survey_sample <- sample_n(survey, size = 100)
+# 
+# write_rds(survey_sample, "survey_sample.rds")
+```
+
+
+```{r, context = "server"}
+lock_server("lock", 
+            graded = c("sample"),
+            graded_pts = c(2),
+            ex = c("App1a", "App1b", 
+                   "App2", "App3"), 
+            ex_pts = c(2, 1, 4, 4),
+            manual = c("App2-desc", "App3-desc"), 
+            manual_pts = c(2, 2),
+            exclude = "Name")
+```
+
+```{r Name}
+# student name
+question_text("Name:",
+              answer_fn(function(value){
+                              if(length(value) >= 1 ) {
+                                return(mark_as(TRUE))
+                                }
+                              return(mark_as(FALSE) )
+                              }),
+              correct = "submitted",
+              incorrect = "submitted",
+              allow_retry = FALSE )
+```
+
+## Instructions
+
+```{r Code}
+question_text("Enter the exam code provided to verify you are in class. This must be submitted at the beginning of your exam. Failure to do so will result in an exam grade of 0.",
+              answer_fn(function(value){
+                              if(str_remove_all(str_to_lower(value), " ") %in% c("20reg","stat20") ) {
+                                return(mark_as(TRUE))
+                                }
+                              return(mark_as(FALSE) )
+                              }),
+              correct = "submitted",
+              incorrect = "submitted",
+              allow_retry = FALSE )
+```
+
+You have 50 minutes to complete this exam. The exam covers the material learned from Chapter 9 - Chapter 12. You are allowed one page of notes front and back.
+
+Once you are finished:
+
+-   **Check Submissions** to make sure every question/exercise has been submitted.
+-   Click the **Lock Exam** button. You will not be able to make any changes once this is clicked. 
+-   Once the exam is locked you will be able to click on the **Download Exam** button.
+
+
+## Concept (20 points)
+
+
+```{r Q}
+exam(
+  shuffle = TRUE,
+  caption = NULL,
+  #Q1
+  question_blank(
+  "The amount of money an individual spends on lunch each day in the U.S. follows a normal distribution with mean $12 and standard deviation of $2. Based on the empirical rule, 95% of individuals in the U.S. spend between ___ and ___ on lunch each day." ,
+    answer("8", correct = TRUE),
+    answer("16", correct = TRUE),
+    allow_retry = TRUE,
+    correct = "submitted",
+    incorrect = "submitted"
+  ),
+  question_dropdown(
+  "You are constructing a 95% confidence interval for a proportion. Which of the following would give you one of the critical values?",
+    answer("qnorm(p = 0.95)"),
+    answer("qnorm(p = 0.975)", correct = TRUE),
+    answer("qnorm(p = 0.05)"),
+    answer("qt(p = 0.025, df = 100)"),
+    answer("1-qnorm(p = 0.025)"),
+    allow_retry = TRUE,
+    random_answer_order = TRUE,
+    correct = "submitted",
+    incorrect = "submitted"
+  ),
+  # Q3
+  question_wordbank(
+  paste0("(2 pts) Consider sampling from a left skewed population, match each of the following statements to either plot A, B, C or D pictured below.<br>", 
+         htmltools::img(src="images/sampling_dist_C.png", height = 350, width = 500)),
+  choices = c("Statement 1: a single random sample of n = 100 observations from this *population*", 
+              "Statement 2: a sampling distribution of 100 sample means from random samples with sample size n = 40.",
+              "Statement 3: a sampling distribution of 100 sample means from random samples with sample size n = 5",
+              "Statement 4: the plot does not match any of the above scenarios"),
+  wordbank = c("Plot a", "Plot b", "Plot c", "Plot d"),
+  answer(c("Plot c","Plot d", "Plot b", "Plot a"), 
+         correct = TRUE),
+  allow_retry = TRUE,
+  arrange = "ordered",
+  correct = "submitted",
+  incorrect = "submitted",
+  options= list(label = "sample")),
+  # Q4
+  question_dropdown(
+  "A random sample of college students were asked how many minutes they exercise per week. The 99% confidence interval was found to be (100, 350).<br><br> Which of the following is the correct interpretation of this confidence interval? <br><br>
+  **We are 99% confident that...**",
+    answer("a randomly chosen college student exercises between 100 to 350 minutes per week."),
+    answer("99% of college students exercise between 100 to 350 minutes per week."),
+    answer("the average number of minutes that college students exercise per week is between 100 and 350.", correct = TRUE),
+    answer("for students in our sample the average number of minutes they exercise per week is between 100 and 350."),
+    allow_retry = TRUE,
+    random_answer_order = TRUE,
+    correct = "submitted",
+    incorrect = "submitted"
+  ),
+  # Q5
+  question_dropdown(
+  "Suppose we want to estimate $\\pi$, the proportion of students at Northwestern who are right handed, so we collect a random sample of 100 students and find that 89 of them say they are right handed. We use this data to compute the following 90% confidence interval for $\\pi$: [0.871, 0.909]. <br> <br>  Which one of the following statements is true?",
+    answer("Exactly 89% of Northwestern students are right handed."),
+    answer("There is a 90% chance that the population parameter is between 0.871 and 0.909."),
+    answer("There is a 10% chance our interval does not contain the population parameter.", correct = TRUE),
+    answer("The margin of error of our interval is 10%."),
+    allow_retry = TRUE,
+    random_answer_order = TRUE,
+    correct = "submitted",
+    incorrect = "submitted"
+  ),
+  # Q6
+  question_dropdown(
+  "When working with the sampling distribution of a sample statistic, which of the choices would *increase* the margin of error?",
+    answer("there is no way to change the margin of error"),
+    answer("decrease the standard error"),
+    answer("increase the confidence level (ex: 90% to 95%)", correct = TRUE),
+    answer("increase the sample size"),
+    allow_retry = TRUE,
+    random_answer_order = TRUE,
+    correct = "submitted",
+    incorrect = "submitted"
+  ),
+  # Q7
+  question_dropdown(
+  "Assume a two-tailed hypothesis test for the mean and no other alterations.  <br> <br> Which one of the statements below is TRUE when we increase the sample size from 100 to 800?",
+    answer("corresponding test statistic becomes larger (more extreme/further from 0)", correct = TRUE),
+    answer("standard error becomes larger"),
+    answer("p-value for a hypothesis test becomes larger"),
+    answer("95% confidence interval becomes wider"),
+    allow_retry = TRUE,
+    random_answer_order = TRUE,
+    correct = "submitted",
+    incorrect = "submitted"
+  ),
+  # Q8
+  question_dropdown(
+  "We are trying to determine if the mean starting salary for STEM majors and the mean starting salary for NON-STEM majors is the same. We construct the following hypothesis test at the 0.10 significance level:
+  <br> 
+  $$H_0: \\mu_{stem} - \\mu_{non-stem} = 0$$
+  $$H_A: \\mu_{stem} - \\mu_{non-stem} \\ne 0$$ 
+  <br>
+  As a class we perform repeated sampling where each of the 150 students in our class takes one random sample of 60 STEM majors and 40 NON-STEM majors to test the hypothesis. <br> <br>
+  The census bureau tells us the true difference in means is 0. <br> <br>
+  Which of the following is a reasonable expectation?" ,
+    answer("We expect 60 students to decide that there is no difference"),
+    answer("We expect 15 students to decide that there is a non-zero difference", correct = TRUE),
+    answer("We expect 10 students to decide that there is a non-zero difference"),
+    answer("We expect 100 students to decide that there is no difference"),
+    answer("We cannot have any valid conclusions because the sample sizes of stem and non-stem majors was unequal."),
+    allow_retry = TRUE,
+    random_answer_order = TRUE,
+    correct = "submitted",
+    incorrect = "submitted"
+  ),
+  # Q9
+  question_dropdown(
+  "Suppose we want to perform a hypothesis test for cancer. What is the person told and what is the truth for a Type II error?" ,
+    answer("the person is told they do not have cancer and the truth is they do not have cancer"),
+    answer("the person is told they have cancer and the truth is they do not have cancer"),
+    answer("the person is told they do not have cancer and the truth is they have cancer", correct = TRUE),
+    answer("the person is told they have cancer and the truth is they have cancer"),
+    answer("not enough information provided"),
+    allow_retry = TRUE,
+    random_answer_order = TRUE,
+    correct = "submitted",
+    incorrect = "submitted"
+  ),
+  # Q10
+  question_dropdown(
+  "Which of the following is true?" ,
+    answer("a p-value is the probability that the null hypothesis is true"),
+    answer("a large p-value indicates you observed a large effect"),
+    answer("a p-value is the probability that the observed statistic was produced by chance alone"),
+    answer("a p-value is the probability that the alternative hypothesis is true"),
+    answer("a p-value is the probability of observing an estimate as extreme as our sample estimate if the null hypothesis is true", correct = TRUE),
+    allow_retry = TRUE,
+    random_answer_order = TRUE,
+    correct = "submitted",
+    incorrect = "submitted"
+  ),
+  # Q11
+  question_wordbank(
+  "True or False?",
+    choices = c("In hypothesis testing, a Type II error is more commonly known as a false negative.",
+                "Controlling for a Type I error is always of equal importance as controlling for a Type II error.",
+                
+                "In repeated sampling, the sampling distribution of a sample mean is the chi-square distribution.",
+                "In a randomized experiment a consultant performs a two-sample t-test and obtains a p-value of 0.047. Since the p-value is less than 0.05 the consultant can reject the null hypothesis.",
+                 "You can always perform a two-sided test even if the claim is stated as a one-sided test to avoid missing an effect in the opposite dirction of the claim.",
+                "If you increase alpha, (significance level), by 5%, your Type II error rate will also increase by some quantity (but not necessarily 5%)."),
+    wordbank = c("TRUE", "FALSE"),
+    answer(c("TRUE", "FALSE", "FALSE", "FALSE", "TRUE", "FALSE"), correct = TRUE),
+    allow_retry = TRUE,
+    box = 9,
+    correct = "submitted",
+    incorrect = "submitted"
+  ),
+  # Q12
+  question_radio(
+  "Suppose you are a Lord of the Rings fan and believe it is better than Star Wars. You want to test if the IMDB rating for the first Lord of the Rings movie is better than the IMDB rating for the first Star Wars movie. <br> You use a hypothesis test at the $\\alpha = 0.01$ significance level to test this claim. <br>  <br>  What is an appropriate null hypothesis?",
+    answer("$\\mu_{lord-rings} > \\mu_{star-wars}$"),
+    answer("$\\mu_{lord-rings} - \\mu_{star-wars} = 0$"),
+    answer("$\\pi_{lord-rings} - \\pi_{star-wars} = 0$", correct = TRUE),
+    answer("$\\mu_{lord-rings} - \\mu_{star-wars} \\ge 0$"),
+    answer("$\\bar{x}_{lord-rings} - \\bar{x}_{star-wars} \\le 0$"),
+    allow_retry = TRUE,
+    correct = "submitted",
+    incorrect = "submitted",
+    options= list(multi_part = "htest")
+  ),
+  question_dropdown(
+  paste0("In the previous question, the hypothesis test results are as follows.<br> <br>" ,   htmltools::img(src="images/htest_3.png", height = 200, width = 500)," <br> <br> What is the decision at the $\\alpha = 0.02$ significance level?"),
+      answer("Reject the null, there is statistically significant evidence that star wars is better than lord of the rings."),
+    answer("Reject the null, there is statistically significant evidence that lord of the rings is better than star wars."),
+    answer("Reject the null, there is a difference but we cannot determine which movie is better because we performed a two-tail test."),
+    answer("Fail to reject the null, their is no statistically significant difference in the rating between lord of the rings and star wars.", correct = TRUE),
+  answer("Fail to reject the null, there is statistically significant evidence that star wars is better than lord of the rings."),
+    allow_retry = TRUE,
+    random_answer_order = TRUE,
+    correct = "submitted",
+    incorrect = "submitted",
+    options= list(multi_part = "htest")
+  )
+  
+)
+
+```
+
+
+## Application (15 points)
+
+The following applications use the `survey_sample` dataset which has been preloaded for you.
+
+This is a **random sample** taken from our population: **Northwestern Students who take STAT 202**.
+
+<br>
+
+**NA values should NOT be included in the total count (`n`) of a proportion because we do not know what category they would fall in and it would skew our proportion.**
+
+<br>
+
+If for some reason you are not able to complete the code to obtain the results it would be wise to still interpret your problem with 'placeholder' values for partial credit.
+
+<br>
+
+### Application 1 (3 points)
+
+*You do not need the dataset for this application.*
+
+Suppose the number of hours that a student spends on STAT 202 work each week follows a normal distribution with mean 6 hours and sd 1.5. 
+
+What proportion of students spend **between** 5.5 hours and 7 hours a week on STAT 202 work?
+
+```{r App1a, exercise = TRUE}
+
+```
+
+
+
+```{r App1a-solution, exercise.reveal_solution = FALSE}
+pnorm(650, mean = 500, sd = 100) - pnorm(350, mean = 500, sd = 100)
+```
+
+```{r App1a-check}
+grade_this_code(
+  correct = "submitted",
+  incorrect = "submitted"
+)
+```
+
+
+The highest 10% of students spend more than how many hours on STAT 202 work each week?
+
+```{r App1b, exercise = TRUE}
+
+```
+
+
+```{r App1b-solution, exercise.reveal_solution = FALSE}
+qnorm(p = 0.1, mean = 6, sd = 1.5, lower.tail = FALSE)
+```
+
+```{r App1b-check}
+grade_this_code(
+  correct = "submitted",
+  incorrect = "submitted"
+)
+```
+
+### Application 2 (6 points)
+
+Suppose we are interested in examining the difference in proportion of students who take STAT 202 at NU that are `left-brain` who believe in love at first sight and `right-brain` who believe in love at first sight.
+
+In other words, use the `brain_type` and `love_first_sight` variables in the `survey_sample` data to **construct a 99% confidence interval** for the difference in proportion. 
+
+```{r App2, exercise=TRUE}
+
+```
+
+
+```{r App2-solution, exercise.reveal_solution = FALSE}
+survey_sample %>% 
+  count(brain_type, love_first_sight)
+
+prop.test(x = c(10, 11), n = c(49, 39), conf.level = 0.99, 
+          correct = FALSE)
+```
+
+```{r App2-check}
+grade_this_code(
+  correct = "submitted",
+  incorrect = "submitted"
+)
+```
+<br>
+
+Interpret the **confidence interval** in the context of the problem. Then use the confidence interval to answer: is there a difference in proportions, if so, which brain type tends to believe in love at first sight more?
+
+```{r App2-desc}
+question_text("", incorrect = "submitted",
+              answer("ManuallyGradedEverythingWrong", 
+                     correct = TRUE),
+              allow_retry = TRUE,
+              rows = 5)
+```
+
+
+### Application 3 (6 points)
+
+Is there significant evidence that students who take STAT 202 at NU on average plan to `marry` before they turn 30?
+
+Use the `survey_sample` data to conduct a hypothesis test for the **average** age a student expects to marry at the $\alpha$ = 0.02 significance level.
+
+$$H_0: \mu_{marry} = 30$$
+$$H_A: \mu_{marry} \ne 30$$
+
+```{r App3, exercise = TRUE}
+
+```
+
+
+```{r App3-solution, exercise.reveal_solution = FALSE}
+t.test(x = survey_sample$marry, mu = 30, conf.level = 0.98)
+```
+
+```{r App3-check}
+grade_this_code(
+  correct = "submitted",
+  incorrect = "submitted"
+)
+```
+
+<br>
+
+State your p-value and interpret your decision in the context of the problem.
+
+```{r App3-desc}
+question_text("", incorrect = "submitted",
+              answer("ManuallyGradedEverythingWrong", 
+                     correct = TRUE),
+              allow_retry = TRUE,
+              rows = 10)
+```
+
+
+## survey_sample Data
+
+This is a **random sample** taken from our population: **Northwestern Students who take STAT 202**.
+
+You are welcome to open the dataset in Posit Cloud as well if the information provided below is not sufficient for you.
+
+Variables:
+
+
+- `quarter` -- Identifies in which quarter the student took stat 202  (fall 2021 through fall 2023)
+- `gender_ident` -- "Which gender do you identify as (Male, Female). "Other" was removed to protect against the possibility of having their responses identified by other students.""
+- `school_year` -- "What year are you in school? (First year, Sophomore, Junior, Senior, Other)"
+- `party_bin` -- "On average (approx.) how many parties a month do you attend? (0, 1-4, 5+)"
+- `personality` -- "Are you more of an introvert or extrovert? (Introvert, Extrovert)"
+- `campus_housing` -- "Where do you live on campus? (North campus, South campus)"
+- `brain_type` -- "Do you consider yourself more "left" or "right" -brained (left-brain, right-brain)?"
+- `marry` -- "What age do you expect to get married?"
+- `love_first_sight` -- "Do you believe in love at first sight (Yes, No)?"
+- `gpa_nu` -- "What is your current GPA at NU? If unknown type NA."
+
+```{r}
+glimpse(survey_sample)
+```
+
+```{r}
+skim(survey_sample)
+```
+
+## Submit
+
+Once you are finished:
+
+-   Click "Check submissions" to make sure all questions and exercises are submitted -- **Un-submitted questions will receive a 0.**
+
+```{r}
+lock_check_ui(id = "lock")
+```
+
+<br>
+<br>
+
+-   Do **NOT** lock the exam until you have verified you have submitted all problems. Consider going back and clicking Submit on each Application again to ensure you have submitted your most recent solution.
+-   Once all questions/exercises are submitted click the **Lock Exam** button. Once you click this you will not be able to make any changes to your exam! 
+
+<br>
+
+-   Once the lock is pressed a **Download Exam** option will become available,
+-   Download and **Check your HTML!**
+-   Upload the html to Canvas.
+
+```{r}
+lock_button_ui(id = "lock")
+```
