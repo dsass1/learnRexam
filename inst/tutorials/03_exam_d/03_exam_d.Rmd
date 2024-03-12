@@ -150,7 +150,7 @@ exam(
   ),
   # Q5
   question_dropdown(
-  "Suppose we want to estimate $\\pi$, the proportion of students at Northwestern who are involve in Greek life (a fraternity or sorority), so we collect a random sample of 100 students and find that 37 of them are involved in greek life. We use this data to compute the following 99% confidence interval for $\\pi$: [0.283, 0.457]. <br> <br> Which one of the following statements is true?",
+  "Suppose we want to estimate $\\pi$, the proportion of students at Northwestern who are involved in Greek life (a fraternity or sorority), so we collect a random sample of 100 students and find that 37 of them are involved in greek life. We use this data to compute the following 99% confidence interval for $\\pi$: [0.283, 0.457]. <br> <br> Which one of the following statements is true?",
     answer("There is a 1% chance our interval does not contain the population parameter", correct = TRUE),
     answer("Exactly 37% of Northwestern students are involved in Greek life."),
     answer("The margin of error of our interval is 1%."),
@@ -254,7 +254,7 @@ exam(
     answer("$\\mu_{coke} > 0.5$"),
     answer("$\\pi_{coke} = 0.5$", correct = TRUE),
     answer("$\\pi_{coke} > 0.5$"),
-    answer("$\\hat{\\pi}_{coke} - \\hat{\\pi}_{pepsi} = 0"),
+    answer("$\\hat{\\pi}_{coke} - \\hat{\\pi}_{pepsi} = 0$"),
     allow_retry = TRUE,
     random_answer_order = TRUE,
     correct = "submitted",
@@ -389,9 +389,12 @@ question_text("", incorrect = "submitted",
 
 ### Application 3 (6 points)
 
-Evaluate the claim that at least 45% of `Full Professor`s are `F`emale. 
+Evaluate the claim that at least 45% of `Full Professor`s at public Universities in Illinois are `F`emale. 
 
-Use the `salaries` data, `gender` and `title` variables to conduct a hypothesis test for the proportion of `Full Professor`s that are `F`emale at the $\alpha$ = 0.10 significance level. <br> <br> Are more than 45% of full professor's female??
+Use the `salaries` data, `gender` and `title` variables to conduct a hypothesis test for the proportion of `Full Professor`s at public Universities in Illinois that are `F`emale at the $\alpha$ = 0.10 significance level. <br> <br> Are more than 45% of full professor's female??
+
+<br>
+ie: we surveyed only `Full Professor`s and asked if they were `F`emale
 
 
 $$H_0: \pi_{female} = 0.45$$
