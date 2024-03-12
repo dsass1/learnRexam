@@ -33,20 +33,7 @@ tutorialExtras_setup(is_exam = TRUE)
 
 knitr::opts_chunk$set(echo = FALSE)
 
-sales_sample <- read_rds("data/sales_sample.rds")
-
-# set.seed(459)
-# sales_sample <- sales_data |>
-#   sample_n(500) |>
-#   select(-unit_price) |>
-#   mutate(payment = ifelse(payment == "Ewallet", "Credit card", payment),
-#          gender = factor(gender),
-#          store = factor(store),
-#          customer_type = factor(customer_type),
-#          product_line = factor(product_line),
-#          payment = factor(payment))
- 
-#write_rds(sales_sample, file = "sales_sample.rds")
+salaries <- read_rds("data/salaries.rds")
 
 ```
 
@@ -54,7 +41,7 @@ sales_sample <- read_rds("data/sales_sample.rds")
 
 ```{r, context = "server"}
 lock_server("lock", 
-            show_correct = TRUE,
+            #show_correct = TRUE,
             graded = c("sample"),
             graded_pts = c(2),
             ex = c("App1a", "App1b", 

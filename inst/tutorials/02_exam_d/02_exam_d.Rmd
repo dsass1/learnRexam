@@ -41,7 +41,7 @@ salaries <- read_rds("data/salaries.rds")
 
 ```{r, context = "server"}
 lock_server("lock", 
-            show_correct = TRUE,
+            #show_correct = TRUE,
             ex = c("App1", "App2a", "App2b", "App2c", "App2e", "App3a", "App3b"), 
             ex_pts = c(1, 2, 2, 2, 2, 2, 2),
             manual = c("App2-desc", "App4-desc"), 

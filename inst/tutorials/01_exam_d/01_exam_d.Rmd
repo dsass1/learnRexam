@@ -27,18 +27,20 @@ gradethis_setup(pass = "submitted",
                 fail.hint = FALSE
                 )
 
+tutorial_options(exercise.completion = FALSE)
+
 tutorialExtras_setup(is_exam = TRUE)
 
 knitr::opts_chunk$set(echo = FALSE)
 
-survey <- read_rds("data/survey.rds")
+salaries <- read_rds("data/salaries.rds")
   
 ```
 
 
 ```{r, context = "server"}
 lock_server("lock", 
-            show_correct = TRUE,
+            #show_correct = TRUE,
             ex = c("App1", "App2", "App3", "App4"), 
             ex_pts = c(1, 5, 6, 6),
             manual = c("App2-desc", "App4-desc"), 
