@@ -222,7 +222,7 @@ exam(
     incorrect = "submitted"
   ),
   question_dropdown(
-  paste("Consider a hypothetical dataset purple_bus. This dataset contains a days worth of traveler bus ride information. The variables include information such as, time of day (morning, afternoon, night), passenger gender (female, male, other), passenger age, duration of ride, number of stops. The first few observations are shown below: <br> <br>", htmltools::img(src="images/04_purple_bus.png", height = 200, width = 400), "<br> <br> Which of the following will remove observations not missing their age, then calculate the total number of observations in the dataset?"),
+  paste("Consider a hypothetical dataset purple_bus. This dataset contains a days worth of traveler bus ride information. The variables include information such as, time of day (morning, afternoon, night), passenger gender (female, male, other), passenger age, duration of ride, number of stops. The first few observations are shown below: <br> <br>", htmltools::img(src="images/04_purple_bus.png", height = 200, width = 400), "<br> <br> Which of the following will remove observations missing their age, then calculate the total number of observations in the dataset?"),
     answer('purple_bus %>% select(age == "NA") %>% summarize(n = n(age))'),
     answer('purple_bus %>% filter(is.na(age)) %>% summarize(n = count(age))'),
     answer('purple_bus %>% filter(!is.na(age)) %>% summarize(n = n())', correct = TRUE),
