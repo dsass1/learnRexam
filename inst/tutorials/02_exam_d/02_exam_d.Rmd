@@ -450,7 +450,7 @@ grade_this_code(
 
 **Part 2**
 
-Suppose a professor is an `Instructor` with 5 years of service (`years_service` = 5). What base salary do we predict this professor earns?
+Suppose a professor is a `Researcher` with 5 years of service (`years_service` = 5). What base salary do we predict this professor earns?
 
 Use the code chunk below as a calculator to output your prediction (the multiplication symbol is *).
 
@@ -461,7 +461,7 @@ Use the code chunk below as a calculator to output your prediction (the multipli
 
 
 ```{r App3b-solution, exercise.reveal_solution = FALSE}
-79.6222 + 6.4277*5 -9.8544 -0.3249*5*1
+69.7679 + 6.1028*5 +9.8544 +0.3249*5*1
 ```
 
 
