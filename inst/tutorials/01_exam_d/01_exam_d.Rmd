@@ -177,18 +177,6 @@ exam(
     options= list(multi_part = "skew")
   ),
   question_wordbank(
-  "Match the following statistics with whether it measures centrality, variability, both, or neither.",
-    choices = c("Median", "Maximum", "Standard Deviation"),
-    wordbank = c("Centrality", "Variabiltiy/Spread", "Both Centrality and Variability", "Neither Centrality nor Variability"),
-    answer(c("Centrality",  "Neither Centrality nor Variability", "Variabiltiy/Spread"), correct = TRUE),
-    allow_retry = TRUE,
-    box = 4,
-    arrange = "ordered",
-    random_answer_order = FALSE,
-    correct = "submitted",
-    incorrect = "submitted"
-  ),
-  question_wordbank(
   "Which function will allow you to...",
     choices = c("create a new variable", "keep only observations that meet a criteria", 
                 "select observations with only the n largest values of a variable", 
@@ -197,6 +185,18 @@ exam(
     answer(c("mutate()", "filter()", "slice_max()", "dplyr"), correct = TRUE),
     allow_retry = TRUE,
     arrange = "ordered",
+    correct = "submitted",
+    incorrect = "submitted"
+  ),
+  question_wordbank(
+  "Match the following statistics with whether it measures centrality, variability, both, or neither.",
+    choices = c("Median", "Maximum", "Standard Deviation"),
+    wordbank = c("Centrality", "Variabiltiy/Spread", "Both Centrality and Variability", "Neither Centrality nor Variability"),
+    answer(c("Centrality",  "Neither Centrality nor Variability", "Variabiltiy/Spread"), correct = TRUE),
+    allow_retry = TRUE,
+    box = 4,
+    arrange = "ordered",
+    random_answer_order = FALSE,
     correct = "submitted",
     incorrect = "submitted"
   ),

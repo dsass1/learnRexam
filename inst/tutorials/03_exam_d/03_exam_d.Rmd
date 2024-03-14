@@ -134,6 +134,19 @@ exam(
   correct = "submitted",
   incorrect = "submitted",
   options= list(label = "sample")),
+  # Q5
+  question_dropdown(
+  "Suppose we want to estimate $\\pi$, the proportion of students at Northwestern who are involved in Greek life (a fraternity or sorority), so we collect a random sample of 100 students and find that 37 of them are involved in greek life. We use this data to compute the following 99% confidence interval for $\\pi$: [0.283, 0.457]. <br> <br> Which one of the following statements is true?",
+    answer("There is a 1% chance our interval does not contain the population parameter", correct = TRUE),
+    answer("Exactly 37% of Northwestern students are involved in Greek life."),
+    answer("The margin of error of our interval is 1%."),
+    answer("There is a 99% chance that the population parameter is between 0.283 and 0.457."),
+    answer("None of the choices provided are true."),
+    allow_retry = TRUE,
+    random_answer_order = TRUE,
+    correct = "submitted",
+    incorrect = "submitted"
+  ),
   # Q4
   question_dropdown(
   "A random sample of college students were asked approximately how many hours they spend on homework a week. The 95% confidence interval was found to be (5.8, 11.3). <br><br>Which of the following is the correct interpretation of this confidence interval? <br><br>
@@ -143,19 +156,6 @@ exam(
     answer("a randomly chosen college student spends between 5.8 and 11.3 hours on homework a week."),
     answer("the average number of hours that a college student spends on homework a week is between 5.8 and 11.3 hours.", correct = TRUE),
     answer("none of the choices are correct."),
-    allow_retry = TRUE,
-    random_answer_order = TRUE,
-    correct = "submitted",
-    incorrect = "submitted"
-  ),
-  # Q5
-  question_dropdown(
-  "Suppose we want to estimate $\\pi$, the proportion of students at Northwestern who are involved in Greek life (a fraternity or sorority), so we collect a random sample of 100 students and find that 37 of them are involved in greek life. We use this data to compute the following 99% confidence interval for $\\pi$: [0.283, 0.457]. <br> <br> Which one of the following statements is true?",
-    answer("There is a 1% chance our interval does not contain the population parameter", correct = TRUE),
-    answer("Exactly 37% of Northwestern students are involved in Greek life."),
-    answer("The margin of error of our interval is 1%."),
-    answer("There is a 99% chance that the population parameter is between 0.283 and 0.457."),
-    answer("None of the choices provided are true."),
     allow_retry = TRUE,
     random_answer_order = TRUE,
     correct = "submitted",

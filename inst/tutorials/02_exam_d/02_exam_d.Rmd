@@ -169,6 +169,17 @@ exam(
     incorrect = "submitted"
   ),
   question_dropdown(
+  "You want to evaluate whether a new treatment improves outcomes in cancer patients in the U.S. You obtain a list of all U.S. cancer patients and randomly select 200 patients. Each patient choose whether they receive the new or old treatment and you compare patient outcomes between the two groups. <br><br> What conclusions can we draw from this experiment?" ,
+    answer("causal conclusions generalable to cancer patients in the U.S."),
+    answer("no causal conclusions, correlation statement generalable to cancer patients in the U.S.", correct = TRUE),
+    answer("no causal conclusions, correlation statement only applicable to our sample"),
+    answer("causal conclusions only applicable to our sample"),
+    allow_retry = TRUE,
+    random_answer_order = TRUE,
+    correct = "submitted",
+    incorrect = "submitted"
+  ),
+  question_dropdown(
   paste("You build a multiple regression model that predicts a student's final exam score (final) based on their midterm exam score (midterm). You suspect that whether or not the student studied also plays an impact on their final exam score. The variable study is an indicator variable where study = 1 (blue line) if the student studied and study = 0 (red line) if the student did not study. The regression output equation is given below <br> <br>
   $\\widehat{final} = -10 +1(midterm) +5(study)$ 
   <br> <br> Which graph best matches the model? <br> <br>
@@ -182,17 +193,6 @@ exam(
     answer("d", correct = TRUE),
     allow_retry = TRUE,
     random_answer_order = FALSE,
-    correct = "submitted",
-    incorrect = "submitted"
-  ),
-  question_dropdown(
-  "You want to evaluate whether a new treatment improves outcomes in cancer patients in the U.S. You obtain a list of all U.S. cancer patients and randomly select 200 patients. Each patient choose whether they receive the new or old treatment and you compare patient outcomes between the two groups. <br><br> What conclusions can we draw from this experiment?" ,
-    answer("causal conclusions generalable to cancer patients in the U.S."),
-    answer("no causal conclusions, correlation statement generalable to cancer patients in the U.S.", correct = TRUE),
-    answer("no causal conclusions, correlation statement only applicable to our sample"),
-    answer("causal conclusions only applicable to our sample"),
-    allow_retry = TRUE,
-    random_answer_order = TRUE,
     correct = "submitted",
     incorrect = "submitted"
   ),
