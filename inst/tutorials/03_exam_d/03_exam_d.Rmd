@@ -161,6 +161,23 @@ exam(
     correct = "submitted",
     incorrect = "submitted"
   ),
+  # Q11
+  question_wordbank(
+  "True or False?",
+    choices = c("a p-value is the probability that the null hypothesis is true",
+                "If you decrease alpha, (significance level), by 3%, your Type II error rate will increase by some quantity (but not necessarily 3%).",
+                "In hypothesis testing, a Type I error is more commonly known as a false positive.",
+                "Controlling for a Type I error is always more important than controlling for a Type II error.",
+               # "A claim states `Extroverts have more friends than Introverts`, so we can only conduct a one-sided test.",
+                "In repeated sampling (with a sufficiently large sample size), the sampling distribution of a sample proportion will center around the true population proportion."
+                ),
+    wordbank = c("TRUE", "FALSE"),
+    answer(c("FALSE", "TRUE", "TRUE", "FALSE",  "TRUE"), correct = TRUE),
+    allow_retry = TRUE,
+    box = 9,
+    correct = "submitted",
+    incorrect = "submitted"
+  ),
   # Q6
   question_dropdown(
   "When working with the sampling distribution of a sample statistic, which of the choices would *increase* the margin of error?",
@@ -227,23 +244,6 @@ exam(
     answer("since the p-value is greater than 0.01 the consultant can accept the null hypothesis"),
     allow_retry = TRUE,
     random_answer_order = TRUE,
-    correct = "submitted",
-    incorrect = "submitted"
-  ),
-  # Q11
-  question_wordbank(
-  "True or False?",
-    choices = c("a p-value is the probability that the null hypothesis is true",
-                "If you decrease alpha, (significance level), by 3%, your Type II error rate will increase by some quantity (but not necessarily 3%).",
-                "In hypothesis testing, a Type I error is more commonly known as a false positive.",
-                "Controlling for a Type I error is always more important than controlling for a Type II error.",
-               # "A claim states `Extroverts have more friends than Introverts`, so we can only conduct a one-sided test.",
-                "In repeated sampling (with a sufficiently large sample size), the sampling distribution of a sample proportion will center around the true population proportion."
-                ),
-    wordbank = c("TRUE", "FALSE"),
-    answer(c("FALSE", "TRUE", "TRUE", "FALSE",  "TRUE"), correct = TRUE),
-    allow_retry = TRUE,
-    box = 9,
     correct = "submitted",
     incorrect = "submitted"
   ),
